@@ -18,7 +18,8 @@ export const FETCH_ALL_PRODUCTS = 'FETCH_ALL_PRODUCTS';
 export const SEARCH_ALL_PRODUCTS = 'SEARCH_ALL_PRODUCTS';
 export const SEARCH_HERBALS = 'SEARCH_HERBALS';
 export const SEARCH_PHARMA = 'SEARCH_PHARMA';
-export const SEARCH_MISCELLANEOUS = 'SEARCH_MISCELLANEOUS';
+export const SEARCH_CONSUMER = 'SEARCH_CONSUMER';
+export const SEARCH_OTC = 'SEARCH_OTC';
 export const FETCH_SINGLE = 'FETCH_SINGLE';
 export const FETCH_SINGLE_SALE = 'FETCH_SINGLE_SALE';
 export const FETCH_SALES = 'FETCH_SALES';
@@ -79,7 +80,7 @@ export function createUser(props) {
 }
 
 export function resetPassword(props, token) {
-	
+
 	const jsonProps = JSON.stringify(props);
 
 	const request = axios.post(`/resetPassword/${token}`, jsonProps);
@@ -203,7 +204,7 @@ export function fetchUser() {
 
 	var config = {headers: {'authorization' : localStorage.getItem('token')}};
 
-	const request = axios.get('fetchUser', config);
+	const request = axios.get('/fetchUser', config);
 
 	return request.then((response) => {
 
@@ -372,14 +373,27 @@ export function searchPharma(queryParams) {
 
 }
 
-export function searchMiscellaneous(queryParams) {
+export function searchConsumer(queryParams) {
 
 	var config = {headers: {'authorization' : localStorage.getItem('token')}};
 
-	const request = axios.get(`/products/miscellaneous?q=${queryParams}`, config);
+	const request = axios.get(`/products/consumer?q=${queryParams}`, config);
 
 	return {
-		type: SEARCH_MISCELLANEOUS,
+		type: SEARCH_CONSUMER,
+		payload: request
+	};
+
+}
+
+export function searchOTC(queryParams) {
+
+	var config = {headers: {'authorization' : localStorage.getItem('token')}};
+
+	const request = axios.get(`/products/OTC?q=${queryParams}`, config);
+
+	return {
+		type: SEARCH_OTC,
 		payload: request
 	};
 

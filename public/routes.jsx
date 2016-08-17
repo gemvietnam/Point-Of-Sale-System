@@ -31,7 +31,7 @@ export default (
 		<Route path="inventory" component={RequireAuth(StoreFrontContainer)} />
 		<Route path="signup" component={Signup} />
 		<Route path="productProfile/:id" component={RequireAuth(ProductProfile)} />
-		<Route path="userProfile/:userId" component={RequireAuth(UserDashboardContainer)} />
+		<Route path="userProfile" component={RequireAuth(UserDashboardContainer)} />
 		<Route path="employeeProfile/:employeeId" component={RequireAuth(EmployeeProfileContainer)} />
 		<Route path="editEmployee/:employeeId" component={RequireAuth(EditEmployeeForm)} />
 		<Route path="saleDetails/:id" component={RequireAuth(SaleDetailsContainer)} />

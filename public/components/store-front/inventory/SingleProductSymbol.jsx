@@ -9,10 +9,12 @@ const SingleProductSymbol = ({ productCategory, handleAddProduct, showReceipt })
 
     return <i className="fa fa-flask fa-4x" onClick={showReceipt ? null : handleAddProduct}></i>;
 
-  } else {
+  } else if (productCategory === 'consumer') {
 
     return <i className="fa fa-tags fa-4x" onClick={showReceipt ? null : handleAddProduct}></i>;
 
+  } else {
+    return <i className="fa fa-medkit fa-4x" onClick={showReceipt ? null : handleAddProduct}></i>;
   }
 };
 

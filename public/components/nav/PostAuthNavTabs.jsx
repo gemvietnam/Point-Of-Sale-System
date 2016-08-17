@@ -13,8 +13,10 @@ const PostAuthNavTabs = ({ activeUser, activeEmployee }) => {
       </ul>
       <ul className="nav navbar-nav navbar-right">
   			<li>
-          <Link id="userTab" to={`/userProfile/${activeUser._id}`}>
+          <Link id="userTab" to={`/userProfile`}>
             <i className="fa fa-user fa-2x" aria-hidden="true"></i>
+            {/* Check to see if there is an employee currently logged in (activeEmployee)
+                If not, show the activeUser's profile */}
             {$.isEmptyObject(activeEmployee) ? activeUser.profile.name : activeEmployee.name}
           </Link>
         </li>

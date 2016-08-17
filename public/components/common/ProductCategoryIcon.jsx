@@ -6,8 +6,10 @@ const ProductCategoryIcon = ({ category }) => {
     return <i className='rowCategoryIcon fa fa-flask'></i>;
   } else if (category === "herbal") {
     return <i className='rowCategoryIcon fa fa-leaf'></i>;
-  } else {
+  } else if (category === "consumer") {
     return <i className='rowCategoryIcon fa fa-tags'></i>;
+  } else {
+    return <i className='rowCategoryIcon fa fa-medkit'></i>;
   }
 };
 

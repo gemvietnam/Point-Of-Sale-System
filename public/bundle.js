@@ -30497,11 +30497,15 @@
 					return product.category === 'herbal';
 				});
 
-				var miscellaneous = action.payload.data.filter(function (product) {
-					return product.category === 'miscellaneous';
+				var consumer = action.payload.data.filter(function (product) {
+					return product.category === 'consumer';
 				});
 
-				return _extends({}, state, { all: action.payload.data, pharma: pharma, herbals: herbals, miscellaneous: miscellaneous });
+				var OTC = action.payload.data.filter(function (product) {
+					return product.category === 'OTC';
+				});
+
+				return _extends({}, state, { all: action.payload.data, pharma: pharma, herbals: herbals, consumer: consumer, OTC: OTC });
 
 			case _index.SEARCH_ALL_PRODUCTS:
 				return _extends({}, state, { all: action.payload.data });
@@ -30512,8 +30516,11 @@
 			case _index.SEARCH_PHARMA:
 				return _extends({}, state, { pharma: action.payload.data });
 
-			case _index.SEARCH_MISCELLANEOUS:
-				return _extends({}, state, { miscellaneous: action.payload.data });
+			case _index.SEARCH_CONSUMER:
+				return _extends({}, state, { consumer: action.payload.data });
+
+			case _index.SEARCH_OTC:
+				return _extends({}, state, { OTC: action.payload.data });
 
 			case _index.FETCH_SINGLE:
 				return _extends({}, state, { singleProduct: action.payload.data });
@@ -30527,7 +30534,7 @@
 	var _index = __webpack_require__(300);
 
 	var INITIAL_STATE = { all: [], pharma: [], herbals: [],
-		miscellaneous: [], singleProduct: {} };
+		consumer: [], OTC: [], singleProduct: {} };
 
 /***/ },
 /* 300 */
@@ -30538,7 +30545,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.CHANGE_CATEGORY_FILTER = exports.SET_CART_TAX = exports.LOAD_MONTHS_TOP_ITEMS = exports.LOAD_WEEKS_TOP_ITEMS = exports.LOAD_TODAYS_TOP_ITEMS = exports.CALCULATE_EVERY_MONTHS_REVENUE = exports.CALCULATE_REVENUE_FOR_DAYS_THIS_WEEK = exports.CALCULATE_TODAYS_REVENUE = exports.DELETE_EXISTING_PRODUCT = exports.EDIT_PRODUCT = exports.CREATE_PRODUCT = exports.FETCH_USER = exports.CLEAR_PRODUCT_IN_CART = exports.DECREMENT_PRODUCT_IN_CART = exports.CLEAR_CART = exports.HIDE_RECEIPT = exports.UNDO_SALE = exports.MAKE_SALE = exports.CALCULATE_CART_TOTALS = exports.ADD_TO_CART = exports.FETCH_SALES_BY_DATE = exports.FETCH_SALES = exports.FETCH_SINGLE_SALE = exports.FETCH_SINGLE = exports.SEARCH_MISCELLANEOUS = exports.SEARCH_PHARMA = exports.SEARCH_HERBALS = exports.SEARCH_ALL_PRODUCTS = exports.FETCH_ALL_PRODUCTS = exports.AUTH_ERROR = exports.UNAUTH_USER = exports.AUTH_USER = exports.LOGIN_USER = exports.LOAD_EMPLOYEE_TODAY_REVENUE = exports.LOGOUT_ACTIVE_EMPLOYEE = exports.LOGIN_EMPLOYEE = exports.FETCH_SINGLE_EMPLOYEE = exports.FETCH_ALL_EMPLOYEES = exports.EDIT_EXISTING_EMPLOYEE = exports.ADD_NEW_EMPLOYEE = exports.RESET_PASSWORD = exports.REQUEST_RESET_TOKEN = exports.CREATE_USER = undefined;
+	exports.CHANGE_CATEGORY_FILTER = exports.SET_CART_TAX = exports.LOAD_MONTHS_TOP_ITEMS = exports.LOAD_WEEKS_TOP_ITEMS = exports.LOAD_TODAYS_TOP_ITEMS = exports.CALCULATE_EVERY_MONTHS_REVENUE = exports.CALCULATE_REVENUE_FOR_DAYS_THIS_WEEK = exports.CALCULATE_TODAYS_REVENUE = exports.DELETE_EXISTING_PRODUCT = exports.EDIT_PRODUCT = exports.CREATE_PRODUCT = exports.FETCH_USER = exports.CLEAR_PRODUCT_IN_CART = exports.DECREMENT_PRODUCT_IN_CART = exports.CLEAR_CART = exports.HIDE_RECEIPT = exports.UNDO_SALE = exports.MAKE_SALE = exports.CALCULATE_CART_TOTALS = exports.ADD_TO_CART = exports.FETCH_SALES_BY_DATE = exports.FETCH_SALES = exports.FETCH_SINGLE_SALE = exports.FETCH_SINGLE = exports.SEARCH_OTC = exports.SEARCH_CONSUMER = exports.SEARCH_PHARMA = exports.SEARCH_HERBALS = exports.SEARCH_ALL_PRODUCTS = exports.FETCH_ALL_PRODUCTS = exports.AUTH_ERROR = exports.UNAUTH_USER = exports.AUTH_USER = exports.LOGIN_USER = exports.LOAD_EMPLOYEE_TODAY_REVENUE = exports.LOGOUT_ACTIVE_EMPLOYEE = exports.LOGIN_EMPLOYEE = exports.FETCH_SINGLE_EMPLOYEE = exports.FETCH_ALL_EMPLOYEES = exports.EDIT_EXISTING_EMPLOYEE = exports.ADD_NEW_EMPLOYEE = exports.RESET_PASSWORD = exports.REQUEST_RESET_TOKEN = exports.CREATE_USER = undefined;
 	exports.loginEmployee = loginEmployee;
 	exports.createUser = createUser;
 	exports.resetPassword = resetPassword;
@@ -30560,7 +30567,8 @@
 	exports.searchProducts = searchProducts;
 	exports.searchHerbals = searchHerbals;
 	exports.searchPharma = searchPharma;
-	exports.searchMiscellaneous = searchMiscellaneous;
+	exports.searchConsumer = searchConsumer;
+	exports.searchOTC = searchOTC;
 	exports.fetchSingleProduct = fetchSingleProduct;
 	exports.fetchSingleSale = fetchSingleSale;
 	exports.fetchSales = fetchSales;
@@ -30606,7 +30614,8 @@
 	var SEARCH_ALL_PRODUCTS = exports.SEARCH_ALL_PRODUCTS = 'SEARCH_ALL_PRODUCTS';
 	var SEARCH_HERBALS = exports.SEARCH_HERBALS = 'SEARCH_HERBALS';
 	var SEARCH_PHARMA = exports.SEARCH_PHARMA = 'SEARCH_PHARMA';
-	var SEARCH_MISCELLANEOUS = exports.SEARCH_MISCELLANEOUS = 'SEARCH_MISCELLANEOUS';
+	var SEARCH_CONSUMER = exports.SEARCH_CONSUMER = 'SEARCH_CONSUMER';
+	var SEARCH_OTC = exports.SEARCH_OTC = 'SEARCH_OTC';
 	var FETCH_SINGLE = exports.FETCH_SINGLE = 'FETCH_SINGLE';
 	var FETCH_SINGLE_SALE = exports.FETCH_SINGLE_SALE = 'FETCH_SINGLE_SALE';
 	var FETCH_SALES = exports.FETCH_SALES = 'FETCH_SALES';
@@ -30778,7 +30787,7 @@
 
 		var config = { headers: { 'authorization': localStorage.getItem('token') } };
 
-		var request = _axios2.default.get('fetchUser', config);
+		var request = _axios2.default.get('/fetchUser', config);
 
 		return request.then(function (response) {
 
@@ -30940,14 +30949,26 @@
 		};
 	}
 
-	function searchMiscellaneous(queryParams) {
+	function searchConsumer(queryParams) {
 
 		var config = { headers: { 'authorization': localStorage.getItem('token') } };
 
-		var request = _axios2.default.get('/products/miscellaneous?q=' + queryParams, config);
+		var request = _axios2.default.get('/products/consumer?q=' + queryParams, config);
 
 		return {
-			type: SEARCH_MISCELLANEOUS,
+			type: SEARCH_CONSUMER,
+			payload: request
+		};
+	}
+
+	function searchOTC(queryParams) {
+
+		var config = { headers: { 'authorization': localStorage.getItem('token') } };
+
+		var request = _axios2.default.get('/products/OTC?q=' + queryParams, config);
+
+		return {
+			type: SEARCH_OTC,
 			payload: request
 		};
 	}
@@ -32253,7 +32274,7 @@
 /* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -32270,20 +32291,20 @@
 
 			case _index.CREATE_USER:
 				// The newly signed up and logged in user's info is set to global state under activeUser
-				return _extends({}, state, { activeUser: action.payload.data.user, authenticated: true });
+				return _extends({}, state, { activeUser: action.payload.data.user, authenticated: true, errorMessage: '' });
 
 			case _index.LOGIN_USER:
 				// The newly logged in user's info is set to global state under activeUser
-				return _extends({}, state, { activeUser: action.payload.data.user, authenticated: true });
+				return _extends({}, state, { activeUser: action.payload.data.user, authenticated: true, errorMessage: '' });
 
 			case _index.AUTH_ERROR:
 				return _extends({}, state, { errorMessage: action.payload });
 
 			case _index.AUTH_USER:
-				return _extends({}, state, { authenticated: true });
+				return _extends({}, state, { authenticated: true, errorMessage: '' });
 
 			case _index.UNAUTH_USER:
-				return _extends({}, state, { authenticated: false, activeUser: null });
+				return _extends({}, state, { authenticated: false, activeUser: null, errorMessage: '' });
 
 			case _index.FETCH_USER:
 				return _extends({}, state, { activeUser: action.payload.data });
@@ -34131,46 +34152,51 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 
 	exports.default = function () {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? INITIAL_STATE : arguments[0];
-	  var action = arguments[1];
+		var state = arguments.length <= 0 || arguments[0] === undefined ? INITIAL_STATE : arguments[0];
+		var action = arguments[1];
 
 
-	  switch (action.type) {
+		switch (action.type) {
 
-	    case _Actions.CHANGE_CATEGORY_FILTER:
+			case _Actions.CHANGE_CATEGORY_FILTER:
 
-	      switch (action.payload) {
+				switch (action.payload) {
 
-	        case 'All':
-	          return { showAll: true, showPharma: false, showHerbals: false, showMiscellaneous: false };
+					case 'All':
+						return { showAll: true, showPharma: false, showHerbals: false, showConsumer: false, showOTC: false };
 
-	        case 'Pharmaceuticals':
-	          return { showAll: false, showPharma: true, showHerbals: false, showMiscellaneous: false };
+					case 'Pharmaceuticals':
+						return { showAll: false, showPharma: true, showHerbals: false, showConsumer: false, showOTC: false };
 
-	        case 'Herbals':
-	          return { showAll: false, showPharma: false, showHerbals: true, showMiscellaneous: false };
+					case 'Herbals':
+						return { showAll: false, showPharma: false, showHerbals: true, showConsumer: false, showOTC: false };
 
-	        case 'Miscellaneous':
-	          return { showAll: false, showPharma: false, showHerbals: false, showMiscellaneous: true };
+					case 'Consumer':
+						return { showAll: false, showPharma: false, showHerbals: false, showConsumer: true, showOTC: false };
 
-	        default:
-	          return state;
+					case 'OTC':
+						return { showAll: false, showPharma: false, showHerbals: false, showConsumer: false, showOTC: true };
 
-	      }
+					default:
+						return state;
 
-	    default:
-	      return state;
+				}
 
-	  }
+			default:
+				return state;
+
+		}
 	};
 
 	var _Actions = __webpack_require__(300);
 
-	var INITIAL_STATE = { showAll: true, showPharma: false, showHerbals: false, showMiscellaneous: false };
+	var INITIAL_STATE = { showAll: true, showPharma: false,
+		showHerbals: false, showConsumer: false,
+		showOTC: false };
 
 /***/ },
 /* 325 */
@@ -34322,7 +34348,7 @@
 		_react2.default.createElement(_reactRouter.Route, { path: 'inventory', component: (0, _RequireAuth2.default)(_StoreFrontContainer2.default) }),
 		_react2.default.createElement(_reactRouter.Route, { path: 'signup', component: _Signup2.default }),
 		_react2.default.createElement(_reactRouter.Route, { path: 'productProfile/:id', component: (0, _RequireAuth2.default)(_ProductProfile2.default) }),
-		_react2.default.createElement(_reactRouter.Route, { path: 'userProfile/:userId', component: (0, _RequireAuth2.default)(_UserDashboardContainer2.default) }),
+		_react2.default.createElement(_reactRouter.Route, { path: 'userProfile', component: (0, _RequireAuth2.default)(_UserDashboardContainer2.default) }),
 		_react2.default.createElement(_reactRouter.Route, { path: 'employeeProfile/:employeeId', component: (0, _RequireAuth2.default)(_EmployeeProfileContainer2.default) }),
 		_react2.default.createElement(_reactRouter.Route, { path: 'editEmployee/:employeeId', component: (0, _RequireAuth2.default)(_EditEmployeeForm2.default) }),
 		_react2.default.createElement(_reactRouter.Route, { path: 'saleDetails/:id', component: (0, _RequireAuth2.default)(_SaleDetailsContainer2.default) }),
@@ -34869,7 +34895,7 @@
 	        null,
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { id: 'userTab', to: '/userProfile/' + activeUser._id },
+	          { id: 'userTab', to: '/userProfile' },
 	          _react2.default.createElement('i', { className: 'fa fa-user fa-2x', 'aria-hidden': 'true' }),
 	          $.isEmptyObject(activeEmployee) ? activeUser.profile.name : activeEmployee.name
 	        )
@@ -35035,16 +35061,10 @@
 		_createClass(LandingPage, [{
 			key: 'componentWillMount',
 			value: function componentWillMount() {
-				// if (this.props.authenticated) {
-				// 	console.log("componentWillMount");
-				// 	// browserHistory.push(`/userProfile/${this.props.activeUser._id}`);
-				// }
-			}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps(nextProps) {
-				if (nextProps.authenticated) {
-					_reactRouter.browserHistory.push('/userProfile/' + nextProps.activeUser._id);
+				// if the user is authenticated (has JWT in localStorage)
+				// then push to '/userProfile' route.
+				if (this.props.authenticated) {
+					_reactRouter.browserHistory.push('/userProfile');
 				}
 			}
 		}, {
@@ -35833,8 +35853,7 @@
 	}(_react.Component);
 
 	function mapStateToProps(state) {
-		return { authenticated: state.user.authenticated,
-			activeUser: state.user.activeUser };
+		return { authenticated: state.user.authenticated };
 	}
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(LandingPage);
@@ -36202,7 +36221,9 @@
 	          return changeCategoryFilter(newCategory);
 	        case 'Herbals':
 	          return changeCategoryFilter(newCategory);
-	        case 'Miscellaneous':
+	        case 'Consumer':
+	          return changeCategoryFilter(newCategory);
+	        case 'OTC':
 	          return changeCategoryFilter(newCategory);
 	        default:
 	          return;
@@ -36226,11 +36247,13 @@
 	      var showAll = _props.showAll;
 	      var showPharma = _props.showPharma;
 	      var showHerbals = _props.showHerbals;
-	      var showMiscellaneous = _props.showMiscellaneous;
+	      var showConsumer = _props.showConsumer;
+	      var showOTC = _props.showOTC;
 	      var allProducts = _props.allProducts;
 	      var herbals = _props.herbals;
 	      var pharma = _props.pharma;
-	      var miscellaneous = _props.miscellaneous;
+	      var consumer = _props.consumer;
+	      var OTC = _props.OTC;
 	      var showProductsNum = this.state.showProductsNum;
 
 
@@ -36240,7 +36263,9 @@
 	        return _react2.default.createElement(_LoadProductsBtn2.default, { handleLoadProducts: this.handleLoadProducts });
 	      } else if (showHerbals && herbals.length > showProductsNum) {
 	        return _react2.default.createElement(_LoadProductsBtn2.default, { handleLoadProducts: this.handleLoadProducts });
-	      } else if (showMiscellaneous && miscellaneous.length > showProductsNum) {
+	      } else if (showConsumer && consumer.length > showProductsNum) {
+	        return _react2.default.createElement(_LoadProductsBtn2.default, { handleLoadProducts: this.handleLoadProducts });
+	      } else if (showOTC && OTC.length > showProductsNum) {
 	        return _react2.default.createElement(_LoadProductsBtn2.default, { handleLoadProducts: this.handleLoadProducts });
 	      }
 	    }
@@ -36251,11 +36276,13 @@
 	      var showAll = _props2.showAll;
 	      var showPharma = _props2.showPharma;
 	      var showHerbals = _props2.showHerbals;
-	      var showMiscellaneous = _props2.showMiscellaneous;
+	      var showConsumer = _props2.showConsumer;
+	      var showOTC = _props2.showOTC;
 	      var allProducts = _props2.allProducts;
 	      var herbals = _props2.herbals;
 	      var pharma = _props2.pharma;
-	      var miscellaneous = _props2.miscellaneous;
+	      var consumer = _props2.consumer;
+	      var OTC = _props2.OTC;
 	      var showProductsNum = this.state.showProductsNum;
 
 
@@ -36289,8 +36316,18 @@
 	              product: product })
 	          );
 	        });
-	      } else if (showMiscellaneous) {
-	        return miscellaneous.slice(0, showProductsNum).map(function (product) {
+	      } else if (showConsumer) {
+	        return consumer.slice(0, showProductsNum).map(function (product) {
+	          return _react2.default.createElement(
+	            'div',
+	            { key: product._id, className: 'col-lg-3 col-md-3 col-sm-3 col-xs-6', id: 'productThumbnail' },
+	            _react2.default.createElement(_SingleProduct2.default, {
+	              key: product._id,
+	              product: product })
+	          );
+	        });
+	      } else if (showOTC) {
+	        return OTC.slice(0, showProductsNum).map(function (product) {
 	          return _react2.default.createElement(
 	            'div',
 	            { key: product._id, className: 'col-lg-3 col-md-3 col-sm-3 col-xs-6', id: 'productThumbnail' },
@@ -36308,7 +36345,8 @@
 	      var showAll = _props3.showAll;
 	      var showPharma = _props3.showPharma;
 	      var showHerbals = _props3.showHerbals;
-	      var showMiscellaneous = _props3.showMiscellaneous;
+	      var showConsumer = _props3.showConsumer;
+	      var showOTC = _props3.showOTC;
 	      var allProducts = _props3.allProducts;
 	      var showProductsNum = this.state.showProductsNum;
 
@@ -36338,13 +36376,15 @@
 	                      showAll: showAll,
 	                      showPharma: showPharma,
 	                      showHerbals: showHerbals,
-	                      showMiscellaneous: showMiscellaneous,
+	                      showConsumer: showConsumer,
+	                      showOTC: showOTC,
 	                      handleFilter: this.handleFilter }),
 	                    _react2.default.createElement(_ProductSearch2.default, {
 	                      showAll: showAll,
 	                      showPharma: showPharma,
 	                      showHerbals: showHerbals,
-	                      showMiscellaneous: showMiscellaneous }),
+	                      showConsumer: showConsumer,
+	                      showOTC: showOTC }),
 	                    _react2.default.createElement(
 	                      'p',
 	                      { id: 'topProductsMessage' },
@@ -36386,16 +36426,18 @@
 	    allProducts: state.products.all,
 	    herbals: state.products.herbals,
 	    pharma: state.products.pharma,
-	    miscellaneous: state.products.miscellaneous,
+	    consumer: state.products.consumer,
+	    OTC: state.products.OTC,
 	    activeUser: state.user.activeUser,
 	    showAll: state.categories.showAll,
 	    showPharma: state.categories.showPharma,
 	    showHerbals: state.categories.showHerbals,
-	    showMiscellaneous: state.categories.showMiscellaneous
+	    showConsumer: state.categories.showConsumer,
+	    showOTC: state.categories.showOTC
 	  };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchProducts: _Actions.fetchProducts, fetchHerbals: _Actions.fetchHerbals, fetchPharma: _Actions.fetchPharma, changeCategoryFilter: _Actions.changeCategoryFilter })(StoreFrontContainer);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchProducts: _Actions.fetchProducts, changeCategoryFilter: _Actions.changeCategoryFilter })(StoreFrontContainer);
 
 /***/ },
 /* 337 */
@@ -36450,9 +36492,12 @@
 				} else if (this.props.showHerbals) {
 
 					this.props.searchHerbals(event.target.value);
-				} else if (this.props.showMiscellaneous) {
+				} else if (this.props.showConsumer) {
 
-					this.props.searchMiscellaneous(event.target.value);
+					this.props.searchConsumer(event.target.value);
+				} else if (this.props.showOTC) {
+
+					this.props.searchOTC(event.target.value);
 				}
 			}
 		}, {
@@ -36483,7 +36528,8 @@
 	;
 
 	exports.default = (0, _reactRedux.connect)(null, { searchProducts: _Actions.searchProducts, searchPharma: _Actions.searchPharma,
-		searchHerbals: _Actions.searchHerbals, searchMiscellaneous: _Actions.searchMiscellaneous })(ProductSearch);
+		searchHerbals: _Actions.searchHerbals, searchConsumer: _Actions.searchConsumer,
+		searchOTC: _Actions.searchOTC })(ProductSearch);
 
 /***/ },
 /* 338 */
@@ -36505,7 +36551,8 @@
 	  var showAll = _ref.showAll;
 	  var showPharma = _ref.showPharma;
 	  var showHerbals = _ref.showHerbals;
-	  var showMiscellaneous = _ref.showMiscellaneous;
+	  var showConsumer = _ref.showConsumer;
+	  var showOTC = _ref.showOTC;
 	  var handleFilter = _ref.handleFilter;
 
 	  // In order to add the | symbol here, the onClick handler needs to check for a value via the ref system
@@ -36533,8 +36580,13 @@
 	      ),
 	      _react2.default.createElement(
 	        'li',
-	        { className: '' + (showMiscellaneous ? 'activeGreen' : ''), onClick: handleFilter },
-	        'Miscellaneous'
+	        { className: '' + (showConsumer ? 'activeGreen' : ''), onClick: handleFilter },
+	        'Consumer'
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        { className: '' + (showOTC ? 'activeGreen' : ''), onClick: handleFilter },
+	        'OTC'
 	      )
 	    )
 	  );
@@ -36681,9 +36733,11 @@
 	  } else if (productCategory === 'pharmaceutical') {
 
 	    return _react2.default.createElement('i', { className: 'fa fa-flask fa-4x', onClick: showReceipt ? null : handleAddProduct });
-	  } else {
+	  } else if (productCategory === 'consumer') {
 
 	    return _react2.default.createElement('i', { className: 'fa fa-tags fa-4x', onClick: showReceipt ? null : handleAddProduct });
+	  } else {
+	    return _react2.default.createElement('i', { className: 'fa fa-medkit fa-4x', onClick: showReceipt ? null : handleAddProduct });
 	  }
 	};
 
@@ -37251,8 +37305,10 @@
 	    return _react2.default.createElement('i', { className: 'rowCategoryIcon fa fa-flask' });
 	  } else if (category === "herbal") {
 	    return _react2.default.createElement('i', { className: 'rowCategoryIcon fa fa-leaf' });
-	  } else {
+	  } else if (category === "consumer") {
 	    return _react2.default.createElement('i', { className: 'rowCategoryIcon fa fa-tags' });
+	  } else {
+	    return _react2.default.createElement('i', { className: 'rowCategoryIcon fa fa-medkit' });
 	  }
 	};
 
@@ -60555,9 +60611,9 @@
 	};
 
 	EditProductBtn.propTypes = {
-	  handleEditProduct: _react.PropTypes.func.isRequired,
-	  productId: _react.PropTypes.string.isRequired,
-	  size: _react.PropTypes.string.isRequired
+	  handleEditProduct: _react.PropTypes.func,
+	  productId: _react.PropTypes.string,
+	  size: _react.PropTypes.string
 	};
 
 	exports.default = EditProductBtn;
@@ -74658,7 +74714,7 @@
 
 				if (!this.props.activeUser) {
 
-					this.props.fetchUser(this.props.params.userId).then(function () {
+					this.props.fetchUser().then(function () {
 						_this2.setState({
 							userLoaded: true
 						});

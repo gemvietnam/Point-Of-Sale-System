@@ -5,14 +5,10 @@ import { browserHistory } from 'react-router';
 class LandingPage extends Component {
 
 	componentWillMount() {
-		// if (this.props.authenticated) {
-		// 	console.log("componentWillMount");
-		// 	// browserHistory.push(`/userProfile/${this.props.activeUser._id}`);
-		// }
-	}
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.authenticated) {
-			browserHistory.push(`/userProfile/${nextProps.activeUser._id}`);
+		// if the user is authenticated (has JWT in localStorage)
+		// then push to '/userProfile' route.
+		if (this.props.authenticated) {
+			browserHistory.push(`/userProfile`);
 		}
 	}
 
@@ -412,8 +408,7 @@ class LandingPage extends Component {
 }
 
 function mapStateToProps(state) {
-	return { authenticated: state.user.authenticated,
-	 				 activeUser: state.user.activeUser };
+	return { authenticated: state.user.authenticated };
 }
 
 export default connect(mapStateToProps, null)(LandingPage);

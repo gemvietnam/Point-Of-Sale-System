@@ -9,20 +9,20 @@ export default function(state = INITIAL_STATE, action) {
 
 		case CREATE_USER:
 		  // The newly signed up and logged in user's info is set to global state under activeUser
-			return { ...state, activeUser: action.payload.data.user, authenticated: true };
+			return { ...state, activeUser: action.payload.data.user, authenticated: true, errorMessage: '' };
 
 		case LOGIN_USER:
 		  // The newly logged in user's info is set to global state under activeUser
-			return { ...state, activeUser: action.payload.data.user, authenticated: true };
+			return { ...state, activeUser: action.payload.data.user, authenticated: true, errorMessage: '' };
 
 		case AUTH_ERROR:
 			return { ...state, errorMessage: action.payload };
 
 		case AUTH_USER:
-			return { ...state, authenticated: true };
+			return { ...state, authenticated: true, errorMessage: '' };
 
 		case UNAUTH_USER:
-			return { ...state, authenticated: false, activeUser: null };
+			return { ...state, authenticated: false, activeUser: null, errorMessage: '' };
 
 		case FETCH_USER:
 			return {...state, activeUser: action.payload.data }

@@ -17,7 +17,7 @@ class UserDashboardContainer extends Component {
 	componentWillMount() {
 		if (!this.props.activeUser) {
 
-			this.props.fetchUser(this.props.params.userId).then(() => {
+			this.props.fetchUser().then(() => {
 				this.setState({
 					userLoaded: true
 				});

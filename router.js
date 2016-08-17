@@ -1041,9 +1041,39 @@ module.exports = function (app) {
 			} else if (index % 3 === 0) {
 				product.category = 'pharmaceutical';
 			} else {
-				product.category = "miscellaneous";
+				product.category = "consumer";
 			}
 
+			product.owner = '573a02d8fd05850b05adf26d';
+			product.name = faker.commerce.productAdjective();
+			product.subCategory = faker.commerce.productAdjective();
+			product.brand = faker.commerce.productAdjective();
+			product.tax = 10;
+			product.interactions = "Do not take with alcohol";
+			product.healthConditions = "Check with your physician";
+			product.locationOfProduct = faker.commerce.productAdjective();
+			product.manufacturer = faker.commerce.productAdjective();
+			product.manufacturerCountry = faker.commerce.productAdjective();
+			product.ingredients = faker.commerce.productAdjective();
+			product.price = 115;
+			product.dosageForm = faker.commerce.productAdjective();
+			product.typeOfProduct = faker.commerce.productAdjective();
+			product.quantity = 500;
+			product.description = "Enter product description here";
+			product.save();
+
+		});
+
+	});
+
+	app.post('/createThreeHundred', function (req, res, next) {
+
+		__.times(300, (index) => {
+
+			var product = new Product();
+
+
+			product.category = "OTC";
 			product.owner = '573a02d8fd05850b05adf26d';
 			product.name = faker.commerce.productAdjective();
 			product.subCategory = faker.commerce.productAdjective();

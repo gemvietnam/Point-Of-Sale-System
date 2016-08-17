@@ -13,9 +13,9 @@ const EditProductBtn = ({ handleEditProduct, productId, size }) => {
 };
 
 EditProductBtn.propTypes = {
-  handleEditProduct: PropTypes.func.isRequired,
-  productId: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired
+  handleEditProduct: PropTypes.func,
+  productId: PropTypes.string,
+  size: PropTypes.string
 };
 
 export default EditProductBtn;

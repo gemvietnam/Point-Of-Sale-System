@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { searchProducts, searchPharma, searchHerbals, searchMiscellaneous } from 'Actions';
+import { searchProducts, searchPharma, searchHerbals, searchConsumer, searchOTC } from 'Actions';
 
 class ProductSearch extends Component {
 
@@ -20,9 +20,13 @@ class ProductSearch extends Component {
 
 			this.props.searchHerbals(event.target.value);
 
-		} else if (this.props.showMiscellaneous) {
+		} else if (this.props.showConsumer) {
 
-			this.props.searchMiscellaneous(event.target.value);
+			this.props.searchConsumer(event.target.value);
+
+		} else if (this.props.showOTC) {
+
+			this.props.searchOTC(event.target.value);
 
 		}
 
@@ -49,4 +53,5 @@ class ProductSearch extends Component {
 };
 
 export default connect(null, { searchProducts, searchPharma,
-															 searchHerbals, searchMiscellaneous })(ProductSearch);
+															 searchHerbals, searchConsumer,
+														   searchOTC })(ProductSearch);

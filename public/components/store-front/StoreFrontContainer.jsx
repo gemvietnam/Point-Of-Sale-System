@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchProducts, fetchHerbals,
-         fetchPharma, changeCategoryFilter } from 'Actions';
+import { fetchProducts, changeCategoryFilter } from 'Actions';
 
 import ProductSearch from 'ProductSearch';
 import ProductFilter from 'ProductFilter';
@@ -52,7 +51,9 @@ class StoreFrontContainer extends Component {
         return changeCategoryFilter(newCategory);
       case 'Herbals':
         return changeCategoryFilter(newCategory);
-      case 'Miscellaneous':
+      case 'Consumer':
+        return changeCategoryFilter(newCategory);
+      case 'OTC':
         return changeCategoryFilter(newCategory);
       default:
         return;
@@ -71,8 +72,8 @@ class StoreFrontContainer extends Component {
   renderLoadProductBtn() {
 
     // const { showAll, showPharma, showHerbals, showProductsNum } = this.state;
-    const { showAll, showPharma, showHerbals, showMiscellaneous,
-            allProducts, herbals, pharma, miscellaneous } = this.props;
+    const { showAll, showPharma, showHerbals, showConsumer, showOTC,
+            allProducts, herbals, pharma, consumer, OTC } = this.props;
     const  { showProductsNum } = this.state;
 
     if (showAll && allProducts.length > showProductsNum) {
@@ -81,7 +82,9 @@ class StoreFrontContainer extends Component {
       return <LoadProductsBtn handleLoadProducts={this.handleLoadProducts} />;
     } else if (showHerbals && herbals.length > showProductsNum) {
       return <LoadProductsBtn handleLoadProducts={this.handleLoadProducts} />;
-    } else if (showMiscellaneous && miscellaneous.length > showProductsNum) {
+    } else if (showConsumer && consumer.length > showProductsNum) {
+      return <LoadProductsBtn handleLoadProducts={this.handleLoadProducts} />;
+    } else if (showOTC && OTC.length > showProductsNum) {
       return <LoadProductsBtn handleLoadProducts={this.handleLoadProducts} />;
     }
 
@@ -89,8 +92,8 @@ class StoreFrontContainer extends Component {
 
   renderProducts() {
 
-    const { showAll, showPharma, showHerbals, showMiscellaneous,
-            allProducts, herbals, pharma, miscellaneous } = this.props;
+    const { showAll, showPharma, showHerbals, showConsumer, showOTC,
+            allProducts, herbals, pharma, consumer, OTC } = this.props;
     const  { showProductsNum } = this.state;
 
     if (showAll) {
@@ -123,8 +126,18 @@ class StoreFrontContainer extends Component {
           </div>
          );
       });
-    } else if (showMiscellaneous) {
-      return miscellaneous.slice(0, showProductsNum).map(product => {
+    } else if (showConsumer) {
+      return consumer.slice(0, showProductsNum).map(product => {
+        return (
+          <div key={product._id} className="col-lg-3 col-md-3 col-sm-3 col-xs-6" id="productThumbnail">
+            <SingleProduct
+              key={product._id}
+              product={product} />
+          </div>
+         );
+      });
+    } else if (showOTC) {
+      return OTC.slice(0, showProductsNum).map(product => {
         return (
           <div key={product._id} className="col-lg-3 col-md-3 col-sm-3 col-xs-6" id="productThumbnail">
             <SingleProduct
@@ -139,8 +152,7 @@ class StoreFrontContainer extends Component {
 
   render() {
 
-    const { showAll, showPharma, showHerbals, showMiscellaneous,
-            allProducts } = this.props;
+    const { showAll, showPharma, showHerbals, showConsumer, showOTC, allProducts } = this.props;
     const  { showProductsNum } = this.state;
 
 		return (
@@ -161,14 +173,16 @@ class StoreFrontContainer extends Component {
                       showAll={showAll}
                       showPharma={showPharma}
                       showHerbals={showHerbals}
-                      showMiscellaneous={showMiscellaneous}
+                      showConsumer={showConsumer}
+                      showOTC={showOTC}
                       handleFilter={this.handleFilter} />
 
 										<ProductSearch
                       showAll={showAll}
                       showPharma={showPharma}
                       showHerbals={showHerbals}
-                      showMiscellaneous={showMiscellaneous} />
+                      showConsumer={showConsumer}
+                      showOTC={showOTC} />
 
                     <p id="topProductsMessage">Top {showProductsNum} Products</p>
 
@@ -181,7 +195,7 @@ class StoreFrontContainer extends Component {
                     this.renderProducts() : this.renderLoader()}
 
 									</div>
-                  
+
                   <div className="text-center">
                     {this.renderLoadProductBtn()}
                   </div>
@@ -214,13 +228,15 @@ function mapStateToProps(state) {
     allProducts: state.products.all,
     herbals: state.products.herbals,
     pharma: state.products.pharma,
-    miscellaneous: state.products.miscellaneous,
+    consumer: state.products.consumer,
+    OTC: state.products.OTC,
     activeUser: state.user.activeUser,
     showAll: state.categories.showAll,
     showPharma: state.categories.showPharma,
     showHerbals: state.categories.showHerbals,
-    showMiscellaneous: state.categories.showMiscellaneous
+    showConsumer: state.categories.showConsumer,
+    showOTC: state.categories.showOTC
   };
 }
 
-export default connect(mapStateToProps, { fetchProducts, fetchHerbals, fetchPharma, changeCategoryFilter })(StoreFrontContainer);
+export default connect(mapStateToProps, { fetchProducts, changeCategoryFilter })(StoreFrontContainer);
