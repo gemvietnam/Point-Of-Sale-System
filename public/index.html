@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+	<head>
+
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<title>P.O.S. System</title>
+
+		<!-- Minified Bootstrap CSS -->
+		<link rel="stylesheet" href="./css/bootstrap/css/bootstrap.min.css" />
+
+		<!-- Import Bootstrap Fonts -->
+		<link rel="stylesheet" href="./css/bootstrap/fonts" />
+
+		<!--CSS-->
+		<link rel="stylesheet" type="text/css" href="./css/styles.css" />
+
+		<!-- Animate.css -->
+		<link rel="stylesheet" type="text/css" href="./css/animate-css/animate.min.css" />
+
+		<!-- Toastr's CSS -->
+		<link rel="stylesheet" type="text/css" href="./css/toastr/toastr.min.css" />
+
+		<!-- Link to font awesome -->
+	 	<link rel="stylesheet" href="./css/font-awesome/css/font-awesome.min.css" />
+
+		<!--Google Charts-->
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+	</head>
+
+	<body data-spy="scroll" data-target="#preAuthNavTabs" data-offset="70">
+
+		<!--Content will be rendered to the .masterContainer div from index.js -->
+		<div class="masterContainer"></div>
+
+		<!--Load bundle.js-->
+		<script src="./bundle.js"></script>
+
+		<!-- jQuery 1.x minified -->
+		<script src="./js/jquery.min.js"></script>
+
+		<!-- Minified Bootstrap JavaScript -->
+		<script src="./js/bootstrap.min.js"></script>
+
+		<!--fit images to entire width and height of the client's window-->
+		<script>
+	    	$(".home").css("height",$(window).height());
+
+	    	//load chart types from google charts
+	    	google.charts.load('current', {packages: ['corechart', 'line', 'bar']});
+		</script>
+
+		<!-- wow.js -->
+		<script src="./js/wow/wow.min.js"></script>
+    <script>
+    new WOW().init();
+    </script>
+
+	</body>
+
+</html>

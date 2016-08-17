@@ -1,0 +1,1183 @@
+p, h1 {
+ font-family: 'Droid Sans', sans-serif;
+}
+
+body {
+  background-color: white !important;
+}
+
+body .modal {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  border: 1px solid #ccc;
+  background: #fff;
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  display: block;
+}
+
+/* Reusable classes */
+.marginTop {
+  margin-top: 100px;
+}
+.marginBottom {
+  margin-bottom: 60px;
+}
+
+/* Moves the body of app 5 em right, so side navbar will fit */
+.body-content {
+  margin-left: 4.6em;
+  transition: margin-left 0.3s linear;
+  -moz-transition: margin-left 0.3s linear;
+  -webkit-transition: margin-left 0.3s linear;
+}
+/* Side nav bar disappears after app hits xs, media query removes margin-left*/
+@media all and (max-width: 768px) {
+    .body-content {
+      margin-left: 0em;
+    }
+}
+/* ------------ ForgotPassword.jsx --------------------------------------------------------------*/
+.forgotPassword {
+
+}
+.forgotPassword button {
+  width: 100%;
+}
+/* ------------ RequestReset.jsx --------------------------------------------------------------*/
+.requestReset {
+  margin-top: 150px;
+  color: #284A75;
+}
+.requestReset button {
+  margin-top: 25px;
+  width: 100%;
+}
+.requestReset label {
+  margin-bottom: 25px;
+}
+#emailSentIcon {
+  color: #449D44;
+}
+
+/* ------------ SingleEmployeeTab.jsx --------------------------------------------------------------*/
+#singleEmployee p {
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+#singleEmployee i {
+  margin-top: 15px;
+}
+#singleEmployee i:hover {
+  color:#1EBEA5;
+}
+/* ------------ EditEmployeeForm.jsx --------------------------------------------------------------*/
+#editEmployeeForm h4 {
+  color: #284A75;
+  margin-bottom: 25px;
+}
+#submitEmployeeEdits {
+  width: 100%;
+  background-color: #284A75;
+}
+#submitEmployeeEdits:hover {
+  background-color: #1EBEA5;
+  border-color: #1EBEA5;
+}
+#cancelEmployeeEdits {
+  margin-top: 1em;
+  width: 100%;
+}
+/* ------------ EmployeeSalesData.jsx --------------------------------------------------------------*/
+#employeeRevenue {
+  border: 2px solid #284A75;
+  min-height: 250px;
+  width: auto;
+  margin-top: 1em;
+  border-radius: 5px;
+  margin-right: 3em;
+}
+
+#employeeRevenue i {
+  color: #449D44;
+}
+
+/* ------------ EmployeeProfileContainer.jsx --------------------------------------------------------------*/
+#employeeProfilePage #backArrow {
+  color: #1EBEA5;
+}
+#employeeProfilePage #backArrow:hover {
+  cursor: pointer;
+}
+#employeeProfile {
+  border: 2px solid #284A75;
+  min-height: 500px;
+  width: auto;
+}
+  #employeeProfile label {
+    padding-top: 15px;
+    color: #337ab7;
+  }
+  #employeeProfile h4 {
+    padding-top: 12px;
+  }
+  #employeeProfile h1 {
+    color: #284A75;
+  }
+  #employeeProfile i {
+    padding-top: 0.3em;
+    padding-bottom: 0.2em;
+    color: #284A75;
+  }
+  #employeeProfile button {
+    height: 3em;
+    width: 100%;
+    background-color: #284A75;
+    color: white;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  #employeeProfile button:hover {
+    background-color: #1EBEA5;
+  }
+
+  #editEmployeeIcon:hover{
+    cursor: pointer;
+    color: #1EBEA5;
+  }
+  @media all and (max-width: 768px) {
+      #employeeProfile button {
+        width: 75%;
+        margin-bottom: 25px;
+      }
+  }
+#employeeLogin h5 {
+  color: red;
+}
+/* ------------ SaleProfile.jsx --------------------------------------------------------------*/
+#saleProfile {
+  margin-top: 75px;
+}
+  #saleHeader {
+    text-align: center;
+  }
+
+  #saleItems {
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+  }
+
+  #saleTotal {
+    margin-left: 15px;
+  }
+
+  #saleCheckMark {
+    color: #449D44;
+    float: right;
+  }
+
+  #receiptBorder {
+     position: relative;
+     padding: 8px 8px 32px 8px;
+     background: 	#FAEBD7;
+  }
+   #receiptBorder:after {
+       background: linear-gradient(-45deg, #ffffff 16px, transparent 0), linear-gradient(45deg, #ffffff 16px, transparent 0);
+       background-position: left-bottom;
+       background-repeat: repeat-x;
+       background-size: 32px 32px;
+       content: " ";
+       display: block;
+       position: absolute;
+       bottom: 0px;
+       left: 0px;
+       width: 100%;
+       height: 32px;
+   }
+
+   @media all and (max-width: 768px) {
+       #saleProfile {
+         margin-left: 1em;
+         margin-right: 1em;
+       }
+   }
+
+/* ------------ SoldItemThumbnail.jsx --------------------------------------------------------------*/
+
+#soldItemThumbnail {
+  /*This ain't coverin the whole background charles*/
+  background: #FAEBD7 !important;
+  border: 2px solid #284A75;
+}
+
+/* ------------ SalesHistoryRow.jsx --------------------------------------------------------------*/
+.salesHistoryRow i {
+  color: #1EBEA5;
+}
+
+.salesHistoryRow i:hover {
+  cursor: pointer;
+  color: #284A75;
+}
+/* ------------ SalesHistoryContainer.jsx --------------------------------------------------------------*/
+#salesHistoryContainer {
+  margin-top: 6em;
+}
+#salesHistoryContainer h4 {
+  text-align: center;
+}
+#salesHistoryContainer #loadingSpinner {
+  margin-left: 45%;
+}
+/* ------------ SalesSearchForm.jsx ----------------------------------------------------------------*/
+#salesByDateForm .form-group {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+#salesByDateForm select {
+  height: 25px;
+}
+#searchSalesBtn {
+  background-color: #284A75;
+  width: 200px;
+  margin-top: 10px;
+}
+#refreshSalesBtn {
+  color: #1EBEA5;
+  margin-left: 2em;
+  margin-top: 0.2em;
+}
+#refreshSalesBtn:hover {
+  cursor: pointer;
+}
+/* ------------ Signout.jsx ----------------------------------------------------------------*/
+#signoutBacsiLogo {
+  margin-top: 25em;
+}
+/* ------------ PlusMinusBtns.jsx ----------------------------------------------------------------*/
+
+#plusMinusBtns button {
+  border: none;
+  border-radius: 0.3em;
+}
+
+#plusBtn {
+  margin-right: 0.5em;
+}
+
+#plusBtn i {
+  color: #449D44;
+}
+
+#minusBtn i {
+  color: #DB4437;
+}
+
+/* ------------ LandingPage.jsx ----------------------------------------------------------------*/
+/*-- Header ------*/
+.header {
+  padding: 140px 0 60px;
+  border-bottom: 2px solid #c9c9c9;
+}
+  .header h1 {
+    color: #284A75;
+    font-family: 'Pacifico', cursive;
+    font-size: 6.5em;
+    margin-bottom: 0.2em;
+  }
+  .header p {
+    font-size: 1.2em;
+    color: #404040;
+  }
+
+  @media(max-width:768px) {
+
+   .header {
+    text-align:center;
+    padding-top: 20%;
+   }
+
+   .header h1 {
+   font-size:5em;
+   }
+
+   .header p {
+    font-size:1em;
+   }
+
+   .header img {
+    padding-top:10%;
+   }
+
+}
+/*-- About ------*/
+
+.about {
+ padding: 100px 0 100px;
+ text-align: center;
+}
+
+.about h1 {
+ font-size: 1.8em;
+ color: #284A75;
+ padding: 0 0 25px;
+}
+
+.about p {
+ padding-bottom:25px;
+}
+
+/*-- Features ------*/
+
+.features {
+ background-color: #1EBEA5;
+ text-align:center;
+ color:white;
+ padding:90px 0 90px;
+}
+
+.features h1 {
+ font-size:2em;
+ padding-bottom:25px;
+}
+
+.features img {
+ padding:15px 0 35px;
+}
+
+/* PRESS */
+
+.press {
+	padding: 90px 0 90px;
+	text-align: center;
+}
+
+.press h1 {
+	font-size: 1.8em;
+	padding-bottom: 25px;
+	color: #337ab7;
+}
+
+.press .press-logo li img {
+	opacity: 0.3;
+	padding-bottom: 25px;
+}
+
+.press .press-logo li:hover img {
+	opacity: 1;
+}
+
+/* ScreenShots */
+
+.screenshots {
+	background-color: #235178;
+	padding: 90px 0 90px;
+	text-align: center;
+	color: white;
+}
+
+.screenshots img {
+	padding: 20px 0 20px;
+}
+
+.screenshots h1 {
+	font-size: 2em;
+}
+
+/* Reviews */
+
+.reviews {
+	padding: 90px 0 90px;
+	text-align: center;
+  border-bottom: 2px solid #c9c9c9;
+}
+
+.reviews h1 {
+	font-size: 2em;
+	padding-bottom: 25px;
+	color: #337ab7;
+}
+
+.reviews p {
+	padding-bottom: 35px;
+}
+
+.reviews .bigQuote {
+	padding-top: 35px;
+}
+
+
+/* Buy */
+
+.buy {
+	padding: 100px 0 100px;
+	background-color: #1c3f5c;
+	color: white;
+	text-align: center;
+}
+
+.buy h1 {
+	font-size: 2em;
+	padding-bottom: 25px;
+}
+
+.buy button {
+	background: transparent;
+	border: none;
+	padding-top: 25px;
+}
+
+/* Contact */
+
+.contact {
+	padding: 100px 0 100px;
+	text-align: center;
+}
+
+.contact h1 {
+	font-size: 2em;
+	padding-bottom: 25px;
+}
+
+.contact .fa {
+	color: #1c3f5c;
+	padding: 20px 10px 40px;
+}
+
+.contact li {
+	padding-top: 20px;
+}
+
+/* Footer */
+
+.footer {
+	background-color: #242424;
+	color: white;
+	padding: 30px 0 30px;
+}
+
+.footer h1 {
+	font-family: 'Lato', sans-serif;
+	font-size: 1.5em;
+}
+
+.footer p {
+	font-size: 0.9em;
+	color: #f2f2f2;
+}
+
+.footer a {
+	color: #f2f2f2;
+}
+
+/* ------------ AddProductBtn.jsx ----------------------------------------------------------------*/
+#addProductBtn:hover {
+  border-color: #1EBEA5;
+  background-color: white !important;
+}
+#addProductBtn i {
+  color: #1EBEA5;
+}
+/* ------------ StoreSettings.jsx ----------------------------------------------------------------*/
+#storeSettings h4 {
+  color: #284A75;
+}
+/* ------------ StoreFrontContainer.jsx ----------------------------------------------------------------*/
+#topProductsMessage {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1.3em;
+  color: #C0C0C0;
+}
+#spinner {
+  text-align: center;
+}
+/* ------------ loadingSpinner.jsx ----------------------------------------------------------------*/
+#loadingSpinner {
+  margin-top: 30px;
+  color: #284A75;
+}
+
+/* ------------ LoadProductsBtn.jsx ----------------------------------------------------------------*/
+#loadProductsBtn {
+  background-color: #284A75;
+  color: white;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  width: 200px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+/* ------------ Navbar.jsx ----------------------------------------------------------------*/
+
+.navbar-brand {
+    height: auto;
+    width: 175px;
+    padding: 10px 0 5px;
+}
+@media all and (max-width: 768px) {
+    .navbar-brand {
+      margin-left: 1em;
+    }
+}
+
+.navbar a {
+  color: #284A75 !important;
+}
+
+/* ------------ PreAuthNavTabs.jsx --------------------------------------------------------------*/
+#forgotPassword {
+  font-size: 0.6em;
+  color: #DB4437;
+}
+
+/* ------------ PostAuthNavTabs.jsx --------------------------------------------------------------*/
+#postAuthNavTabs i {
+  margin-right: 0.5em;
+}
+
+#postAuthNavTabs i:hover {
+  color: #1EBEA5;
+}
+
+#postAuthNavTabs a:hover{
+  color: #1EBEA5 !important;
+}
+
+#signOutTab {
+  margin-top: 0.7em;
+}
+
+/* The visible user-profile tab and singout button's text will be green during hover */
+#signOutTab:hover {
+  color: #1EBEA5 !important;
+}
+
+#userTab:hover {
+  color: #1EBEA5 !important;
+}
+/* When the navbar is minized, removes user-profile tab's green hover property */
+@media all and (max-width: 768px) {
+    #userTab:hover {
+      color: #284A75 !important;
+    }
+}
+
+
+/* ------------ ClearCartBtn.jsx ----------------------------------------------------------------*/
+
+
+
+#clearCart {
+  text-align: center;
+}
+
+  #clearCart h5 {
+    font-weight: bold;
+  }
+
+  #clearCartBtn {
+    color: #DB4437;
+  }
+
+  #clearCartBtn:hover {
+    cursor: pointer;
+  }
+
+/* ------------ UndoSaleBtn.jsx ----------------------------------------------------------------*/
+#undoSale {
+  text-align: center;
+}
+  #undoSale h5 {
+    font-weight: bold;
+  }
+  #undoSaleBtn {
+    color: #DB4437;
+  }
+
+  #undoSaleBtn:hover {
+    cursor: pointer;
+  }
+
+/* ------------ CartContainer.jsx ----------------------------------------------------------------*/
+#hideReceiptIcon {
+  color: white;
+}
+
+.checkOutBtn {
+  height: 68px !important;
+}
+
+#cartTotalsTable {
+  margin-bottom: 5px;
+}
+
+/* ------------ CartProductRow.jsx ----------------------------------------------------------------*/
+
+.cartRow {
+  font-family: 'Nunito', sans-serif;
+  color: #585858;
+}
+
+.fa-check {
+  color: #449D44;
+}
+
+.rowCategoryIcon {
+  color: #284A75;
+}
+
+/* ------------ DeleteProductBtn.jsx ----------------------------------------------------------------*/
+
+#deleteProductBtn {
+  color: #DB4437;
+}
+
+#deleteProductBtn:hover {
+  cursor: pointer;
+}
+
+/* ------------ Home.jsx ----------------------------------------------------------------*/
+
+.home {
+    padding: 140px 0 220px 0;
+    background: url(../../css/home.jpg) no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    border-bottom: 2px solid #c9c9c9;
+}
+
+.home_content {
+    padding-top: 10%;
+    padding-left: 45%;
+    text-align: center;
+    color: #284A75;
+}
+
+.home_content ul {
+    list-style-type: none;
+}
+
+#homeBacsiLogo {
+    padding-top: 10%;
+}
+
+/* ------------ Navbar.jsx --------------------------------------------------------------*/
+
+.navbar {
+  background-color: white;
+  box-shadow : 0px 0px 5px 0px #eaeaea;
+  font-family: 'Lato', sans-serif;
+}
+
+@media all and (max-width: 768px) {
+    .navbar {
+      font-size: 1.0em;
+    }
+}
+
+/* ------------ PostAuthSideNavbar.jsx --------------------------------------------------------------*/
+
+.side-nav-wrapper {
+    position: absolute;
+    top: 3.6em;
+    left: 0em;
+    width: 4.5em;
+    height: 100%;
+    background-color: #f5f5f5;
+    transition: left 0.3s linear;
+    -moz-transition: left 0.3s linear;
+    -webkit-transition: left 0.3s linear;
+    border-right: 1px solid #284A75;
+    border-bottom: 1px solid #284A75;
+}
+
+  .side-nav-wrapper ul {
+    width: 11em;
+    list-style: none;
+    margin-top: 2em;
+    margin-left: 1em;
+    padding: 0em;
+  }
+
+  .side-nav-wrapper ul li {
+    margin-top: 3em;
+  }
+
+  .side-nav-wrapper ul li a .active {
+    color: #1EBEA5;
+  }
+
+  .side-nav-wrapper ul li a:active,
+  .side-nav-wrapper ul li a:hover {
+    color: #1EBEA5;
+  }
+
+  .homeLabel {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: 0em !important;
+    margin-bottom: 0em !important;
+    margin-left: -0.2em !important;
+  }
+
+  .sellLabel {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: 0em !important;
+    margin-bottom: 0em !important;
+    margin-left: 0.5em !important;
+  }
+
+  .productsLabel {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: 0em !important;
+    margin-bottom: 0em !important;
+    margin-left: -0.6em !important;
+  }
+
+  .reportingLabel {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: 0em !important;
+    margin-bottom: 0em !important;
+    margin-left: -0.8em !important;
+  }
+
+  .salesLabel {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: 0em !important;
+    margin-bottom: 0em !important;
+    margin-left: -1em !important;
+  }
+
+/* ------------ Login.jsx --------------------------------------------------------------*/
+
+.loginNav .navbar-right li {
+    padding: 10px 5px;
+    margin-bottom: 0;
+}
+
+/* ------------ Tour.jsx --------------------------------------------------------------*/
+
+.tour {
+    padding-top: 7%;
+}
+
+.tour ul {
+    text-align: center;
+}
+
+/* ------------ LoginFormContainer.jsx --------------------------------------------------------------*/
+
+#loginEmail {
+  margin-right: 10px;
+  box-shadow: none;
+}
+
+#loginPassword {
+  margin-right: 10px;
+  box-shadow: none;
+}
+/* ------------ Signup.jsx --------------------------------------------------------------*/
+
+#adminCheck {
+  margin-left: 15px;
+}
+
+#errorAlert {
+    margin-bottom: 25px;
+    color: red;
+}
+
+
+.text-help {
+    color: red;
+}
+
+#signupBtn {
+    width: 100%;
+}
+
+#signupPage {
+    margin-top: 100px;
+    color: #284A75;
+}
+
+
+/* ------------ Product-Search.jsx --------------------------------------------------------------*/
+#productSearch i {
+  color: #1EBEA5;
+}
+
+#productSearch input {
+    height: 50px !important;
+    box-shadow: none;
+}
+
+#productSearch input::-webkit-input-placeholder {
+    color: #2C87F3 !important;
+}
+
+#productSearch input:-moz-placeholder { /* Firefox 18- */
+    color: #2C87F3 !important;
+}
+
+#productSearch input::-moz-placeholder {  /* Firefox 19+ */
+    color: #2C87F3 !important;
+}
+
+#productSearch input:-ms-input-placeholder {
+    color: #2C87F3 !important;
+}
+
+/* ------------ Profile.jsx --------------------------------------------------------------*/
+
+#userProfile {
+    margin-top: 100px;
+}
+
+#userProfile h3 {
+    color: #284A75;
+}
+
+/* ------------ ProductFilter.jsx --------------------------------------------------------------*/
+@media(max-width: 768px) {
+    #filterOptions ul {
+        padding-top: 20px;
+        padding-right: 20px;
+    }
+}
+/* ------------ Inventory.jsx --------------------------------------------------------------*/
+
+.inventory {
+    padding-top: 8%;
+}
+
+.inventory #filterOptions ul {
+    text-align: center;
+}
+
+.inventory #filterOptions li {
+    padding-right: 10px;
+    display: inline;
+    font-size: 1.2em;
+    color: #284A75;
+}
+
+.inventory #filterOptions li:hover {
+    cursor: pointer;
+}
+
+@media(max-width: 768px) {
+    .inventory {
+        padding-top: 15%;
+    }
+    .inventory #filterOptions ul {
+        padding-top: 20px;
+    }
+}
+
+.activeGreen {
+    color: #1EBEA5 !important;
+}
+
+.addPadding {
+    padding: 10px 10px 10px 10px;
+}
+
+/* ------------ SingleEmployee.jsx --------------------------------------------------------------*/
+#singleEmployee {
+    border: 2.5px solid #284A75;
+    border-radius: 5px;
+    width: 90px;
+    height: 120px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#employeeName {
+  text-align: center;
+  color: #284A75;
+}
+/* ------------ Single-Product.jsx --------------------------------------------------------------*/
+
+#singleProduct {
+    border: 2.5px solid #284A75;
+    border-radius: 5px;
+    width: 100px;
+    height: 140px;
+    margin-top: 10px;
+}
+
+#pricetag i {
+    padding-left: 25px;
+    color: #1EBEA5;
+}
+
+#pricetag i:hover {
+    cursor: pointer;
+    color: #2C87F3;
+}
+
+#productName {
+  text-align: center;
+  color: #284A75;
+}
+
+#examineIcon i {
+   padding: 5px 0 0 5px;
+   color: #284A75;
+}
+
+#examineIcon i:hover {
+    color: #2C87F3;
+}
+
+/* ------------ ProductProfile.jsx --------------------------------------------------------------*/
+
+#productProfile {
+    margin-top: 150px;
+}
+
+  #productProfile h3 {
+      color: #284A75;
+  }
+
+  #productBackArrow i {
+    color: #57C082;
+  }
+
+  #productBackArrow i:hover {
+    cursor: pointer;
+  }
+
+  #productEditIcon i {
+    float: right;
+    color: #2C87F3;
+  }
+
+  #productEditIcon i:hover {
+    cursor: pointer;
+  }
+
+/* ------------ CartHeader.jsx --------------------------------------------------------------*/
+.checkout .panel-heading h5 {
+    padding-top: 0 !important;
+    text-align: center;
+    color: #284A75;
+}
+
+.checkout .panel-heading p {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.cartHeaderActive i {
+  color: #284A75;
+}
+
+.cartHeaderReceipt i {
+  color: #57C082;
+}
+
+.cartHeaderSale i {
+  color: #284A75;
+}
+
+
+/* ------------ CartContainer.jsx --------------------------------------------------------------*/
+
+.checkout {
+    margin-top: 25px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #284A75;
+    border-radius: 5px;
+}
+
+#checkoutPanel {
+  margin-bottom: 0;
+}
+
+.cartTableContainer td {
+    border-bottom: 1px solid #ddd !important;
+}
+
+#cartDelete {
+    color: #DB4437;
+}
+
+#cartDelete:hover {
+    cursor: pointer;
+}
+
+.checkout .panel-footer {
+    background-color: white !important;
+    border-top: none !important;
+    padding: 0;
+}
+
+.checkout .panel-footer .btn {
+    width: 100%;
+    background-color: #57C082;
+    height: 50px;
+}
+
+.cartTableContainer {
+    height: 285px;
+    overflow-y: scroll;
+}
+
+/* ------------ Receipt.jsx --------------------------------------------------------------*/
+
+.receipt {
+    margin-top: 25px;
+}
+
+.receipt .saleItems td {
+    border-bottom: 1px solid #ddd !important;
+}
+
+.receipt button {
+    height: 50px;
+    width: 100%;
+}
+
+.receipt .panel-heading h5 {
+    color: #284A75;
+}
+
+.receipt .saleItems .fa {
+    color: #449D44;
+}
+
+
+
+/* ------------ AllProducts.jsx --------------------------------------------------------------*/
+#allProductsFooter {
+  text-align: center;
+  padding: 0;
+  background-color: #F8F8F8;
+}
+.allProductsShown {
+    margin-top: 100px;
+}
+
+.allProductsShown .panel-heading {
+  background-color: #F8F8F8;
+  padding: 0;
+}
+
+.allProductsShown .panel-heading h4 {
+    text-align: center;
+    color: #284A75;
+    padding-top: 10px;
+}
+
+.allProductsShown .panel-heading a {
+  margin-right: 160px;
+  margin-top: 10px;
+  float: right;
+}
+.allProductsShown input {
+  box-shadow: none;
+}
+.allProductsShown .input-group-addon {
+  background-color: white;
+}
+.allProductsShown .panel-heading div {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#editProductIcon {
+    color: #2C87F3;
+}
+
+#editProductIcon:hover {
+    cursor: pointer;
+}
+
+
+/* ------------ ManageProductForm.jsx --------------------------------------------------------------*/
+
+#manageProductForm {
+    color: #284A75;
+}
+
+  #manageProductForm h3 {
+      padding-bottom: 25px;
+  }
+
+#manageProductFields input {
+    box-shadow: none;
+}
+
+#saveProductBtn {
+    width: 100%;
+}
+
+#cancelProductBtn {
+    width: 100%;
+    margin: 20px 0 20px;
+}
+
+#manageBackArrow i {
+  color: #57C082;
+}
+
+#manageBackArrow i:hover {
+  cursor: pointer;
+}
+
+@media all and (max-width: 768px) {
+    #manageProductForm {
+      margin-top: 8em;
+    }
+    #manageProductForm form {
+      margin-top: 0px;
+    }
+}
+
+/* ------------ Reporting.jsx --------------------------------------------------------------*/
+
+
+
+/* ------------ RevenueThumbnail.jsx --------------------------------------------------------------*/
+
+.revenueThumbnail {
+    margin-top: 125px;
+}
+
+
+/* ------------ Pricing.jsx --------------------------------------------------------------*/
+
+.pricing {
+    padding-top: 10%
+}
+
+/* ------------ Examples.jsx --------------------------------------------------------------*/
+
+.examples {
+    padding-top: 10%
+}
+
+/* ------------ LoginFormContainer.jsx --------------------------------------------------------------*/
+
+#loginError {
+  text-align: right;
+  padding-top: 5px;
+  padding-bottom: 0px;
+}
+#loginError a {
+  padding-right: 10px;
+}
