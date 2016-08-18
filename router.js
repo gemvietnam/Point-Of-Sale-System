@@ -1020,6 +1020,15 @@ module.exports = function (app) {
 
 	});
 
+	// deletes 1 employee by ID
+	app.delete(`/deleteEmployee/:employeeId`, function(req, res, next) {
+		Employee
+		.findByIdAndRemove(req.params.employeeId, (err, deletedEmployee) => {
+			if (err) { return next(err); }
+			res.status(200).json(deletedEmployee);
+		});
+	});
+
 	app.delete(`/undoSale/:saleId`, function(req, res, next) {
 
 		Sale

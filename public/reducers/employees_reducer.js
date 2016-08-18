@@ -1,7 +1,8 @@
 
 import { FETCH_ALL_EMPLOYEES, FETCH_SINGLE_EMPLOYEE,
 	       LOGOUT_ACTIVE_EMPLOYEE, LOAD_EMPLOYEE_TODAY_REVENUE,
-				 EDIT_EXISTING_EMPLOYEE, LOGIN_EMPLOYEE } from 'Actions';
+				 EDIT_EXISTING_EMPLOYEE, LOGIN_EMPLOYEE,
+			   DELETE_EMPLOYEE } from 'Actions';
 
 const INITIAL_STATE = { employees: [], singleEmployee: {},
 												activeEmployee: {}, employeeTodaysRevenue: 0,
@@ -33,6 +34,9 @@ export default function(state = INITIAL_STATE, action) {
 
 		case EDIT_EXISTING_EMPLOYEE:
 			return { ...state, singleEmployee: action.payload.data };
+
+		case DELETE_EMPLOYEE:
+			return { ...state, singleEmployee: {} };
 
 		default:
 			return state;

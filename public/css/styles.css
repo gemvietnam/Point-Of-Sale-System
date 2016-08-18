@@ -81,6 +81,9 @@ body .modal {
   color: #284A75;
   margin-bottom: 25px;
 }
+#editEmployeeForm #deleteBtn {
+  margin-top: 0.5em;
+}
 #submitEmployeeEdits {
   width: 100%;
   background-color: #284A75;
@@ -90,7 +93,6 @@ body .modal {
   border-color: #1EBEA5;
 }
 #cancelEmployeeEdits {
-  margin-top: 1em;
   width: 100%;
 }
 /* ------------ EmployeeSalesData.jsx --------------------------------------------------------------*/
@@ -632,13 +634,13 @@ body .modal {
   color: #284A75;
 }
 
-/* ------------ DeleteProductBtn.jsx ----------------------------------------------------------------*/
+/* ------------ DeleteBtn.jsx ----------------------------------------------------------------*/
 
-#deleteProductBtn {
+#deleteBtn {
   color: #DB4437;
 }
 
-#deleteProductBtn:hover {
+#deleteBtn:hover {
   cursor: pointer;
 }
 

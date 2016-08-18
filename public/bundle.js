@@ -30545,13 +30545,14 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.CHANGE_CATEGORY_FILTER = exports.SET_CART_TAX = exports.LOAD_MONTHS_TOP_ITEMS = exports.LOAD_WEEKS_TOP_ITEMS = exports.LOAD_TODAYS_TOP_ITEMS = exports.CALCULATE_EVERY_MONTHS_REVENUE = exports.CALCULATE_REVENUE_FOR_DAYS_THIS_WEEK = exports.CALCULATE_TODAYS_REVENUE = exports.DELETE_EXISTING_PRODUCT = exports.EDIT_PRODUCT = exports.CREATE_PRODUCT = exports.FETCH_USER = exports.CLEAR_PRODUCT_IN_CART = exports.DECREMENT_PRODUCT_IN_CART = exports.CLEAR_CART = exports.HIDE_RECEIPT = exports.UNDO_SALE = exports.MAKE_SALE = exports.CALCULATE_CART_TOTALS = exports.ADD_TO_CART = exports.FETCH_SALES_BY_DATE = exports.FETCH_SALES = exports.FETCH_SINGLE_SALE = exports.FETCH_SINGLE = exports.SEARCH_OTC = exports.SEARCH_CONSUMER = exports.SEARCH_PHARMA = exports.SEARCH_HERBALS = exports.SEARCH_ALL_PRODUCTS = exports.FETCH_ALL_PRODUCTS = exports.AUTH_ERROR = exports.UNAUTH_USER = exports.AUTH_USER = exports.LOGIN_USER = exports.LOAD_EMPLOYEE_TODAY_REVENUE = exports.LOGOUT_ACTIVE_EMPLOYEE = exports.LOGIN_EMPLOYEE = exports.FETCH_SINGLE_EMPLOYEE = exports.FETCH_ALL_EMPLOYEES = exports.EDIT_EXISTING_EMPLOYEE = exports.ADD_NEW_EMPLOYEE = exports.RESET_PASSWORD = exports.REQUEST_RESET_TOKEN = exports.CREATE_USER = undefined;
+	exports.CHANGE_CATEGORY_FILTER = exports.SET_CART_TAX = exports.LOAD_MONTHS_TOP_ITEMS = exports.LOAD_WEEKS_TOP_ITEMS = exports.LOAD_TODAYS_TOP_ITEMS = exports.CALCULATE_EVERY_MONTHS_REVENUE = exports.CALCULATE_REVENUE_FOR_DAYS_THIS_WEEK = exports.CALCULATE_TODAYS_REVENUE = exports.DELETE_EXISTING_PRODUCT = exports.EDIT_PRODUCT = exports.CREATE_PRODUCT = exports.FETCH_USER = exports.CLEAR_PRODUCT_IN_CART = exports.DECREMENT_PRODUCT_IN_CART = exports.CLEAR_CART = exports.HIDE_RECEIPT = exports.UNDO_SALE = exports.MAKE_SALE = exports.CALCULATE_CART_TOTALS = exports.ADD_TO_CART = exports.FETCH_SALES_BY_DATE = exports.FETCH_SALES = exports.FETCH_SINGLE_SALE = exports.FETCH_SINGLE = exports.SEARCH_OTC = exports.SEARCH_CONSUMER = exports.SEARCH_PHARMA = exports.SEARCH_HERBALS = exports.SEARCH_ALL_PRODUCTS = exports.FETCH_ALL_PRODUCTS = exports.AUTH_ERROR = exports.UNAUTH_USER = exports.AUTH_USER = exports.LOGIN_USER = exports.DELETE_EMPLOYEE = exports.LOAD_EMPLOYEE_TODAY_REVENUE = exports.LOGOUT_ACTIVE_EMPLOYEE = exports.LOGIN_EMPLOYEE = exports.FETCH_SINGLE_EMPLOYEE = exports.FETCH_ALL_EMPLOYEES = exports.EDIT_EXISTING_EMPLOYEE = exports.ADD_NEW_EMPLOYEE = exports.RESET_PASSWORD = exports.REQUEST_RESET_TOKEN = exports.CREATE_USER = undefined;
 	exports.loginEmployee = loginEmployee;
 	exports.createUser = createUser;
 	exports.resetPassword = resetPassword;
 	exports.forgotPassword = forgotPassword;
 	exports.fetchAllEmployees = fetchAllEmployees;
 	exports.loadEmployeeTodayRevenue = loadEmployeeTodayRevenue;
+	exports.deleteEmployee = deleteEmployee;
 	exports.addNewEmployee = addNewEmployee;
 	exports.editExistingEmployee = editExistingEmployee;
 	exports.fetchSingleEmployee = fetchSingleEmployee;
@@ -30606,6 +30607,7 @@
 	var LOGIN_EMPLOYEE = exports.LOGIN_EMPLOYEE = 'LOGIN_EMPLOYEE';
 	var LOGOUT_ACTIVE_EMPLOYEE = exports.LOGOUT_ACTIVE_EMPLOYEE = 'LOGOUT_ACTIVE_EMPLOYEE';
 	var LOAD_EMPLOYEE_TODAY_REVENUE = exports.LOAD_EMPLOYEE_TODAY_REVENUE = 'LOAD_EMPLOYEE_TODAY_REVENUE';
+	var DELETE_EMPLOYEE = exports.DELETE_EMPLOYEE = 'DELETE_EMPLOYEE';
 	var LOGIN_USER = exports.LOGIN_USER = 'LOGIN_USER';
 	var AUTH_USER = exports.AUTH_USER = 'AUTH_USER';
 	var UNAUTH_USER = exports.UNAUTH_USER = 'UNAUTH_USER';
@@ -30716,6 +30718,18 @@
 
 		return {
 			type: LOAD_EMPLOYEE_TODAY_REVENUE,
+			payload: request
+		};
+	}
+
+	function deleteEmployee(employeeId) {
+
+		var config = { headers: { 'authorization': localStorage.getItem('token') } };
+
+		var request = _axios2.default.delete('/deleteEmployee/' + employeeId, config);
+
+		return {
+			type: DELETE_EMPLOYEE,
 			payload: request
 		};
 	}
@@ -34239,6 +34253,9 @@
 
 			case _Actions.EDIT_EXISTING_EMPLOYEE:
 				return _extends({}, state, { singleEmployee: action.payload.data });
+
+			case _Actions.DELETE_EMPLOYEE:
+				return _extends({}, state, { singleEmployee: {} });
 
 			default:
 				return state;
@@ -75841,7 +75858,15 @@
 
 	var _reactRouter = __webpack_require__(195);
 
+	var _toastr = __webpack_require__(349);
+
+	var _toastr2 = _interopRequireDefault(_toastr);
+
 	var _Actions = __webpack_require__(300);
+
+	var _DeleteBtn = __webpack_require__(508);
+
+	var _DeleteBtn2 = _interopRequireDefault(_DeleteBtn);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -75865,6 +75890,7 @@
 	    _this.handleSubmitEdit = _this.handleSubmitEdit.bind(_this);
 	    _this.handleUserInput = _this.handleUserInput.bind(_this);
 	    _this.handleCancelEdit = _this.handleCancelEdit.bind(_this);
+	    _this.handleDeleteEmployee = _this.handleDeleteEmployee.bind(_this);
 	    return _this;
 	  }
 
@@ -75900,7 +75926,7 @@
 	      var _this3 = this;
 
 	      event.preventDefault();
-
+	      console.log("handle edit");
 	      // convert employee properties from state into JSON
 	      var jsonEmployee = JSON.stringify(this.state.employee);
 
@@ -75914,7 +75940,16 @@
 	    key: 'handleCancelEdit',
 	    value: function handleCancelEdit(event) {
 	      event.preventDefault();
+	      console.log("handle cancel");
 	      _reactRouter.browserHistory.push('/employeeProfile/' + this.props.singleEmployee._id);
+	    }
+	  }, {
+	    key: 'handleDeleteEmployee',
+	    value: function handleDeleteEmployee(employeeId) {
+	      this.props.deleteEmployee(employeeId).then(function () {
+	        _toastr2.default.success("Employee deleted");
+	        _reactRouter.browserHistory.push('/userProfile');
+	      });
 	    }
 	  }, {
 	    key: 'render',
@@ -75992,21 +76027,41 @@
 	                _react2.default.createElement('div', { className: 'text-help' })
 	              ),
 	              _react2.default.createElement(
-	                'button',
-	                {
-	                  id: 'submitEmployeeEdits',
-	                  type: 'submit',
-	                  className: 'btn btn-primary' },
-	                'Submit Edits'
-	              ),
-	              _react2.default.createElement(
-	                'button',
-	                {
-	                  id: 'cancelEmployeeEdits',
-	                  className: 'btn btn-danger',
-	                  onClick: this.handleCancelEdit },
-	                'Cancel'
+	                'div',
+	                { className: 'row' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'col-lg-6 col-md-6' },
+	                  _react2.default.createElement(
+	                    'button',
+	                    {
+	                      id: 'submitEmployeeEdits',
+	                      type: 'submit',
+	                      className: 'btn btn-primary' },
+	                    'Submit Edits'
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'col-lg-6 col-md-6' },
+	                  _react2.default.createElement(
+	                    'button',
+	                    {
+	                      id: 'cancelEmployeeEdits',
+	                      className: 'btn btn-danger',
+	                      onClick: this.handleCancelEdit },
+	                    'Cancel'
+	                  )
+	                )
 	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-lg-12 col-md-12' },
+	              _react2.default.createElement(_DeleteBtn2.default, {
+	                id: 'deleteEmployeeBtn',
+	                handleDelete: this.handleDeleteEmployee,
+	                itemIdToDelete: this.props.singleEmployee._id })
 	            )
 	          )
 	        )
@@ -76021,7 +76076,7 @@
 	  return { singleEmployee: state.employees.singleEmployee };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchSingleEmployee: _Actions.fetchSingleEmployee, editExistingEmployee: _Actions.editExistingEmployee })(EditEmployeeForm);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchSingleEmployee: _Actions.fetchSingleEmployee, editExistingEmployee: _Actions.editExistingEmployee, deleteEmployee: _Actions.deleteEmployee })(EditEmployeeForm);
 
 /***/ },
 /* 475 */
@@ -79419,6 +79474,41 @@
 
 	module.exports = isArray;
 
+
+/***/ },
+/* 508 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var DeleteBtn = function DeleteBtn(_ref) {
+	  var itemIdToDelete = _ref.itemIdToDelete;
+	  var handleDelete = _ref.handleDelete;
+
+	  return _react2.default.createElement("i", { id: "deleteBtn",
+	    onClick: function onClick() {
+	      handleDelete(itemIdToDelete);
+	    },
+	    className: "fa fa-trash-o fa-4x",
+	    "aria-hidden": "true" });
+	};
+
+	DeleteBtn.propTypes = {
+	  itemIdToDelete: _react.PropTypes.string,
+	  handleDelete: _react.PropTypes.func
+	};
+
+	exports.default = DeleteBtn;
 
 /***/ }
 /******/ ]);

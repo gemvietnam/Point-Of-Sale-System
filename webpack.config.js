@@ -75,7 +75,7 @@ module.exports = {
       AddProductBtn: 'public/components/common/AddProductBtn.jsx',
       BackArrowBtn: 'public/components/common/BackArrowBtn.jsx',
       EditProductBtn: 'public/components/common/EditProductBtn.jsx',
-      DeleteProductBtn: 'public/components/common/DeleteProductBtn.jsx',
+      DeleteBtn: 'public/components/common/DeleteBtn.jsx',
       ExpandProductIcon: 'public/components/common/ExpandProductIcon.jsx',
       LoadingSpinner: 'public/components/common/LoadingSpinner.jsx',
       ProductCategoryIcon: 'public/components/common/ProductCategoryIcon.jsx',

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
-import { fetchSingleEmployee, editExistingEmployee } from 'Actions';
+import toastr from 'toastr';
+import { fetchSingleEmployee, editExistingEmployee, deleteEmployee } from 'Actions';
+import DeleteBtn from 'DeleteBtn';
 
 class EditEmployeeForm extends Component {
 
@@ -13,6 +15,7 @@ class EditEmployeeForm extends Component {
     this.handleSubmitEdit = this.handleSubmitEdit.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
     this.handleCancelEdit = this.handleCancelEdit.bind(this);
+    this.handleDeleteEmployee = this.handleDeleteEmployee.bind(this);
   }
   componentWillMount() {
     // fetch employee from ID in url params
@@ -37,7 +40,7 @@ class EditEmployeeForm extends Component {
   }
   handleSubmitEdit(event) {
     event.preventDefault();
-
+      console.log("handle edit");
     // convert employee properties from state into JSON
     const jsonEmployee = JSON.stringify(this.state.employee);
 
@@ -49,7 +52,15 @@ class EditEmployeeForm extends Component {
   }
   handleCancelEdit(event) {
     event.preventDefault();
+    console.log("handle cancel");
     browserHistory.push(`/employeeProfile/${this.props.singleEmployee._id}`);
+  }
+
+  handleDeleteEmployee(employeeId) {
+    this.props.deleteEmployee(employeeId).then(() => {
+      toastr.success("Employee deleted");
+      browserHistory.push('/userProfile');
+    });
   }
   render() {
 
@@ -95,17 +106,27 @@ class EditEmployeeForm extends Component {
                   value={position} />
                 <div className="text-help"></div>
               </fieldset>
-
-              <button
-                id="submitEmployeeEdits"
-                type="submit"
-                className="btn btn-primary">Submit Edits</button>
-              <button
-                id="cancelEmployeeEdits"
-                className="btn btn-danger"
-                onClick={this.handleCancelEdit}>Cancel</button>
-
+              <div className="row">
+                <div className="col-lg-6 col-md-6">
+                  <button
+                    id="submitEmployeeEdits"
+                    type="submit"
+                    className="btn btn-primary">Submit Edits</button>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                  <button
+                    id="cancelEmployeeEdits"
+                    className="btn btn-danger"
+                    onClick={this.handleCancelEdit}>Cancel</button>
+                </div>
+              </div>
             </form>
+            <div className="col-lg-12 col-md-12">
+              <DeleteBtn
+                id="deleteEmployeeBtn"
+                handleDelete={this.handleDeleteEmployee}
+                itemIdToDelete={this.props.singleEmployee._id} />
+            </div>
           </div>
         </div>
       </div>
@@ -117,4 +138,4 @@ function mapStateToProps(state) {
   return { singleEmployee: state.employees.singleEmployee };
 }
 
-export default connect(mapStateToProps, { fetchSingleEmployee, editExistingEmployee })(EditEmployeeForm);
+export default connect(mapStateToProps, { fetchSingleEmployee, editExistingEmployee, deleteEmployee })(EditEmployeeForm);

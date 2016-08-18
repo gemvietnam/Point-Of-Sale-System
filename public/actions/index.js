@@ -10,6 +10,7 @@ export const FETCH_SINGLE_EMPLOYEE = 'FETCH_SINGLE_EMPLOYEE';
 export const LOGIN_EMPLOYEE = 'LOGIN_EMPLOYEE';
 export const LOGOUT_ACTIVE_EMPLOYEE = 'LOGOUT_ACTIVE_EMPLOYEE';
 export const LOAD_EMPLOYEE_TODAY_REVENUE = 'LOAD_EMPLOYEE_TODAY_REVENUE';
+export const DELETE_EMPLOYEE = 'DELETE_EMPLOYEE';
 export const LOGIN_USER = 'LOGIN_USER';
 export const AUTH_USER = 'AUTH_USER';
 export const UNAUTH_USER = 'UNAUTH_USER';
@@ -129,6 +130,19 @@ export function loadEmployeeTodayRevenue(employeeId) {
 		payload: request
 	};
 
+}
+
+export function deleteEmployee(employeeId) {
+
+	const config = {headers: {'authorization' : localStorage.getItem('token')}};
+
+	const request = axios.delete(`/deleteEmployee/${employeeId}`, config);
+
+	return {
+		type: DELETE_EMPLOYEE,
+		payload: request
+	};
+	
 }
 
 
