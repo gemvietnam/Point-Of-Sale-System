@@ -1109,6 +1109,11 @@ body .modal {
     cursor: pointer;
 }
 
+/* ------------- SaleDetailsContainer ------------------------------------ */
+#deleteSaleBtn {
+  margin-top: 1em;
+  width: 100%;
+}
 
 /* ------------ ManageProductForm.jsx --------------------------------------------------------------*/
 
@@ -1116,9 +1121,14 @@ body .modal {
     color: #284A75;
 }
 
-  #manageProductForm h3 {
-      padding-bottom: 25px;
-  }
+#manageProductForm #deleteProductBtn {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+#manageProductForm h3 {
+    padding-bottom: 25px;
+}
 
 #manageProductFields input {
     box-shadow: none;

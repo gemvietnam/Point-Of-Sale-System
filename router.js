@@ -1009,7 +1009,7 @@ module.exports = function (app) {
 	});
 
 
-
+	// deletes 1 product by ID
 	app.delete(`/deleteProduct/:productId`, function(req, res, next) {
 
 		Product

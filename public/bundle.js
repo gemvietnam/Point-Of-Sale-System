@@ -80,7 +80,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _reduxPromise = __webpack_require__(501);
+	var _reduxPromise = __webpack_require__(502);
 
 	var _reduxPromise2 = _interopRequireDefault(_reduxPromise);
 
@@ -34321,35 +34321,35 @@
 
 	var _EditEmployeeForm2 = _interopRequireDefault(_EditEmployeeForm);
 
-	var _RequireAuth = __webpack_require__(475);
+	var _RequireAuth = __webpack_require__(476);
 
 	var _RequireAuth2 = _interopRequireDefault(_RequireAuth);
 
-	var _Signout = __webpack_require__(476);
+	var _Signout = __webpack_require__(477);
 
 	var _Signout2 = _interopRequireDefault(_Signout);
 
-	var _AllProducts = __webpack_require__(477);
+	var _AllProducts = __webpack_require__(478);
 
 	var _AllProducts2 = _interopRequireDefault(_AllProducts);
 
-	var _SalesHistoryContainer = __webpack_require__(479);
+	var _SalesHistoryContainer = __webpack_require__(480);
 
 	var _SalesHistoryContainer2 = _interopRequireDefault(_SalesHistoryContainer);
 
-	var _ReportingContainer = __webpack_require__(486);
+	var _ReportingContainer = __webpack_require__(487);
 
 	var _ReportingContainer2 = _interopRequireDefault(_ReportingContainer);
 
-	var _ManageProductForm = __webpack_require__(498);
+	var _ManageProductForm = __webpack_require__(499);
 
 	var _ManageProductForm2 = _interopRequireDefault(_ManageProductForm);
 
-	var _RequestReset = __webpack_require__(499);
+	var _RequestReset = __webpack_require__(500);
 
 	var _RequestReset2 = _interopRequireDefault(_RequestReset);
 
-	var _ForgotPassword = __webpack_require__(500);
+	var _ForgotPassword = __webpack_require__(501);
 
 	var _ForgotPassword2 = _interopRequireDefault(_ForgotPassword);
 
@@ -60688,7 +60688,20 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'container' },
-	        _react2.default.createElement(_SaleProfile2.default, { sale: this.props.singleSale })
+	        _react2.default.createElement(_SaleProfile2.default, { sale: this.props.singleSale }),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'row' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3' },
+	            _react2.default.createElement(
+	              'button',
+	              { id: 'deleteSaleBtn', className: 'btn btn-danger' },
+	              'Delete Sale'
+	            )
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -75864,7 +75877,7 @@
 
 	var _Actions = __webpack_require__(300);
 
-	var _DeleteBtn = __webpack_require__(508);
+	var _DeleteBtn = __webpack_require__(475);
 
 	var _DeleteBtn2 = _interopRequireDefault(_DeleteBtn);
 
@@ -76082,6 +76095,41 @@
 /* 475 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var DeleteBtn = function DeleteBtn(_ref) {
+	  var itemIdToDelete = _ref.itemIdToDelete;
+	  var handleDelete = _ref.handleDelete;
+
+	  return _react2.default.createElement("i", { id: "deleteBtn",
+	    onClick: function onClick() {
+	      handleDelete(itemIdToDelete);
+	    },
+	    className: "fa fa-trash-o fa-4x",
+	    "aria-hidden": "true" });
+	};
+
+	DeleteBtn.propTypes = {
+	  itemIdToDelete: _react.PropTypes.string,
+	  handleDelete: _react.PropTypes.func
+	};
+
+	exports.default = DeleteBtn;
+
+/***/ },
+/* 476 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -76159,7 +76207,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /***/ },
-/* 476 */
+/* 477 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76250,7 +76298,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, actions)(Signout);
 
 /***/ },
-/* 477 */
+/* 478 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76281,7 +76329,7 @@
 
 	var _ProductSearch2 = _interopRequireDefault(_ProductSearch);
 
-	var _AddProductBtn = __webpack_require__(478);
+	var _AddProductBtn = __webpack_require__(479);
 
 	var _AddProductBtn2 = _interopRequireDefault(_AddProductBtn);
 
@@ -76522,7 +76570,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, actions)(AllProducts);
 
 /***/ },
-/* 478 */
+/* 479 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76550,7 +76598,7 @@
 	exports.default = AddProductBtn;
 
 /***/ },
-/* 479 */
+/* 480 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76569,11 +76617,11 @@
 
 	var _Actions = __webpack_require__(300);
 
-	var _SalesHistoryTable = __webpack_require__(480);
+	var _SalesHistoryTable = __webpack_require__(481);
 
 	var _SalesHistoryTable2 = _interopRequireDefault(_SalesHistoryTable);
 
-	var _SalesSearchForm = __webpack_require__(483);
+	var _SalesSearchForm = __webpack_require__(484);
 
 	var _SalesSearchForm2 = _interopRequireDefault(_SalesSearchForm);
 
@@ -76695,7 +76743,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUser: _Actions.fetchUser, fetchSales: _Actions.fetchSales })(SalesHistoryContainer);
 
 /***/ },
-/* 480 */
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76708,7 +76756,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _SalesHistoryRow = __webpack_require__(481);
+	var _SalesHistoryRow = __webpack_require__(482);
 
 	var _SalesHistoryRow2 = _interopRequireDefault(_SalesHistoryRow);
 
@@ -76777,7 +76825,7 @@
 	exports.default = SalesHistoryTable;
 
 /***/ },
-/* 481 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76790,7 +76838,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ExpandProductIcon = __webpack_require__(482);
+	var _ExpandProductIcon = __webpack_require__(483);
 
 	var _ExpandProductIcon2 = _interopRequireDefault(_ExpandProductIcon);
 
@@ -76842,7 +76890,7 @@
 	exports.default = SalesHistoryRow;
 
 /***/ },
-/* 482 */
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76878,7 +76926,7 @@
 	exports.default = ExpandProductIcon;
 
 /***/ },
-/* 483 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76897,11 +76945,11 @@
 
 	var _Actions = __webpack_require__(300);
 
-	var _ComboBox = __webpack_require__(484);
+	var _ComboBox = __webpack_require__(485);
 
 	var _ComboBox2 = _interopRequireDefault(_ComboBox);
 
-	var _config = __webpack_require__(485);
+	var _config = __webpack_require__(486);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -77066,7 +77114,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchSalesByDate: _Actions.fetchSalesByDate, fetchSales: _Actions.fetchSales })(SalesSearchForm);
 
 /***/ },
-/* 484 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77106,7 +77154,7 @@
 	exports.default = ComboBox;
 
 /***/ },
-/* 485 */
+/* 486 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -77188,7 +77236,7 @@
 	var comboDays = exports.comboDays = [{ name: 1 }, { name: 2 }, { name: 3 }, { name: 4 }, { name: 5 }, { name: 6 }, { name: 7 }, { name: 8 }, { name: 9 }, { name: 10 }, { name: 11 }, { name: 12 }, { name: 13 }, { name: 14 }, { name: 15 }, { name: 16 }, { name: 17 }, { name: 18 }, { name: 19 }, { name: 20 }, { name: 21 }, { name: 22 }, { name: 23 }, { name: 24 }, { name: 25 }, { name: 26 }, { name: 27 }, { name: 28 }, { name: 29 }, { name: 30 }, { name: 31 }];
 
 /***/ },
-/* 486 */
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77207,35 +77255,35 @@
 
 	var _Actions = __webpack_require__(300);
 
-	var _RevenueThumbnail = __webpack_require__(487);
+	var _RevenueThumbnail = __webpack_require__(488);
 
 	var _RevenueThumbnail2 = _interopRequireDefault(_RevenueThumbnail);
 
-	var _TopItemsPanel = __webpack_require__(488);
+	var _TopItemsPanel = __webpack_require__(489);
 
 	var _TopItemsPanel2 = _interopRequireDefault(_TopItemsPanel);
 
-	var _TodaysTopItemsTable = __webpack_require__(489);
+	var _TodaysTopItemsTable = __webpack_require__(490);
 
 	var _TodaysTopItemsTable2 = _interopRequireDefault(_TodaysTopItemsTable);
 
-	var _WeeksTopItemsTable = __webpack_require__(491);
+	var _WeeksTopItemsTable = __webpack_require__(492);
 
 	var _WeeksTopItemsTable2 = _interopRequireDefault(_WeeksTopItemsTable);
 
-	var _MonthsTopItemsTable = __webpack_require__(493);
+	var _MonthsTopItemsTable = __webpack_require__(494);
 
 	var _MonthsTopItemsTable2 = _interopRequireDefault(_MonthsTopItemsTable);
 
-	var _TodaysRevenueChart = __webpack_require__(495);
+	var _TodaysRevenueChart = __webpack_require__(496);
 
 	var _TodaysRevenueChart2 = _interopRequireDefault(_TodaysRevenueChart);
 
-	var _ThisWeeksRevenueChart = __webpack_require__(496);
+	var _ThisWeeksRevenueChart = __webpack_require__(497);
 
 	var _ThisWeeksRevenueChart2 = _interopRequireDefault(_ThisWeeksRevenueChart);
 
-	var _AllMonthsRevenueChart = __webpack_require__(497);
+	var _AllMonthsRevenueChart = __webpack_require__(498);
 
 	var _AllMonthsRevenueChart2 = _interopRequireDefault(_AllMonthsRevenueChart);
 
@@ -77364,7 +77412,7 @@
 		calculateEveryMonthsRevenue: _Actions.calculateEveryMonthsRevenue })(ReportingContainer);
 
 /***/ },
-/* 487 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77415,7 +77463,7 @@
 	exports.default = RevenueThumbnail;
 
 /***/ },
-/* 488 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77455,7 +77503,7 @@
 	exports.default = TopItemsPanel;
 
 /***/ },
-/* 489 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77468,7 +77516,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _TodaysTopItemsRow = __webpack_require__(490);
+	var _TodaysTopItemsRow = __webpack_require__(491);
 
 	var _TodaysTopItemsRow2 = _interopRequireDefault(_TodaysTopItemsRow);
 
@@ -77525,7 +77573,7 @@
 	exports.default = TodaysTopItemsTable;
 
 /***/ },
-/* 490 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77578,7 +77626,7 @@
 	exports.default = TodaysTopItemsRow;
 
 /***/ },
-/* 491 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77591,7 +77639,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _WeeksTopItemsRow = __webpack_require__(492);
+	var _WeeksTopItemsRow = __webpack_require__(493);
 
 	var _WeeksTopItemsRow2 = _interopRequireDefault(_WeeksTopItemsRow);
 
@@ -77648,7 +77696,7 @@
 	exports.default = WeeksTopItemsTable;
 
 /***/ },
-/* 492 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77701,7 +77749,7 @@
 	exports.default = WeeksTopItemsRow;
 
 /***/ },
-/* 493 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77714,7 +77762,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MonthsTopItemsRow = __webpack_require__(494);
+	var _MonthsTopItemsRow = __webpack_require__(495);
 
 	var _MonthsTopItemsRow2 = _interopRequireDefault(_MonthsTopItemsRow);
 
@@ -77771,7 +77819,7 @@
 	exports.default = MonthsTopItemsTable;
 
 /***/ },
-/* 494 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77824,7 +77872,7 @@
 	exports.default = MonthsTopItemsRow;
 
 /***/ },
-/* 495 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77927,7 +77975,7 @@
 	exports.default = TodaysRevenueChart;
 
 /***/ },
-/* 496 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78031,7 +78079,7 @@
 	exports.default = ThisWeeksRevenueChart;
 
 /***/ },
-/* 497 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78124,7 +78172,7 @@
 	exports.default = AllMonthsRevenueChart;
 
 /***/ },
-/* 498 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78143,17 +78191,25 @@
 
 	var _reactRouter = __webpack_require__(195);
 
+	var _toastr = __webpack_require__(349);
+
+	var _toastr2 = _interopRequireDefault(_toastr);
+
 	var _Actions = __webpack_require__(300);
 
 	var _BackArrowBtn = __webpack_require__(358);
 
 	var _BackArrowBtn2 = _interopRequireDefault(_BackArrowBtn);
 
+	var _DeleteBtn = __webpack_require__(475);
+
+	var _DeleteBtn2 = _interopRequireDefault(_DeleteBtn);
+
 	var _lodash = __webpack_require__(355);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _config = __webpack_require__(485);
+	var _config = __webpack_require__(486);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -78181,33 +78237,47 @@
 			_this.renderField = _this.renderField.bind(_this);
 			_this.handleFieldEdit = _this.handleFieldEdit.bind(_this);
 			_this.handleSubmit = _this.handleSubmit.bind(_this);
+			_this.handleDeleteProduct = _this.handleDeleteProduct.bind(_this);
 			return _this;
 		}
 
 		_createClass(ManageProductForm, [{
 			key: 'componentWillMount',
 			value: function componentWillMount() {
-				var _this2 = this;
-
 				if (this.props.params.productId) {
 
 					this.setState({ isEditForm: true });
-					this.props.fetchSingleProduct(this.props.params.productId).then(function (result) {
 
-						_this2.setState({
-							product: Object.assign({}, result.payload.data)
-						});
-					});
+					this.props.fetchSingleProduct(this.props.params.productId);
 				} else {
+
 					this.setState({
 						isNewForm: true
 					});
 				}
 			}
 		}, {
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+
+				this.setState({
+					product: Object.assign({}, this.props.singleProduct)
+				});
+			}
+		}, {
+			key: 'handleDeleteProduct',
+			value: function handleDeleteProduct(productId) {
+				this.props.deleteExistingProduct(productId).then(function () {
+					_reactRouter.browserHistory.push('/allProducts');
+					setTimeout(function () {
+						_toastr2.default.success("Product deleted");
+					}, 2000);
+				});
+			}
+		}, {
 			key: 'validate',
 			value: function validate(values) {
-				var _this3 = this;
+				var _this2 = this;
 
 				//Check for errors and assign them to errors object in local state
 
@@ -78230,11 +78300,10 @@
 							errors['tax'] = 'Please enter a number';
 						}
 					});
-					console.log("Errors", errors);
-					_this3.setState({
+					_this2.setState({
 						errors: errors
 					}, function () {
-						resolve(_this3.state);
+						resolve(_this2.state);
 					});
 				});
 			}
@@ -78249,28 +78318,28 @@
 		}, {
 			key: 'handleSubmit',
 			value: function handleSubmit(event) {
-				var _this4 = this;
+				var _this3 = this;
 
 				event.preventDefault();
 
 				this.validate(this.state.product).then(function () {
-					if (_lodash2.default.isEmpty(_this4.state.errors)) {
+					if (_lodash2.default.isEmpty(_this3.state.errors)) {
 
-						var propsToSend = _this4.state.product;
-						propsToSend.productId = _this4.state.product._id; //need to fix this, probably check router.js
+						var propsToSend = _this3.state.product;
+						propsToSend.productId = _this3.state.product._id; //need to fix this, probably check router.js
 
-						if (_this4.state.isEditForm) {
+						if (_this3.state.isEditForm) {
 							var jsonProps = JSON.stringify(propsToSend);
-							_this4.props.editExistingProduct(jsonProps).then(function () {
-								_this4.context.router.push('/inventory');
+							_this3.props.editExistingProduct(jsonProps).then(function () {
+								_this3.context.router.push('/inventory');
 							});
 						} else {
 
-							propsToSend.owner = _this4.props.activeUser._id; //Adds owner property to this props based on active user from redux state
+							propsToSend.owner = _this3.props.activeUser._id; //Adds owner property to this props based on active user from redux state
 							var _jsonProps = JSON.stringify(propsToSend); //converts properties into json before sending them to the server
-							_this4.props.createProduct(_jsonProps).then(function () {
+							_this3.props.createProduct(_jsonProps).then(function () {
 								//call action creator to submit the new product
-								_this4.context.router.push('/inventory'); //upon success return to the inventory
+								_this3.context.router.push('/inventory'); //upon success return to the inventory
 							});
 						}
 					} else {
@@ -78352,7 +78421,15 @@
 									'Cancel'
 								)
 							)
-						)
+						),
+						this.state.isEditForm ? _react2.default.createElement(
+							'div',
+							{ className: 'col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4 text-center' },
+							_react2.default.createElement(_DeleteBtn2.default, {
+								id: 'deleteProductBtn',
+								handleDelete: this.handleDeleteProduct,
+								itemIdToDelete: this.props.singleProduct._id })
+						) : _react2.default.createElement('noscript', null)
 					)
 				);
 			}
@@ -78370,10 +78447,10 @@
 		return { singleProduct: state.products.singleProduct, activeUser: state.user.activeUser };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { createProduct: _Actions.createProduct, fetchSingleProduct: _Actions.fetchSingleProduct, editExistingProduct: _Actions.editExistingProduct })(ManageProductForm);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { createProduct: _Actions.createProduct, fetchSingleProduct: _Actions.fetchSingleProduct, editExistingProduct: _Actions.editExistingProduct, deleteExistingProduct: _Actions.deleteExistingProduct })(ManageProductForm);
 
 /***/ },
-/* 499 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78521,7 +78598,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { forgotPassword: _Actions.forgotPassword })(RequestReset);
 
 /***/ },
-/* 500 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78672,7 +78749,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { resetPassword: _Actions.resetPassword })(ForgotPassword);
 
 /***/ },
-/* 501 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78683,7 +78760,7 @@
 
 	exports['default'] = promiseMiddleware;
 
-	var _fluxStandardAction = __webpack_require__(502);
+	var _fluxStandardAction = __webpack_require__(503);
 
 	function isPromise(val) {
 	  return val && typeof val.then === 'function';
@@ -78710,7 +78787,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 502 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78721,7 +78798,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _lodashIsplainobject = __webpack_require__(503);
+	var _lodashIsplainobject = __webpack_require__(504);
 
 	var _lodashIsplainobject2 = _interopRequireDefault(_lodashIsplainobject);
 
@@ -78740,7 +78817,7 @@
 	}
 
 /***/ },
-/* 503 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -78751,9 +78828,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseFor = __webpack_require__(504),
-	    isArguments = __webpack_require__(505),
-	    keysIn = __webpack_require__(506);
+	var baseFor = __webpack_require__(505),
+	    isArguments = __webpack_require__(506),
+	    keysIn = __webpack_require__(507);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -78849,7 +78926,7 @@
 
 
 /***/ },
-/* 504 */
+/* 505 */
 /***/ function(module, exports) {
 
 	/**
@@ -78903,7 +78980,7 @@
 
 
 /***/ },
-/* 505 */
+/* 506 */
 /***/ function(module, exports) {
 
 	/**
@@ -79152,7 +79229,7 @@
 
 
 /***/ },
-/* 506 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -79163,8 +79240,8 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArguments = __webpack_require__(505),
-	    isArray = __webpack_require__(507);
+	var isArguments = __webpack_require__(506),
+	    isArray = __webpack_require__(508);
 
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -79290,7 +79367,7 @@
 
 
 /***/ },
-/* 507 */
+/* 508 */
 /***/ function(module, exports) {
 
 	/**
@@ -79474,41 +79551,6 @@
 
 	module.exports = isArray;
 
-
-/***/ },
-/* 508 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var DeleteBtn = function DeleteBtn(_ref) {
-	  var itemIdToDelete = _ref.itemIdToDelete;
-	  var handleDelete = _ref.handleDelete;
-
-	  return _react2.default.createElement("i", { id: "deleteBtn",
-	    onClick: function onClick() {
-	      handleDelete(itemIdToDelete);
-	    },
-	    className: "fa fa-trash-o fa-4x",
-	    "aria-hidden": "true" });
-	};
-
-	DeleteBtn.propTypes = {
-	  itemIdToDelete: _react.PropTypes.string,
-	  handleDelete: _react.PropTypes.func
-	};
-
-	exports.default = DeleteBtn;
 
 /***/ }
 /******/ ]);

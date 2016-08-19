@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import { createProduct, fetchSingleProduct, editExistingProduct } from 'Actions';
+import { browserHistory, Link } from 'react-router';
+import toastr from 'toastr';
+import { createProduct, fetchSingleProduct, editExistingProduct, deleteExistingProduct } from 'Actions';
 import BackArrowBtn from 'BackArrowBtn';
+import DeleteBtn from 'DeleteBtn';
 import _ from 'lodash';
 import { FIELDS } from '../config/config.js';
 
@@ -25,24 +27,35 @@ class ManageProductForm extends Component {
 		this.renderField = this.renderField.bind(this);
 		this.handleFieldEdit = this.handleFieldEdit.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleDeleteProduct = this.handleDeleteProduct.bind(this);
   }
 	componentWillMount() {
 		if (this.props.params.productId) {
 
 			this.setState({ isEditForm: true });
-  		this.props.fetchSingleProduct(this.props.params.productId).then(result => {
 
-        this.setState({
-          product: Object.assign({}, result.payload.data)
-        });
-
-      });
+  		this.props.fetchSingleProduct(this.props.params.productId);
 
 		} else {
+
       this.setState({
         isNewForm: true
       });
 		}
+	}
+	componentDidMount() {
+
+		this.setState({
+			product: Object.assign({}, this.props.singleProduct)
+		});
+
+	}
+
+	handleDeleteProduct(productId) {
+		this.props.deleteExistingProduct(productId).then(() => {
+			browserHistory.push('/allProducts');
+			setTimeout(function(){ toastr.success("Product deleted"); }, 2000);
+		});
 	}
 
 	validate(values) {
@@ -68,7 +81,6 @@ class ManageProductForm extends Component {
 					errors['tax'] = 'Please enter a number';
 				}
 			});
-      console.log("Errors", errors);
 			this.setState({
 				errors
 			}, () => {
@@ -166,6 +178,15 @@ class ManageProductForm extends Component {
 								<Link to="/allProducts" id="cancelProductBtn" className="btn btn-danger">Cancel</Link>
 							</div>
 				    </form>
+						{this.state.isEditForm ?
+							<div className="col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4 text-center">
+	              <DeleteBtn
+	                id="deleteProductBtn"
+	                handleDelete={this.handleDeleteProduct}
+	                itemIdToDelete={this.props.singleProduct._id} />
+							</div> :
+							<noscript />
+						}
 
 					</div>
 				</div>
@@ -177,4 +198,4 @@ function mapStateToProps(state) {
 	return { singleProduct: state.products.singleProduct, activeUser: state.user.activeUser };
 }
 
-export default connect(mapStateToProps, { createProduct, fetchSingleProduct, editExistingProduct })(ManageProductForm);
+export default connect(mapStateToProps, { createProduct, fetchSingleProduct, editExistingProduct, deleteExistingProduct })(ManageProductForm);

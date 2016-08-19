@@ -15,6 +15,11 @@ class SaleDetailsContainer extends Component {
     return (
       <div className="container">
         <SaleProfile sale={this.props.singleSale} />
+        <div className="row">
+          <div className="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">
+            <button id="deleteSaleBtn" className="btn btn-danger">Delete Sale</button>
+          </div>
+        </div>
       </div>
     );
   }
