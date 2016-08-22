@@ -16,7 +16,7 @@ const Product = require('./models/product');
 const Sale = require('./models/sale');
 
 // require passport.js services
-const Authentication = require('./controllers/authentication');
+const Authentication = require('./authentication/authentication');
 const passportService = require('./services/passport');
 const passport = require('passport');
 
