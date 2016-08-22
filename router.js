@@ -1029,6 +1029,7 @@ module.exports = function (app) {
 		});
 	});
 
+	// deletes 1 Sale by ID
 	app.delete(`/undoSale/:saleId`, function(req, res, next) {
 
 		Sale

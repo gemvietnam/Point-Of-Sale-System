@@ -34044,7 +34044,7 @@
 				return _extends({}, state, { todaysSales: action.payload.data.todaysSales });
 
 			case _index.UNDO_SALE:
-				return _extends({}, state, { lastSale: {} });
+				return _extends({}, state, { lastSale: {}, singleSale: {} });
 
 			default:
 				return state;
@@ -60651,6 +60651,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(195);
+
 	var _reactRedux = __webpack_require__(169);
 
 	var _Actions = __webpack_require__(300);
@@ -60658,6 +60660,10 @@
 	var _SaleProfile = __webpack_require__(361);
 
 	var _SaleProfile2 = _interopRequireDefault(_SaleProfile);
+
+	var _toastr = __webpack_require__(349);
+
+	var _toastr2 = _interopRequireDefault(_toastr);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -60673,7 +60679,10 @@
 	  function SaleDetailsContainer(props) {
 	    _classCallCheck(this, SaleDetailsContainer);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SaleDetailsContainer).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SaleDetailsContainer).call(this, props));
+
+	    _this.handleDeleteSale = _this.handleDeleteSale.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(SaleDetailsContainer, [{
@@ -60681,6 +60690,14 @@
 	    value: function componentWillMount() {
 	      // fetches a single sale from the db based on sale id located in url params
 	      this.props.fetchSingleSale(this.props.params.id);
+	    }
+	  }, {
+	    key: 'handleDeleteSale',
+	    value: function handleDeleteSale() {
+	      this.props.undoSale(this.props.singleSale._id).then(function () {
+	        _reactRouter.browserHistory.push('/salesHistory');
+	        _toastr2.default.success("Sale deleted");
+	      });
 	    }
 	  }, {
 	    key: 'render',
@@ -60697,7 +60714,10 @@
 	            { className: 'col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3' },
 	            _react2.default.createElement(
 	              'button',
-	              { id: 'deleteSaleBtn', className: 'btn btn-danger' },
+	              {
+	                id: 'deleteSaleBtn',
+	                className: 'btn btn-danger',
+	                onClick: this.handleDeleteSale },
 	              'Delete Sale'
 	            )
 	          )
@@ -60713,7 +60733,7 @@
 	  return { singleSale: state.sale.singleSale };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchSingleSale: _Actions.fetchSingleSale })(SaleDetailsContainer);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchSingleSale: _Actions.fetchSingleSale, undoSale: _Actions.undoSale })(SaleDetailsContainer);
 
 /***/ },
 /* 361 */
@@ -75669,7 +75689,7 @@
 	          _this2.props.authError("Incorrect email or password");
 	        } else {
 	          // success, push back to user profile
-	          _reactRouter.browserHistory.push('/userProfile/' + response.payload.data.administrator);
+	          _reactRouter.browserHistory.push('/userProfile');
 	        }
 	      });
 	    }
@@ -78244,13 +78264,14 @@
 		_createClass(ManageProductForm, [{
 			key: 'componentWillMount',
 			value: function componentWillMount() {
+				// check to see if there is a url param for product id
 				if (this.props.params.productId) {
-
+					// there is a param, so this is an edit product form
 					this.setState({ isEditForm: true });
-
+					// fetch the product to edit based on the url param (product's id)
 					this.props.fetchSingleProduct(this.props.params.productId);
 				} else {
-
+					// no url param, so this is a form to create a new product
 					this.setState({
 						isNewForm: true
 					});
@@ -78259,9 +78280,17 @@
 		}, {
 			key: 'componentDidMount',
 			value: function componentDidMount() {
-
+				// set singleProduct to the product to edit in local state
 				this.setState({
 					product: Object.assign({}, this.props.singleProduct)
+				});
+			}
+		}, {
+			key: 'componentWillReceiveProps',
+			value: function componentWillReceiveProps(nextProps) {
+				// set singleProduct to the product to edit in local state
+				this.setState({
+					product: Object.assign({}, nextProps.singleProduct)
 				});
 			}
 		}, {
@@ -78322,29 +78351,41 @@
 
 				event.preventDefault();
 
+				// before submitting edits or new product information
+				// run the validate functon on the product object in local state
 				this.validate(this.state.product).then(function () {
+					// check to see if the errors object in local state is populated
 					if (_lodash2.default.isEmpty(_this3.state.errors)) {
 
 						var propsToSend = _this3.state.product;
-						propsToSend.productId = _this3.state.product._id; //need to fix this, probably check router.js
+						propsToSend.productId = _this3.state.product._id;
 
+						// check to see if this a edit request or creating a new product
 						if (_this3.state.isEditForm) {
+							// this will edit an existing product
 							var jsonProps = JSON.stringify(propsToSend);
+							// call action creator to submit edits
 							_this3.props.editExistingProduct(jsonProps).then(function () {
+								// upon success return to the inventory
 								_this3.context.router.push('/inventory');
 							});
 						} else {
+							// this else block will create a new product
 
-							propsToSend.owner = _this3.props.activeUser._id; //Adds owner property to this props based on active user from redux state
-							var _jsonProps = JSON.stringify(propsToSend); //converts properties into json before sending them to the server
+							// Adds owner property to props object based on active user from redux
+							propsToSend.owner = _this3.props.activeUser._id;
+							// converts properties into json before sending them to the server
+							var _jsonProps = JSON.stringify(propsToSend);
+							// call action creator to submit the new product
 							_this3.props.createProduct(_jsonProps).then(function () {
-								//call action creator to submit the new product
-								_this3.context.router.push('/inventory'); //upon success return to the inventory
+								// upon success return to the inventory
+								_this3.context.router.push('/inventory');
 							});
 						}
 					} else {
-							return;
-						}
+						// there are errors so return before sending data
+						return;
+					}
 				});
 			}
 		}, {
@@ -78444,10 +78485,12 @@
 
 
 	function mapStateToProps(state) {
-		return { singleProduct: state.products.singleProduct, activeUser: state.user.activeUser };
+		return { singleProduct: state.products.singleProduct,
+			activeUser: state.user.activeUser };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { createProduct: _Actions.createProduct, fetchSingleProduct: _Actions.fetchSingleProduct, editExistingProduct: _Actions.editExistingProduct, deleteExistingProduct: _Actions.deleteExistingProduct })(ManageProductForm);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { createProduct: _Actions.createProduct, fetchSingleProduct: _Actions.fetchSingleProduct,
+		editExistingProduct: _Actions.editExistingProduct, deleteExistingProduct: _Actions.deleteExistingProduct })(ManageProductForm);
 
 /***/ },
 /* 500 */

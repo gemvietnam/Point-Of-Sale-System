@@ -35,7 +35,7 @@ export default function(state = INITIAL_STATE, action) {
 			return { ...state, todaysSales: action.payload.data.todaysSales };
 
 		case UNDO_SALE:
-			return { ...state, lastSale: {} };
+			return { ...state, lastSale: {}, singleSale: {} };
 
 		default:
 			return state;

@@ -30,25 +30,33 @@ class ManageProductForm extends Component {
 		this.handleDeleteProduct = this.handleDeleteProduct.bind(this);
   }
 	componentWillMount() {
+		// check to see if there is a url param for product id
 		if (this.props.params.productId) {
-
+			// there is a param, so this is an edit product form
 			this.setState({ isEditForm: true });
-
+			// fetch the product to edit based on the url param (product's id)
   		this.props.fetchSingleProduct(this.props.params.productId);
 
 		} else {
-
+			// no url param, so this is a form to create a new product
       this.setState({
         isNewForm: true
       });
 		}
 	}
-	componentDidMount() {
 
+	componentDidMount() {
+		// set singleProduct to the product to edit in local state
 		this.setState({
 			product: Object.assign({}, this.props.singleProduct)
 		});
+	}
 
+	componentWillReceiveProps(nextProps) {
+		// set singleProduct to the product to edit in local state
+		this.setState({
+			product: Object.assign({}, nextProps.singleProduct)
+		});
 	}
 
 	handleDeleteProduct(productId) {
@@ -104,31 +112,43 @@ class ManageProductForm extends Component {
 
 		event.preventDefault();
 
+		// before submitting edits or new product information
+		// run the validate functon on the product object in local state
 		this.validate(this.state.product).then(() => {
+			// check to see if the errors object in local state is populated
 			if (_.isEmpty(this.state.errors)) {
 
 				let propsToSend = this.state.product;
-				propsToSend.productId = this.state.product._id; //need to fix this, probably check router.js
+				propsToSend.productId = this.state.product._id;
 
-
+				// check to see if this a edit request or creating a new product
         if (this.state.isEditForm) {
+					// this will edit an existing product
           let jsonProps = JSON.stringify(propsToSend);
+					// call action creator to submit edits
           this.props.editExistingProduct(jsonProps).then(() => {
+						// upon success return to the inventory
   					this.context.router.push('/inventory');
   				});
 
         } else {
+					// this else block will create a new product
 
-          propsToSend.owner = this.props.activeUser._id; //Adds owner property to this props based on active user from redux state
-      		let jsonProps = JSON.stringify(propsToSend); //converts properties into json before sending them to the server
-      		this.props.createProduct(jsonProps).then(() => { //call action creator to submit the new product
-      			this.context.router.push('/inventory'); //upon success return to the inventory
+					// Adds owner property to props object based on active user from redux
+          propsToSend.owner = this.props.activeUser._id;
+					// converts properties into json before sending them to the server
+      		let jsonProps = JSON.stringify(propsToSend);
+					// call action creator to submit the new product
+      		this.props.createProduct(jsonProps).then(() => {
+						// upon success return to the inventory
+      			this.context.router.push('/inventory');
       		});
 
         }
 
 
 			} else {
+				// there are errors so return before sending data
 				return;
 			}
 		});
@@ -178,6 +198,7 @@ class ManageProductForm extends Component {
 								<Link to="/allProducts" id="cancelProductBtn" className="btn btn-danger">Cancel</Link>
 							</div>
 				    </form>
+						{/* If this is an edit product form, return a delete product button*/}
 						{this.state.isEditForm ?
 							<div className="col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4 text-center">
 	              <DeleteBtn
@@ -195,7 +216,9 @@ class ManageProductForm extends Component {
 }
 
 function mapStateToProps(state) {
-	return { singleProduct: state.products.singleProduct, activeUser: state.user.activeUser };
+	return { singleProduct: state.products.singleProduct,
+					 activeUser: state.user.activeUser };
 }
 
-export default connect(mapStateToProps, { createProduct, fetchSingleProduct, editExistingProduct, deleteExistingProduct })(ManageProductForm);
+export default connect(mapStateToProps, { createProduct, fetchSingleProduct,
+																					editExistingProduct, deleteExistingProduct })(ManageProductForm);

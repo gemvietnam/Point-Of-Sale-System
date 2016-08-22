@@ -44,9 +44,9 @@ class EmployeeProfileContainer extends Component {
         this.props.authError("Incorrect email or password");
       } else {
         // success, push back to user profile
-        browserHistory.push(`/userProfile/${response.payload.data.administrator}`);
+        browserHistory.push(`/userProfile`);
       }
-    })
+    });
   }
 
   render() {
