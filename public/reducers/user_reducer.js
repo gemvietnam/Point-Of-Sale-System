@@ -1,6 +1,6 @@
 import { CREATE_USER, LOGIN_USER, AUTH_ERROR,
 				 AUTH_USER, FETCH_USER, UNAUTH_USER,
-			   RESET_PASSWORD } from '../actions/index';
+			   RESET_PASSWORD, LOGIN_EMPLOYEE } from '../actions/index';
 
 
 const INITIAL_STATE = { activeUser: null, authenticated: false, errorMessage: ""};
@@ -32,6 +32,9 @@ export default function(state = INITIAL_STATE, action) {
 		case RESET_PASSWORD:
 			return { ...state, errorMessage: '' };
 
+		case LOGIN_EMPLOYEE:
+			return { ...state, errorMessage: '' };
+			
 		default:
 			return state;
 

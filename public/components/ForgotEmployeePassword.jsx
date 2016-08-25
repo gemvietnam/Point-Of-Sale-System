@@ -33,7 +33,7 @@ class ForgotPassword extends Component {
     if (newPassword === confirmPassword) {
       resetEmployeePassword(props, token)
         .then(() => {
-          toastr.success("Your password was successfully changed!");
+          toastr.success("Employee's password was successfully changed!");
           browserHistory.push('/userProfile');
         })
         .catch((err) => {

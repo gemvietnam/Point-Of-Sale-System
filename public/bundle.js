@@ -32366,6 +32366,9 @@
 			case _index.RESET_PASSWORD:
 				return _extends({}, state, { errorMessage: '' });
 
+			case _index.LOGIN_EMPLOYEE:
+				return _extends({}, state, { errorMessage: '' });
+
 			default:
 				return state;
 
@@ -78962,7 +78965,7 @@
 	      // check to see if the two passwords match
 	      if (newPassword === confirmPassword) {
 	        resetEmployeePassword(props, token).then(function () {
-	          _toastr2.default.success("Your password was successfully changed!");
+	          _toastr2.default.success("Employee's password was successfully changed!");
 	          _reactRouter.browserHistory.push('/userProfile');
 	        }).catch(function (err) {
 	          _toastr2.default.error("Password could not be changed");
