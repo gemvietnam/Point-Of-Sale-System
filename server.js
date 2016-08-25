@@ -1,11 +1,18 @@
 //to run: 'npm run dev' -- serves with nodemon
-
 const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
-const router = require('./router');
+
+// require routers (API endpoints)
+const authRouter = require('./routers/authRouter');
+const employeeRouter = require('./routers/employeeRouter'); //testing
+const productsRouter = require('./routers/productsRouter');
+const salesRouter = require('./routers/salesRouter');
+const reportingRouter = require('./routers/reportingRouter');
+
+
 const mongoose = require('mongoose');
 const config = require('./config.js');
 const webpack = require('webpack');
@@ -33,7 +40,12 @@ app.use(bodyParser.json({ type: '*/*' })); //parses incoming requests into JSON,
 
 app.use(express.static(__dirname + '/public')); //serves public folder containing front-end
 
-router(app); //loads in API endpoints from router.js
+authRouter(app); //loads in API endpoints from router.js
+employeeRouter(app); //testing
+productsRouter(app); //testing
+salesRouter(app);
+reportingRouter(app);
+
 
 app.get('/', function (req, res) {
 

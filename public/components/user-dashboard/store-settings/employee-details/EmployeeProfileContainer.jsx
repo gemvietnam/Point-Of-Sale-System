@@ -77,7 +77,7 @@ class EmployeeProfileContainer extends Component {
 
             {/* include custom back arrow */}
             <div className="col-lg-12 col-md-12">
-              <BackArrowBtn route={`/userProfile/${activeUser._id}`} />
+              <BackArrowBtn route={`/userProfile`} />
             </div>
 
             <div className="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">

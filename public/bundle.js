@@ -75783,7 +75783,7 @@
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'col-lg-12 col-md-12' },
-	              _react2.default.createElement(_BackArrowBtn2.default, { route: '/userProfile/' + activeUser._id })
+	              _react2.default.createElement(_BackArrowBtn2.default, { route: '/userProfile' })
 	            ),
 	            _react2.default.createElement(
 	              'div',
