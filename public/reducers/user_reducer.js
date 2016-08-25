@@ -1,4 +1,6 @@
-import { CREATE_USER, LOGIN_USER, AUTH_ERROR, AUTH_USER, FETCH_USER, UNAUTH_USER } from '../actions/index';
+import { CREATE_USER, LOGIN_USER, AUTH_ERROR,
+				 AUTH_USER, FETCH_USER, UNAUTH_USER,
+			   RESET_PASSWORD } from '../actions/index';
 
 
 const INITIAL_STATE = { activeUser: null, authenticated: false, errorMessage: ""};
@@ -25,7 +27,10 @@ export default function(state = INITIAL_STATE, action) {
 			return { ...state, authenticated: false, activeUser: null, errorMessage: '' };
 
 		case FETCH_USER:
-			return {...state, activeUser: action.payload.data }
+			return {...state, activeUser: action.payload.data };
+
+		case RESET_PASSWORD:
+			return { ...state, errorMessage: '' };
 
 		default:
 			return state;

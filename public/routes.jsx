@@ -19,6 +19,7 @@ import ReportingContainer from 'ReportingContainer';
 import ManageProductForm from 'ManageProductForm';
 import RequestReset from 'RequestReset';
 import ForgotPassword from 'ForgotPassword';
+import ForgotEmployeePassword from 'ForgotEmployeePassword';
 
 //wrapping any of these components with RequireAuth() will check for state.auth.authenticated being true before allowing access to the route
 //The Welcome component will render when sitting on the "/" home route
@@ -42,6 +43,7 @@ export default (
 		<Route path="reporting" component={RequireAuth(ReportingContainer)} />
 		<Route path="requestReset" component={RequestReset} />
 		<Route path="forgot/:token" component={ForgotPassword} />
+		<Route path="forgotEmployee/:token" component={ForgotEmployeePassword} />
 		<Route path="signout" component={Signout} />
 	</Route>
 );

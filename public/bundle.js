@@ -80,7 +80,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _reduxPromise = __webpack_require__(502);
+	var _reduxPromise = __webpack_require__(503);
 
 	var _reduxPromise2 = _interopRequireDefault(_reduxPromise);
 
@@ -30545,10 +30545,11 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.CHANGE_CATEGORY_FILTER = exports.SET_CART_TAX = exports.LOAD_MONTHS_TOP_ITEMS = exports.LOAD_WEEKS_TOP_ITEMS = exports.LOAD_TODAYS_TOP_ITEMS = exports.CALCULATE_EVERY_MONTHS_REVENUE = exports.CALCULATE_REVENUE_FOR_DAYS_THIS_WEEK = exports.CALCULATE_TODAYS_REVENUE = exports.DELETE_EXISTING_PRODUCT = exports.EDIT_PRODUCT = exports.CREATE_PRODUCT = exports.FETCH_USER = exports.CLEAR_PRODUCT_IN_CART = exports.DECREMENT_PRODUCT_IN_CART = exports.CLEAR_CART = exports.HIDE_RECEIPT = exports.UNDO_SALE = exports.MAKE_SALE = exports.CALCULATE_CART_TOTALS = exports.ADD_TO_CART = exports.FETCH_SALES_BY_DATE = exports.FETCH_SALES = exports.FETCH_SINGLE_SALE = exports.FETCH_SINGLE = exports.SEARCH_OTC = exports.SEARCH_CONSUMER = exports.SEARCH_PHARMA = exports.SEARCH_HERBALS = exports.SEARCH_ALL_PRODUCTS = exports.FETCH_ALL_PRODUCTS = exports.AUTH_ERROR = exports.UNAUTH_USER = exports.AUTH_USER = exports.LOGIN_USER = exports.DELETE_EMPLOYEE = exports.LOAD_EMPLOYEE_TODAY_REVENUE = exports.LOGOUT_ACTIVE_EMPLOYEE = exports.LOGIN_EMPLOYEE = exports.FETCH_SINGLE_EMPLOYEE = exports.FETCH_ALL_EMPLOYEES = exports.EDIT_EXISTING_EMPLOYEE = exports.ADD_NEW_EMPLOYEE = exports.RESET_PASSWORD = exports.REQUEST_RESET_TOKEN = exports.CREATE_USER = undefined;
+	exports.CHANGE_CATEGORY_FILTER = exports.SET_CART_TAX = exports.LOAD_MONTHS_TOP_ITEMS = exports.LOAD_WEEKS_TOP_ITEMS = exports.LOAD_TODAYS_TOP_ITEMS = exports.CALCULATE_EVERY_MONTHS_REVENUE = exports.CALCULATE_REVENUE_FOR_DAYS_THIS_WEEK = exports.CALCULATE_TODAYS_REVENUE = exports.DELETE_EXISTING_PRODUCT = exports.EDIT_PRODUCT = exports.CREATE_PRODUCT = exports.FETCH_USER = exports.CLEAR_PRODUCT_IN_CART = exports.DECREMENT_PRODUCT_IN_CART = exports.CLEAR_CART = exports.HIDE_RECEIPT = exports.UNDO_SALE = exports.MAKE_SALE = exports.CALCULATE_CART_TOTALS = exports.ADD_TO_CART = exports.FETCH_SALES_BY_DATE = exports.FETCH_SALES = exports.FETCH_SINGLE_SALE = exports.FETCH_SINGLE = exports.SEARCH_OTC = exports.SEARCH_CONSUMER = exports.SEARCH_PHARMA = exports.SEARCH_HERBALS = exports.SEARCH_ALL_PRODUCTS = exports.FETCH_ALL_PRODUCTS = exports.AUTH_ERROR = exports.UNAUTH_USER = exports.AUTH_USER = exports.LOGIN_USER = exports.DELETE_EMPLOYEE = exports.EMPLOYEE_PASS_RESET = exports.LOAD_EMPLOYEE_TODAY_REVENUE = exports.LOGOUT_ACTIVE_EMPLOYEE = exports.LOGIN_EMPLOYEE = exports.FETCH_SINGLE_EMPLOYEE = exports.FETCH_ALL_EMPLOYEES = exports.EDIT_EXISTING_EMPLOYEE = exports.ADD_NEW_EMPLOYEE = exports.RESET_PASSWORD = exports.REQUEST_RESET_TOKEN = exports.CREATE_USER = undefined;
 	exports.loginEmployee = loginEmployee;
 	exports.createUser = createUser;
 	exports.resetPassword = resetPassword;
+	exports.resetEmployeePassword = resetEmployeePassword;
 	exports.forgotPassword = forgotPassword;
 	exports.fetchAllEmployees = fetchAllEmployees;
 	exports.loadEmployeeTodayRevenue = loadEmployeeTodayRevenue;
@@ -30556,6 +30557,7 @@
 	exports.addNewEmployee = addNewEmployee;
 	exports.editExistingEmployee = editExistingEmployee;
 	exports.fetchSingleEmployee = fetchSingleEmployee;
+	exports.fetchEmployeeForReset = fetchEmployeeForReset;
 	exports.logOutActiveEmployee = logOutActiveEmployee;
 	exports.loginUser = loginUser;
 	exports.fetchUser = fetchUser;
@@ -30566,6 +30568,7 @@
 	exports.editExistingProduct = editExistingProduct;
 	exports.deleteExistingProduct = deleteExistingProduct;
 	exports.searchProducts = searchProducts;
+	exports.forgotEmployeePassword = forgotEmployeePassword;
 	exports.searchHerbals = searchHerbals;
 	exports.searchPharma = searchPharma;
 	exports.searchConsumer = searchConsumer;
@@ -30607,6 +30610,7 @@
 	var LOGIN_EMPLOYEE = exports.LOGIN_EMPLOYEE = 'LOGIN_EMPLOYEE';
 	var LOGOUT_ACTIVE_EMPLOYEE = exports.LOGOUT_ACTIVE_EMPLOYEE = 'LOGOUT_ACTIVE_EMPLOYEE';
 	var LOAD_EMPLOYEE_TODAY_REVENUE = exports.LOAD_EMPLOYEE_TODAY_REVENUE = 'LOAD_EMPLOYEE_TODAY_REVENUE';
+	var EMPLOYEE_PASS_RESET = exports.EMPLOYEE_PASS_RESET = 'EMPLOYEE_PASS_RESET';
 	var DELETE_EMPLOYEE = exports.DELETE_EMPLOYEE = 'DELETE_EMPLOYEE';
 	var LOGIN_USER = exports.LOGIN_USER = 'LOGIN_USER';
 	var AUTH_USER = exports.AUTH_USER = 'AUTH_USER';
@@ -30679,6 +30683,18 @@
 		var jsonProps = JSON.stringify(props);
 
 		var request = _axios2.default.post('/resetPassword/' + token, jsonProps);
+
+		return {
+			type: RESET_PASSWORD,
+			payload: request
+		};
+	}
+
+	function resetEmployeePassword(props, token) {
+
+		var jsonProps = JSON.stringify(props);
+
+		var request = _axios2.default.post('/resetEmployeePassword/' + token, jsonProps);
 
 		return {
 			type: RESET_PASSWORD,
@@ -30767,6 +30783,18 @@
 
 		return {
 			type: FETCH_SINGLE_EMPLOYEE,
+			payload: request
+		};
+	}
+
+	function fetchEmployeeForReset(employeeId) {
+
+		var config = { headers: { 'authorization': localStorage.getItem('token') } };
+
+		var request = _axios2.default.get('/fetchSingleEmployee/' + employeeId, config);
+
+		return {
+			type: EMPLOYEE_PASS_RESET,
 			payload: request
 		};
 	}
@@ -30886,6 +30914,18 @@
 
 		return {
 			type: SEARCH_ALL_PRODUCTS,
+			payload: request
+		};
+	}
+
+	function forgotEmployeePassword(employeeEmail) {
+
+		var config = { headers: { 'authorization': localStorage.getItem('token') } };
+
+		var request = _axios2.default.post('/forgotPassword?q=' + employeeEmail, config);
+
+		return {
+			type: REQUEST_RESET_TOKEN,
 			payload: request
 		};
 	}
@@ -32322,6 +32362,9 @@
 
 			case _index.FETCH_USER:
 				return _extends({}, state, { activeUser: action.payload.data });
+
+			case _index.RESET_PASSWORD:
+				return _extends({}, state, { errorMessage: '' });
 
 			default:
 				return state;
@@ -34257,6 +34300,9 @@
 			case _Actions.DELETE_EMPLOYEE:
 				return _extends({}, state, { singleEmployee: {} });
 
+			case _Actions.EMPLOYEE_PASS_RESET:
+				return _extends({}, state, { employeeToResetPass: action.payload.data });
+
 			default:
 				return state;
 
@@ -34266,7 +34312,7 @@
 	var _Actions = __webpack_require__(300);
 
 	var INITIAL_STATE = { employees: [], singleEmployee: {},
-		activeEmployee: {}, employeeTodaysRevenue: 0,
+		activeEmployee: {}, employeeToResetPass: {}, employeeTodaysRevenue: 0,
 		numSalesToday: 0 };
 
 /***/ },
@@ -34353,6 +34399,10 @@
 
 	var _ForgotPassword2 = _interopRequireDefault(_ForgotPassword);
 
+	var _ForgotEmployeePassword = __webpack_require__(502);
+
+	var _ForgotEmployeePassword2 = _interopRequireDefault(_ForgotEmployeePassword);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	//wrapping any of these components with RequireAuth() will check for state.auth.authenticated being true before allowing access to the route
@@ -34376,6 +34426,7 @@
 		_react2.default.createElement(_reactRouter.Route, { path: 'reporting', component: (0, _RequireAuth2.default)(_ReportingContainer2.default) }),
 		_react2.default.createElement(_reactRouter.Route, { path: 'requestReset', component: _RequestReset2.default }),
 		_react2.default.createElement(_reactRouter.Route, { path: 'forgot/:token', component: _ForgotPassword2.default }),
+		_react2.default.createElement(_reactRouter.Route, { path: 'forgotEmployee/:token', component: _ForgotEmployeePassword2.default }),
 		_react2.default.createElement(_reactRouter.Route, { path: 'signout', component: _Signout2.default })
 	);
 
@@ -75656,6 +75707,7 @@
 	    };
 	    _this.handleLogin = _this.handleLogin.bind(_this);
 	    _this.handleUserInput = _this.handleUserInput.bind(_this);
+	    _this.handleForgotPassword = _this.handleForgotPassword.bind(_this);
 	    return _this;
 	  }
 
@@ -75691,6 +75743,14 @@
 	          // success, push back to user profile
 	          _reactRouter.browserHistory.push('/userProfile');
 	        }
+	      });
+	    }
+	  }, {
+	    key: 'handleForgotPassword',
+	    value: function handleForgotPassword() {
+	      // fetches the employee object that's requesting password reset
+	      this.props.fetchEmployeeForReset(this.props.singleEmployee._id).then(function () {
+	        _reactRouter.browserHistory.push('/requestReset');
 	      });
 	    }
 	  }, {
@@ -75846,6 +75906,11 @@
 	                    ),
 	                    _react2.default.createElement(
 	                      'button',
+	                      { onClick: this.handleForgotPassword },
+	                      'Forgot Your Password?'
+	                    ),
+	                    _react2.default.createElement(
+	                      'button',
 	                      { onClick: this.handleLogin, className: 'btn btn-default' },
 	                      'Login'
 	                    )
@@ -75869,7 +75934,7 @@
 	    errorMessage: state.user.errorMessage };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchSingleEmployee: _Actions.fetchSingleEmployee, loginEmployee: _Actions.loginEmployee, authError: _Actions.authError })(EmployeeProfileContainer);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchSingleEmployee: _Actions.fetchSingleEmployee, fetchEmployeeForReset: _Actions.fetchEmployeeForReset, loginEmployee: _Actions.loginEmployee, authError: _Actions.authError })(EmployeeProfileContainer);
 
 /***/ },
 /* 474 */
@@ -78499,7 +78564,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -78529,116 +78594,135 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var RequestReset = function (_Component) {
-	  _inherits(RequestReset, _Component);
+		_inherits(RequestReset, _Component);
 
-	  function RequestReset(props, context) {
-	    _classCallCheck(this, RequestReset);
+		function RequestReset(props, context) {
+			_classCallCheck(this, RequestReset);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(RequestReset).call(this, props, context));
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(RequestReset).call(this, props, context));
 
-	    _this.state = {
-	      requestEmail: '',
-	      emailSent: false
-	    };
+			_this.state = {
+				employeeRequest: false,
+				requestEmail: '',
+				emailSent: false
+			};
 
-	    _this.handleUpdateFormState = _this.handleUpdateFormState.bind(_this);
-	    _this.handleSubmit = _this.handleSubmit.bind(_this);
-	    return _this;
-	  }
+			_this.handleUpdateFormState = _this.handleUpdateFormState.bind(_this);
+			_this.handleSubmit = _this.handleSubmit.bind(_this);
+			return _this;
+		}
 
-	  _createClass(RequestReset, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      if (this.props.authenticated) {
-	        _reactRouter.browserHistory.push('/inventory');
-	      }
-	    }
-	  }, {
-	    key: 'handleSubmit',
-	    value: function handleSubmit() {
-	      var _this2 = this;
+		_createClass(RequestReset, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				if (this.props.authenticated && $.isEmptyObject(this.props.employeeToResetPass)) {
+					// this is not an employee password reset request
+					// the user is already authenticated, so push back to inventory
+					_reactRouter.browserHistory.push('/inventory');
+				} else if (!$.isEmptyObject(this.props.employeeToResetPass)) {
+					// this is an employee password reset request
+					this.setState({
+						employeeRequest: true
+					});
+				}
+			}
+		}, {
+			key: 'handleSubmit',
+			value: function handleSubmit() {
+				var _this2 = this;
 
-	      // user needs to request a reset token via email
+				if (!this.state.employeeRequest) {
+					// user needs to request a reset token via email
+					// format data
+					var props = {
+						email: this.state.requestEmail
+					};
 
-	      // format data
-	      var props = {
-	        email: this.state.requestEmail
-	      };
+					// send reset link
+					this.props.forgotPassword(props).then(function () {
+						_this2.setState({
+							emailSent: true
+						});
+					});
+				} else {
+					// this is an employee password reset request
+					this.props.forgotEmployeePassword(this.props.employeeToResetPass.email).then(function () {
+						_this2.setState({
+							emailSent: true
+						});
+					});
+				}
+			}
+		}, {
+			key: 'handleUpdateFormState',
+			value: function handleUpdateFormState(event) {
+				this.setState(_defineProperty({}, event.target.name, event.target.value));
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				console.log(this.state);
+				if (this.state.emailSent) {
 
-	      // send reset link
-	      this.props.forgotPassword(props).then(function () {
-	        _this2.setState({
-	          emailSent: true
-	        });
-	      });
-	    }
-	  }, {
-	    key: 'handleUpdateFormState',
-	    value: function handleUpdateFormState(event) {
-	      this.setState(_defineProperty({}, event.target.name, event.target.value));
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      if (this.state.emailSent) {
+					return _react2.default.createElement(
+						'div',
+						{ className: 'row marginTop requestReset' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3 text-center' },
+							_react2.default.createElement('i', { id: 'emailSentIcon', className: 'fa fa-check-square fa-5x' }),
+							_react2.default.createElement(
+								'h2',
+								null,
+								'Please check your email and follow the link to reset your password.'
+							)
+						)
+					);
+				} else {
 
-	        return _react2.default.createElement(
-	          'div',
-	          { className: 'row marginTop requestReset' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3 text-center' },
-	            _react2.default.createElement('i', { id: 'emailSentIcon', className: 'fa fa-check-square fa-5x' }),
-	            _react2.default.createElement(
-	              'h2',
-	              null,
-	              'Please check your email and follow the link to reset your password.'
-	            )
-	          )
-	        );
-	      } else {
+					return _react2.default.createElement(
+						'div',
+						{ className: 'row requestReset' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'form-group text-center' },
+								_react2.default.createElement(
+									'label',
+									null,
+									'Email'
+								),
+								_react2.default.createElement('input', {
+									id: 'requestEmail',
+									className: 'form-control',
+									type: 'email',
+									name: 'requestEmail',
+									placeholder: 'Enter your email address to reset your password',
+									onChange: this.handleUpdateFormState }),
+								_react2.default.createElement(
+									'button',
+									{ className: 'btn btn-primary', onClick: this.handleSubmit },
+									'Submit'
+								)
+							)
+						)
+					);
+				}
+			}
+		}]);
 
-	        return _react2.default.createElement(
-	          'div',
-	          { className: 'row requestReset' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'form-group text-center' },
-	              _react2.default.createElement(
-	                'label',
-	                null,
-	                'Email'
-	              ),
-	              _react2.default.createElement('input', {
-	                id: 'requestEmail',
-	                className: 'form-control',
-	                type: 'email',
-	                name: 'requestEmail',
-	                placeholder: 'Enter your email address to reset your password',
-	                onChange: this.handleUpdateFormState }),
-	              _react2.default.createElement(
-	                'button',
-	                { className: 'btn btn-primary', onClick: this.handleSubmit },
-	                'Submit'
-	              )
-	            )
-	          )
-	        );
-	      }
-	    }
-	  }]);
-
-	  return RequestReset;
+		return RequestReset;
 	}(_react.Component);
 
 	function mapStateToProps(state) {
-	  return { authenticated: state.user.authenticated };
+		return { authenticated: state.user.authenticated,
+			employeeToResetPass: state.employees.employeeToResetPass
+		};
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { forgotPassword: _Actions.forgotPassword })(RequestReset);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { forgotPassword: _Actions.forgotPassword, forgotEmployeePassword: _Actions.forgotEmployeePassword })(RequestReset);
 
 /***/ },
 /* 501 */
@@ -78704,22 +78788,29 @@
 	  }, {
 	    key: 'handleSubmit',
 	    value: function handleSubmit() {
-	      var resetPassword = this.props.resetPassword;
+	      var _props = this.props;
+	      var resetPassword = _props.resetPassword;
+	      var authError = _props.authError;
 
 
 	      var token = this.props.params.token;
-	      var newPassword = this.state.newPassword;
+	      var newPassword = this.state.newPassword.toLowerCase();
+	      var confirmPassword = this.state.confirmPassword.toLowerCase();
 
 	      var props = {
 	        password: newPassword
 	      };
 
-	      resetPassword(props, token).then(function () {
-	        _toastr2.default.success("Your password was successfully changed!");
-	        _reactRouter.browserHistory.push('/');
-	      }).catch(function (err) {
-	        _toastr2.default.error("Password could not be changed");
-	      });
+	      if (newPassword === confirmPassword) {
+	        resetPassword(props, token).then(function () {
+	          _toastr2.default.success("Your password was successfully changed!");
+	          _reactRouter.browserHistory.push('/');
+	        }).catch(function (err) {
+	          _toastr2.default.error("Password could not be changed");
+	        });
+	      } else {
+	        authError("Passwords do not match");
+	      }
 	    }
 	  }, {
 	    key: 'handleUpdateFormState',
@@ -78776,6 +78867,11 @@
 	              { className: 'btn btn-primary', onClick: this.handleSubmit },
 	              'Submit'
 	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'text-center error' },
+	            this.props.errorMessage
 	          )
 	        )
 	      );
@@ -78786,13 +78882,172 @@
 	}(_react.Component);
 
 	function mapStateToProps(state) {
-	  return { authenticated: state.user.authenticated };
+	  return { authenticated: state.user.authenticated,
+	    errorMessage: state.user.errorMessage
+	  };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { resetPassword: _Actions.resetPassword })(ForgotPassword);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { resetPassword: _Actions.resetPassword, authError: _Actions.authError })(ForgotPassword);
 
 /***/ },
 /* 502 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(195);
+
+	var _Actions = __webpack_require__(300);
+
+	var _reactRedux = __webpack_require__(169);
+
+	var _toastr = __webpack_require__(349);
+
+	var _toastr2 = _interopRequireDefault(_toastr);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ForgotPassword = function (_Component) {
+	  _inherits(ForgotPassword, _Component);
+
+	  function ForgotPassword(props, context) {
+	    _classCallCheck(this, ForgotPassword);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ForgotPassword).call(this, props, context));
+
+	    _this.state = {
+	      newPassword: '',
+	      confirmPassword: ''
+	    };
+
+	    _this.handleUpdateFormState = _this.handleUpdateFormState.bind(_this);
+	    _this.handleSubmit = _this.handleSubmit.bind(_this);
+	    return _this;
+	  }
+
+	  _createClass(ForgotPassword, [{
+	    key: 'handleSubmit',
+	    value: function handleSubmit() {
+	      var _props = this.props;
+	      var resetEmployeePassword = _props.resetEmployeePassword;
+	      var authError = _props.authError;
+
+
+	      var token = this.props.params.token;
+	      var newPassword = this.state.newPassword.toLowerCase();
+	      var confirmPassword = this.state.confirmPassword.toLowerCase();
+
+	      var props = {
+	        password: confirmPassword
+	      };
+
+	      // check to see if the two passwords match
+	      if (newPassword === confirmPassword) {
+	        resetEmployeePassword(props, token).then(function () {
+	          _toastr2.default.success("Your password was successfully changed!");
+	          _reactRouter.browserHistory.push('/userProfile');
+	        }).catch(function (err) {
+	          _toastr2.default.error("Password could not be changed");
+	        });
+	      } else {
+	        authError("Passwords do not match");
+	      }
+	    }
+	  }, {
+	    key: 'handleUpdateFormState',
+	    value: function handleUpdateFormState(event) {
+	      this.setState(_defineProperty({}, event.target.name, event.target.value));
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'row forgotPassword marginTop' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'form-group' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'form-group' },
+	              _react2.default.createElement(
+	                'label',
+	                null,
+	                'New Password'
+	              ),
+	              _react2.default.createElement('input', {
+	                id: 'newPassword',
+	                className: 'form-control',
+	                type: 'password',
+	                name: 'newPassword',
+	                placeholder: 'New Password...',
+	                onChange: this.handleUpdateFormState })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'form-group' },
+	              _react2.default.createElement(
+	                'label',
+	                null,
+	                'Confirm Password'
+	              ),
+	              _react2.default.createElement('input', {
+	                id: 'confirmPassword',
+	                className: 'form-control',
+	                type: 'password',
+	                name: 'confirmPassword',
+	                placeholder: 'Confirm Password...',
+	                onChange: this.handleUpdateFormState })
+	            ),
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'btn btn-primary', onClick: this.handleSubmit },
+	              'Submit'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'text-center error' },
+	            this.props.errorMessage
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return ForgotPassword;
+	}(_react.Component);
+
+	function mapStateToProps(state) {
+	  return { errorMessage: state.user.errorMessage };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { resetEmployeePassword: _Actions.resetEmployeePassword, authError: _Actions.authError })(ForgotPassword);
+
+/***/ },
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78803,7 +79058,7 @@
 
 	exports['default'] = promiseMiddleware;
 
-	var _fluxStandardAction = __webpack_require__(503);
+	var _fluxStandardAction = __webpack_require__(504);
 
 	function isPromise(val) {
 	  return val && typeof val.then === 'function';
@@ -78830,7 +79085,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 503 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78841,7 +79096,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _lodashIsplainobject = __webpack_require__(504);
+	var _lodashIsplainobject = __webpack_require__(505);
 
 	var _lodashIsplainobject2 = _interopRequireDefault(_lodashIsplainobject);
 
@@ -78860,7 +79115,7 @@
 	}
 
 /***/ },
-/* 504 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -78871,9 +79126,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseFor = __webpack_require__(505),
-	    isArguments = __webpack_require__(506),
-	    keysIn = __webpack_require__(507);
+	var baseFor = __webpack_require__(506),
+	    isArguments = __webpack_require__(507),
+	    keysIn = __webpack_require__(508);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -78969,7 +79224,7 @@
 
 
 /***/ },
-/* 505 */
+/* 506 */
 /***/ function(module, exports) {
 
 	/**
@@ -79023,7 +79278,7 @@
 
 
 /***/ },
-/* 506 */
+/* 507 */
 /***/ function(module, exports) {
 
 	/**
@@ -79272,7 +79527,7 @@
 
 
 /***/ },
-/* 507 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -79283,8 +79538,8 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArguments = __webpack_require__(506),
-	    isArray = __webpack_require__(508);
+	var isArguments = __webpack_require__(507),
+	    isArray = __webpack_require__(509);
 
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -79410,7 +79665,7 @@
 
 
 /***/ },
-/* 508 */
+/* 509 */
 /***/ function(module, exports) {
 
 	/**

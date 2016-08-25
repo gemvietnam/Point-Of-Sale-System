@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
-import { fetchSingleEmployee, loginEmployee, authError } from 'Actions';
+import { browserHistory, Link } from 'react-router';
+import { fetchSingleEmployee, fetchEmployeeForReset, loginEmployee, authError } from 'Actions';
 import BackArrowBtn from 'BackArrowBtn';
 import LoadingSpinner from 'LoadingSpinner';
 import EmployeeSalesData from 'EmployeeSalesData';
@@ -18,6 +18,7 @@ class EmployeeProfileContainer extends Component {
     };
     this.handleLogin = this.handleLogin.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
+    this.handleForgotPassword = this.handleForgotPassword.bind(this);
   }
 
   componentWillMount() {
@@ -46,6 +47,13 @@ class EmployeeProfileContainer extends Component {
         // success, push back to user profile
         browserHistory.push(`/userProfile`);
       }
+    });
+  }
+
+  handleForgotPassword() {
+    // fetches the employee object that's requesting password reset
+    this.props.fetchEmployeeForReset(this.props.singleEmployee._id).then(() => {
+      browserHistory.push('/requestReset');
     });
   }
 
@@ -131,6 +139,7 @@ class EmployeeProfileContainer extends Component {
                           value={employeePassword} />
                         <div className="text-help"></div>
                       </fieldset>
+                      <button onClick={this.handleForgotPassword}>Forgot Your Password?</button>
 
                     <button onClick={this.handleLogin} className="btn btn-default">Login</button>
                   </div>
@@ -153,4 +162,4 @@ function mapStateToProps(state) {
            errorMessage: state.user.errorMessage };
 }
 
-export default connect(mapStateToProps, { fetchSingleEmployee, loginEmployee, authError })(EmployeeProfileContainer);
+export default connect(mapStateToProps, { fetchSingleEmployee, fetchEmployeeForReset, loginEmployee, authError })(EmployeeProfileContainer);

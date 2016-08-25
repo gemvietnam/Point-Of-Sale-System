@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
-import { resetPassword, authError } from 'Actions';
+import { resetEmployeePassword, authError } from 'Actions';
 import { connect } from 'react-redux';
 import toastr from 'toastr';
 
@@ -17,36 +17,31 @@ class ForgotPassword extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-  componentWillMount() {
-    if (this.props.authenticated) {
-      browserHistory.push('/inventory');
-    }
-  }
-
 	handleSubmit() {
 
-    const { resetPassword, authError } = this.props;
+    const { resetEmployeePassword, authError } = this.props;
 
     const token = this.props.params.token;
-		const newPassword = this.state.newPassword.toLowerCase();
+    const newPassword = this.state.newPassword.toLowerCase();
     const confirmPassword = this.state.confirmPassword.toLowerCase();
 
     const props = {
-      password: newPassword
+      password: confirmPassword
     };
 
-		if (newPassword === confirmPassword) {
-			resetPassword(props, token)
-	      .then(() => {
-	        toastr.success("Your password was successfully changed!");
-	        browserHistory.push('/');
-	      })
-	      .catch((err) => {
-	        toastr.error("Password could not be changed");
-	      });
-		} else {
-			authError("Passwords do not match");
-		}
+    // check to see if the two passwords match
+    if (newPassword === confirmPassword) {
+      resetEmployeePassword(props, token)
+        .then(() => {
+          toastr.success("Your password was successfully changed!");
+          browserHistory.push('/userProfile');
+        })
+        .catch((err) => {
+          toastr.error("Password could not be changed");
+        });
+    } else {
+      authError("Passwords do not match");
+    }
 
 
 
@@ -90,9 +85,9 @@ class ForgotPassword extends Component {
       				<button className="btn btn-primary" onClick={this.handleSubmit}>Submit</button>
 
       			</div>
-						<div className="text-center error">
-							{this.props.errorMessage}
-						</div>
+            <div className="text-center error">
+    				      {this.props.errorMessage}
+    				</div>
           </div>
         </div>
 
@@ -104,9 +99,7 @@ class ForgotPassword extends Component {
 
 
 function mapStateToProps(state) {
-	return { authenticated: state.user.authenticated,
-	 				 errorMessage: state.user.errorMessage
-				 };
+	return { errorMessage: state.user.errorMessage };
 }
 
-export default connect(mapStateToProps, { resetPassword, authError })(ForgotPassword);
+export default connect(mapStateToProps, { resetEmployeePassword, authError })(ForgotPassword);

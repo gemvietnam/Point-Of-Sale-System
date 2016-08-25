@@ -10,6 +10,7 @@ export const FETCH_SINGLE_EMPLOYEE = 'FETCH_SINGLE_EMPLOYEE';
 export const LOGIN_EMPLOYEE = 'LOGIN_EMPLOYEE';
 export const LOGOUT_ACTIVE_EMPLOYEE = 'LOGOUT_ACTIVE_EMPLOYEE';
 export const LOAD_EMPLOYEE_TODAY_REVENUE = 'LOAD_EMPLOYEE_TODAY_REVENUE';
+export const EMPLOYEE_PASS_RESET = 'EMPLOYEE_PASS_RESET';
 export const DELETE_EMPLOYEE = 'DELETE_EMPLOYEE';
 export const LOGIN_USER = 'LOGIN_USER';
 export const AUTH_USER = 'AUTH_USER';
@@ -93,6 +94,19 @@ export function resetPassword(props, token) {
 
 }
 
+export function resetEmployeePassword(props, token) {
+
+	const jsonProps = JSON.stringify(props);
+
+	const request = axios.post(`/resetEmployeePassword/${token}`, jsonProps);
+
+	return {
+		type: RESET_PASSWORD,
+		payload: request
+	};
+
+}
+
 export function forgotPassword(props) {
 
 	const jsonProps = JSON.stringify(props);
@@ -142,7 +156,7 @@ export function deleteEmployee(employeeId) {
 		type: DELETE_EMPLOYEE,
 		payload: request
 	};
-	
+
 }
 
 
@@ -181,6 +195,19 @@ export function fetchSingleEmployee(employeeId) {
 
 	return {
 		type: FETCH_SINGLE_EMPLOYEE,
+		payload: request
+	};
+
+}
+
+export function fetchEmployeeForReset(employeeId) {
+
+	var config = {headers: {'authorization' : localStorage.getItem('token')}};
+
+	const request = axios.get(`/fetchSingleEmployee/${employeeId}`, config);
+
+	return {
+		type: EMPLOYEE_PASS_RESET,
 		payload: request
 	};
 
@@ -307,6 +334,19 @@ export function searchProducts(queryParams) {
 
 	return {
 		type: SEARCH_ALL_PRODUCTS,
+		payload: request
+	};
+
+}
+
+export function forgotEmployeePassword(employeeEmail) {
+
+	var config = {headers: {'authorization' : localStorage.getItem('token')}};
+
+	const request = axios.post(`/forgotPassword?q=${employeeEmail}`, config);
+
+	return {
+		type: REQUEST_RESET_TOKEN,
 		payload: request
 	};
 

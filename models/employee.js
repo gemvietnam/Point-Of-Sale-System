@@ -7,7 +7,9 @@ var EmployeeSchema = new Schema({
 	name: String,
   email: String,
 	password: String,
-  position: String
+  position: String,
+	resetPasswordToken: String,
+	resetPasswordExpires: Date
 });
 
 // On Save Hook, encrypt password

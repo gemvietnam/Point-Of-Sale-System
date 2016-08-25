@@ -71,6 +71,7 @@ module.exports = {
       MonthsTopItemsTable: 'public/components/reporting/items/MonthsTopItemsTable.jsx',
       MonthsTopItemsRow: 'public/components/reporting/items/MonthsTopItemsRow.jsx',
       ForgotPassword: 'public/components/ForgotPassword',
+      ForgotEmployeePassword: 'public/components/ForgotEmployeePassword',
       RequestReset: 'public/components/RequestReset',
       AddProductBtn: 'public/components/common/AddProductBtn.jsx',
       BackArrowBtn: 'public/components/common/BackArrowBtn.jsx',

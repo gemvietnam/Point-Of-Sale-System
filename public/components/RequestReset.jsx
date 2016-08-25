@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
-import { forgotPassword } from 'Actions';
+import { forgotPassword, forgotEmployeePassword } from 'Actions';
 import { connect } from 'react-redux';
 import toastr from 'toastr';
 
@@ -9,6 +9,7 @@ class RequestReset extends Component {
 	constructor(props, context) {
 		super(props, context);
 		this.state = {
+			employeeRequest: false,
       requestEmail: '',
       emailSent: false
 		};
@@ -18,26 +19,42 @@ class RequestReset extends Component {
 	}
 
   componentWillMount() {
-    if (this.props.authenticated) {
+    if (this.props.authenticated && $.isEmptyObject(this.props.employeeToResetPass)) {
+			// this is not an employee password reset request
+			// the user is already authenticated, so push back to inventory
       browserHistory.push('/inventory');
-    }
+    } else if (!$.isEmptyObject(this.props.employeeToResetPass)) {
+			// this is an employee password reset request
+			this.setState({
+				employeeRequest: true
+			});
+		}
   }
 
 	handleSubmit() {
-    // user needs to request a reset token via email
+		if (!this.state.employeeRequest) {
+			// user needs to request a reset token via email
+	    // format data
+	    const props = {
+	      email: this.state.requestEmail
+	    };
 
-    // format data
-    const props = {
-      email: this.state.requestEmail
-    };
-
-    // send reset link
-    this.props.forgotPassword(props).then(() => {
-      this.setState({
-        emailSent: true
-      });
-    });
-
+	    // send reset link
+	    this.props.forgotPassword(props).then(() => {
+	      this.setState({
+	        emailSent: true
+	      });
+	    });
+		} else {
+			// this is an employee password reset request
+			this.props.forgotEmployeePassword(this.props.employeeToResetPass.email)
+			.then(() => {
+				this.setState({
+					emailSent: true
+				});
+			});
+		}
+			
 	}
 
 	handleUpdateFormState(event) {
@@ -47,6 +64,7 @@ class RequestReset extends Component {
 	}
 
 	render() {
+		console.log(this.state);
     if (this.state.emailSent) {
 
       return (
@@ -90,7 +108,9 @@ class RequestReset extends Component {
 
 
 function mapStateToProps(state) {
-	return { authenticated: state.user.authenticated };
+	return { authenticated: state.user.authenticated,
+					 employeeToResetPass: state.employees.employeeToResetPass
+				 };
 }
 
-export default connect(mapStateToProps, { forgotPassword })(RequestReset);
+export default connect(mapStateToProps, { forgotPassword, forgotEmployeePassword })(RequestReset);

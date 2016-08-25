@@ -37,6 +37,12 @@ module.exports = function (app) {
 	// email will contain a link to the '/reset/:token' route below
 	app.post('/forgotPassword', function(req, res, next) {
 
+		var queryParams = req.query;
+
+		if (queryParams.hasOwnProperty('q') && queryParams.q.length > 0) {
+			var employeeRequest = true;
+		}
+
 		async.waterfall([
 			function(done) {
 				crypto.randomBytes(20, function(err, buf) {
@@ -45,20 +51,45 @@ module.exports = function (app) {
       });
 		},
 		function(token, done) {
-      User.findOne({ email: req.body.email }, function(err, user) {
-        if (!user) {
-          res.status(404).json("No user with that email exists");
-        }
 
-        user.resetPasswordToken = token;
-        user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+			// check to see if this is an employee reset request
+			// admin requests have no query parameters
+			if (employeeRequest) {
 
-        user.save(function(err) {
-          done(err, token, user);
-        });
-      });
+				var employeeEmail = queryParams.q;
+
+				Employee.findOne({ email: employeeEmail }, function(err, user) {
+
+					if (!user) {
+						res.status(404).json("No employee with that email exists");
+					}
+					user.resetPasswordToken = token;
+	        user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+
+	        user.save(function(err) {
+	          done(err, token, user);
+	        });
+				});
+			} else {
+				// this is an admin reset request
+				User.findOne({ email: req.body.email }, function(err, user) {
+
+					if (!user) {
+						res.status(404).json("No user with that email exists");
+					}
+
+					user.resetPasswordToken = token;
+					user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+
+					user.save(function(err) {
+						done(err, token, user);
+					});
+				});
+			}
+
     },
 		function(token, user, done) {
+
 		    var smtpTransport = nodemailer.createTransport('SMTP', {
 		      service: 'SendGrid',
 		      auth: {
@@ -66,13 +97,22 @@ module.exports = function (app) {
 		        pass: 'jisuanqiRen90'
 		      }
 		    });
+
+				if (employeeRequest) {
+					// employee request so send employee route
+					var resetRoute = '/forgotEmployee/';
+				} else {
+					// admin request so send admin route
+					var resetRoute = '/forgot/';
+				}
+
 		    var mailOptions = {
 		      to: user.email,
 		      from: 'marcushurney@gmail.com',
 		      subject: 'Node.js Password Reset',
 		      text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
 		        'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-		        'http://' + req.headers.host + '/forgot/' + token + '\n\n' +
+		        'http://' + req.headers.host + resetRoute + token + '\n\n' +
 		        'If you did not request this, please ignore this email and your password will remain unchanged.\n'
 		    };
 		  	smtpTransport.sendMail(mailOptions, function(err) {
@@ -91,7 +131,8 @@ module.exports = function (app) {
 
 	  async.waterfall([
 	    function(done) {
-	      User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+
+				User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
 	        if (!user) {
 	          res.status(401).json("Reset token may have expired");
 	        }
@@ -105,6 +146,7 @@ module.exports = function (app) {
 						done(err, user);
 	        });
 	      });
+
 	    },
 	    function(user, done) {
 	      var smtpTransport = nodemailer.createTransport('SMTP', {
@@ -120,6 +162,52 @@ module.exports = function (app) {
 	        subject: 'Your password has been changed',
 	        text: 'Hello, ' +
 	          'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
+	      };
+	      smtpTransport.sendMail(mailOptions, function(err) {
+	        done(err);
+	      });
+	    }
+	  ], function(err) {
+	    res.status(200).json("Your password has been successfully reset!");
+	  });
+});
+
+	//reset employee's password in database
+	app.post('/resetEmployeePassword/:token', function(req, res) {
+
+	  async.waterfall([
+	    function(done) {
+
+				Employee.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, employee) {
+	        if (!employee) {
+	          res.status(401).json("Reset token may have expired");
+	        }
+
+	        employee.password = req.body.password;
+	        employee.resetPasswordToken = undefined;
+	        employee.resetPasswordExpires = undefined;
+
+	        employee.save(function(err) {
+	          if (err) { next(err); }
+						done(err, employee);
+	        });
+	      });
+
+	    },
+	    function(employee, done) {
+	      var smtpTransport = nodemailer.createTransport('SMTP', {
+	        service: 'SendGrid',
+	        auth: {
+	          user: 'marcushurney@gmail.com',
+	          pass: 'jisuanqiRen90'
+	        }
+	      });
+	      var mailOptions = {
+	        to: employee.email,
+	        from: 'marcushurney@gmail.com',
+	        subject: 'Your password has been changed',
+	        text: 'Hello, ' +
+	          'This is a confirmation that the password for your account ' + employee.email + ' has just been changed.\n'
 	      };
 	      smtpTransport.sendMail(mailOptions, function(err) {
 	        done(err);

@@ -2,10 +2,10 @@
 import { FETCH_ALL_EMPLOYEES, FETCH_SINGLE_EMPLOYEE,
 	       LOGOUT_ACTIVE_EMPLOYEE, LOAD_EMPLOYEE_TODAY_REVENUE,
 				 EDIT_EXISTING_EMPLOYEE, LOGIN_EMPLOYEE,
-			   DELETE_EMPLOYEE } from 'Actions';
+			   DELETE_EMPLOYEE, EMPLOYEE_PASS_RESET } from 'Actions';
 
 const INITIAL_STATE = { employees: [], singleEmployee: {},
-												activeEmployee: {}, employeeTodaysRevenue: 0,
+												activeEmployee: {}, employeeToResetPass: {}, employeeTodaysRevenue: 0,
 											 	numSalesToday: 0 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -37,6 +37,9 @@ export default function(state = INITIAL_STATE, action) {
 
 		case DELETE_EMPLOYEE:
 			return { ...state, singleEmployee: {} };
+
+		case EMPLOYEE_PASS_RESET:
+			return { ...state, employeeToResetPass: action.payload.data };
 
 		default:
 			return state;

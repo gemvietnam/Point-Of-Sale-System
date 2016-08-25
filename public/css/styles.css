@@ -28,6 +28,9 @@ body .modal {
 .marginBottom {
   margin-bottom: 60px;
 }
+.error {
+  color: red;
+}
 
 /* Moves the body of app 5 em right, so side navbar will fit */
 .body-content {
