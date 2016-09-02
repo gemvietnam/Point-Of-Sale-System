@@ -939,7 +939,8 @@ body .modal {
 }
 
 #filterOptions li:hover {
-    cursor: pointer;
+  color: #337ab7;
+  cursor: pointer;
 }
 
 @media(max-width: 768px) {
