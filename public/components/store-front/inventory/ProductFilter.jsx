@@ -6,15 +6,20 @@ const ProductFilter = ({showAll, showPharma, showHerbals, showConsumer, showOTC,
   return (
     <form id="filterOptions">
       <ul>
-        <li className={`${ showAll ? 'activeGreen' : '' }`} onClick={handleFilter}>All</li>
 
-        <li className={`${ showPharma ? 'activeGreen' : '' }`} onClick={handleFilter}>Pharmaceuticals</li>
+        <li className={`${ showAll ? 'activeBlue' : '' }`} onClick={handleFilter}>All</li>
 
-        <li className={`${ showHerbals ? 'activeGreen' : '' }`} onClick={handleFilter}>Herbals</li>
+        <i className='fa fa-flask xsPadRight pharmaFilter'></i>
+        <li className={`${ showPharma ? 'activeBlue' : '' }`} onClick={handleFilter}>Pharmaceuticals</li>
 
-        <li className={`${ showConsumer ? 'activeGreen' : '' }`} onClick={handleFilter}>Consumer</li>
+        <i className='fa fa-leaf xsPadRight herbalsFilter'></i>
+        <li className={`${ showHerbals ? 'activeBlue' : '' }`} onClick={handleFilter}>Herbals</li>
 
-        <li className={`${ showOTC ? 'activeGreen' : '' }`} onClick={handleFilter}>OTC</li>
+        <i className='fa fa-tags xsPadRight consumerFilter'></i>
+        <li className={`${ showConsumer ? 'activeBlue' : '' }`} onClick={handleFilter}>Consumer</li>
+
+        <i className='fa fa-medkit xsPadRight otcFilter'></i>
+        <li className={`${ showOTC ? 'activeBlue' : '' }`} onClick={handleFilter}>OTC</li>
       </ul>
     </form>
   );

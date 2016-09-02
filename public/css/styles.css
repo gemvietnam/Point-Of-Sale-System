@@ -21,6 +21,14 @@ body .modal {
   display: block;
 }
 
+.primaryGray {
+  color: #6D6D6D;
+}
+
+.secondaryGray {
+  color: #F2F2F2;
+}
+
 /* Reusable classes */
 .marginTop {
   margin-top: 100px;
@@ -497,7 +505,7 @@ body .modal {
   margin-top: 10px;
   text-align: center;
   font-size: 1.3em;
-  color: #C0C0C0;
+  color: #6D6D6D;
 }
 #spinner {
   text-align: center;
@@ -531,9 +539,9 @@ body .modal {
     }
 }
 
-.navbar a {
+/*.navbar a {
   color: #284A75 !important;
-}
+}*/
 
 /* ------------ PreAuthNavTabs.jsx --------------------------------------------------------------*/
 #forgotPassword {
@@ -555,12 +563,20 @@ body .modal {
 }
 
 #signOutTab {
-  margin-top: 0.7em;
+  color: #BCB5B9;
+  font-size: 1.3em;
+  margin-top: 0.3em;
 }
 
 /* The visible user-profile tab and singout button's text will be green during hover */
 #signOutTab:hover {
   color: #1EBEA5 !important;
+}
+
+#userTab,
+#userIcon {
+  font-size: 1.3em;
+  color: #BCB5B9;
 }
 
 #userTab:hover {
@@ -695,7 +711,7 @@ body .modal {
     left: 0em;
     width: 4.5em;
     height: 100%;
-    background-color: #f5f5f5;
+    background-color: #EFEFEF;
     transition: left 0.3s linear;
     -moz-transition: left 0.3s linear;
     -webkit-transition: left 0.3s linear;
@@ -732,7 +748,12 @@ body .modal {
     margin-left: -0.2em !important;
   }
 
+  #homeIcon {
+    color: #E2A5DF;
+  }
+
   .sellLabel {
+
     font-size: 0.8em;
     font-weight: bold;
     margin-top: 0em !important;
@@ -740,12 +761,20 @@ body .modal {
     margin-left: 0.5em !important;
   }
 
-  .productsLabel {
+  #sellIcon {
+    color: #FF9885;
+  }
+
+  .inventoryLabel {
     font-size: 0.8em;
     font-weight: bold;
     margin-top: 0em !important;
     margin-bottom: 0em !important;
     margin-left: -0.6em !important;
+  }
+
+  #inventoryIcon {
+    color: #76DECA;
   }
 
   .reportingLabel {
@@ -756,12 +785,20 @@ body .modal {
     margin-left: -0.8em !important;
   }
 
+  #reportingIcon {
+    color: #F8A443;
+  }
+
   .salesLabel {
     font-size: 0.8em;
     font-weight: bold;
     margin-top: 0em !important;
     margin-bottom: 0em !important;
     margin-left: -1em !important;
+  }
+
+  #salesIcon {
+    color: #B5E892;
   }
 
 /* ------------ Login.jsx --------------------------------------------------------------*/
@@ -819,30 +856,44 @@ body .modal {
 
 
 /* ------------ Product-Search.jsx --------------------------------------------------------------*/
+#productSearch {
+  margin-top: 22px;
+  margin-bottom: 30px;
+}
 #productSearch i {
-  color: #1EBEA5;
+  color: #6D6D6D;
 }
 
 #productSearch input {
-    height: 50px !important;
-    box-shadow: none;
+  border-width: 1.5px;
+  border-color: #6D6D6D;
+  border-radius: 5px;
+  height: 32px !important;
+  box-shadow: none;
+}
+
+#productSearch .input-group-addon {
+  padding: 0 10px;
+  background-color: white;
+  border: none;
 }
 
 #productSearch input::-webkit-input-placeholder {
-    color: #2C87F3 !important;
+    color: #BCB5B9 !important;
 }
 
 #productSearch input:-moz-placeholder { /* Firefox 18- */
-    color: #2C87F3 !important;
+    color: #BCB5B9 !important;
 }
 
 #productSearch input::-moz-placeholder {  /* Firefox 19+ */
-    color: #2C87F3 !important;
+    color: #BCB5B9 !important;
 }
 
 #productSearch input:-ms-input-placeholder {
-    color: #2C87F3 !important;
+    color: #BCB5B9 !important;
 }
+
 
 /* ------------ Profile.jsx --------------------------------------------------------------*/
 
@@ -854,12 +905,52 @@ body .modal {
     color: #284A75;
 }
 
+
+
 /* ------------ ProductFilter.jsx --------------------------------------------------------------*/
+
+.pharmaFilter {
+  color: #34CAAF;
+}
+.herbalsFilter {
+  color: #FF7A62;
+}
+.consumerFilter {
+  color: #A6E47C;
+}
+.otcFilter {
+  color: #DE8EDA;
+}
+
+.xsPadRight {
+  padding-right: 6px;
+}
+
+#filterOptions ul {
+  margin-bottom: 30px;
+  color: #284A75;
+  text-align: center;
+}
+
+#filterOptions li {
+    padding-right: 20px;
+    display: inline;
+    font-size: 1.2em;
+}
+
+#filterOptions li:hover {
+    cursor: pointer;
+}
+
 @media(max-width: 768px) {
     #filterOptions ul {
         padding-top: 20px;
         padding-right: 20px;
     }
+}
+
+.activeBlue {
+    color: #337ab7; !important;
 }
 /* ------------ Inventory.jsx --------------------------------------------------------------*/
 
@@ -867,32 +958,14 @@ body .modal {
     padding-top: 8%;
 }
 
-.inventory #filterOptions ul {
-    text-align: center;
-}
-
-.inventory #filterOptions li {
-    padding-right: 10px;
-    display: inline;
-    font-size: 1.2em;
-    color: #284A75;
-}
-
-.inventory #filterOptions li:hover {
-    cursor: pointer;
+.inventory h4 {
+  padding-left: 10px;
 }
 
 @media(max-width: 768px) {
     .inventory {
         padding-top: 15%;
     }
-    .inventory #filterOptions ul {
-        padding-top: 20px;
-    }
-}
-
-.activeGreen {
-    color: #1EBEA5 !important;
 }
 
 .addPadding {
@@ -925,7 +998,6 @@ body .modal {
 
 #pricetag i {
     padding-left: 25px;
-    color: #1EBEA5;
 }
 
 #pricetag i:hover {

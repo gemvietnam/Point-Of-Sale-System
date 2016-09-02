@@ -168,6 +168,13 @@ class StoreFrontContainer extends Component {
 
 								<div className="row">
 									<div className="col-lg-12 col-md-12">
+                    <h4 className="primaryGray">Search For Products</h4>
+                    <ProductSearch
+                      showAll={showAll}
+                      showPharma={showPharma}
+                      showHerbals={showHerbals}
+                      showConsumer={showConsumer}
+                      showOTC={showOTC} />
 
                     <ProductFilter
                       showAll={showAll}
@@ -176,13 +183,6 @@ class StoreFrontContainer extends Component {
                       showConsumer={showConsumer}
                       showOTC={showOTC}
                       handleFilter={this.handleFilter} />
-
-										<ProductSearch
-                      showAll={showAll}
-                      showPharma={showPharma}
-                      showHerbals={showHerbals}
-                      showConsumer={showConsumer}
-                      showOTC={showOTC} />
 
                     <p id="topProductsMessage">Top {showProductsNum} Products</p>
 

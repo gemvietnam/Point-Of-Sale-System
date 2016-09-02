@@ -34922,8 +34922,18 @@
 	        null,
 	        _react2.default.createElement(
 	          _reactRouter.Link,
+	          { to: '/' },
+	          _react2.default.createElement('i', { id: 'homeIcon', className: 'fa fa-home fa-2x', 'aria-hidden': 'true' }),
+	          'Home'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        _react2.default.createElement(
+	          _reactRouter.Link,
 	          { to: '/inventory' },
-	          _react2.default.createElement('i', { className: 'fa fa-tags fa-2x', 'aria-hidden': 'true' }),
+	          _react2.default.createElement('i', { id: 'sellIcon', className: 'fa fa-tags fa-2x', 'aria-hidden': 'true' }),
 	          'Sell'
 	        )
 	      ),
@@ -34933,7 +34943,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/allProducts' },
-	          _react2.default.createElement('i', { className: 'fa fa-list-ul fa-2x', 'aria-hidden': 'true' }),
+	          _react2.default.createElement('i', { id: 'inventoryIcon', className: 'fa fa-list-ul fa-2x', 'aria-hidden': 'true' }),
 	          'Products'
 	        )
 	      ),
@@ -34943,7 +34953,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/salesHistory' },
-	          _react2.default.createElement('i', { className: 'fa fa-money fa-2x', 'aria-hidden': 'true' }),
+	          _react2.default.createElement('i', { id: 'salesIcon', className: 'fa fa-money fa-2x', 'aria-hidden': 'true' }),
 	          'Sales Data'
 	        )
 	      ),
@@ -34953,7 +34963,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/reporting' },
-	          _react2.default.createElement('i', { className: 'fa fa-area-chart fa-2x', 'aria-hidden': 'true' }),
+	          _react2.default.createElement('i', { id: 'reportingIcon', className: 'fa fa-area-chart fa-2x', 'aria-hidden': 'true' }),
 	          'Reporting'
 	        )
 	      )
@@ -34967,7 +34977,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { id: 'userTab', to: '/userProfile' },
-	          _react2.default.createElement('i', { className: 'fa fa-user fa-2x', 'aria-hidden': 'true' }),
+	          _react2.default.createElement('i', { id: 'userIcon', className: 'fa fa-user fa-2x', 'aria-hidden': 'true' }),
 	          $.isEmptyObject(activeEmployee) ? activeUser.profile.name : activeEmployee.name
 	        )
 	      ),
@@ -35022,7 +35032,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/' },
-	          _react2.default.createElement('i', { className: 'fa fa-home fa-2x', 'aria-hidden': 'true' })
+	          _react2.default.createElement('i', { id: 'homeIcon', className: 'fa fa-home fa-2x', 'aria-hidden': 'true' })
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -35036,7 +35046,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/inventory' },
-	          _react2.default.createElement('i', { className: 'fa fa-tags fa-2x', 'aria-hidden': 'true' })
+	          _react2.default.createElement('i', { id: 'sellIcon', className: 'fa fa-tags fa-2x', 'aria-hidden': 'true' })
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -35050,13 +35060,13 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/allProducts' },
-	          _react2.default.createElement('i', { className: 'fa fa-list-ul fa-2x', 'aria-hidden': 'true' })
+	          _react2.default.createElement('i', { id: 'inventoryIcon', className: 'fa fa-list-ul fa-2x', 'aria-hidden': 'true' })
 	        )
 	      ),
 	      _react2.default.createElement(
 	        'li',
-	        { className: 'productsLabel' },
-	        'Products'
+	        { className: 'inventoryLabel' },
+	        'Inventory'
 	      ),
 	      _react2.default.createElement(
 	        'li',
@@ -35064,7 +35074,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/salesHistory' },
-	          _react2.default.createElement('i', { className: 'fa fa-money fa-2x', 'aria-hidden': 'true' })
+	          _react2.default.createElement('i', { id: 'salesIcon', className: 'fa fa-money fa-2x', 'aria-hidden': 'true' })
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -35078,7 +35088,7 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/reporting' },
-	          _react2.default.createElement('i', { className: 'fa fa-area-chart fa-2x', 'aria-hidden': 'true' })
+	          _react2.default.createElement('i', { id: 'reportingIcon', className: 'fa fa-area-chart fa-2x', 'aria-hidden': 'true' })
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -36443,6 +36453,17 @@
 	                  _react2.default.createElement(
 	                    'div',
 	                    { className: 'col-lg-12 col-md-12' },
+	                    _react2.default.createElement(
+	                      'h4',
+	                      { className: 'primaryGray' },
+	                      'Search For Products'
+	                    ),
+	                    _react2.default.createElement(_ProductSearch2.default, {
+	                      showAll: showAll,
+	                      showPharma: showPharma,
+	                      showHerbals: showHerbals,
+	                      showConsumer: showConsumer,
+	                      showOTC: showOTC }),
 	                    _react2.default.createElement(_ProductFilter2.default, {
 	                      showAll: showAll,
 	                      showPharma: showPharma,
@@ -36450,12 +36471,6 @@
 	                      showConsumer: showConsumer,
 	                      showOTC: showOTC,
 	                      handleFilter: this.handleFilter }),
-	                    _react2.default.createElement(_ProductSearch2.default, {
-	                      showAll: showAll,
-	                      showPharma: showPharma,
-	                      showHerbals: showHerbals,
-	                      showConsumer: showConsumer,
-	                      showOTC: showOTC }),
 	                    _react2.default.createElement(
 	                      'p',
 	                      { id: 'topProductsMessage' },
@@ -36580,13 +36595,13 @@
 					_react2.default.createElement(
 						'span',
 						{ className: 'input-group-addon' },
-						_react2.default.createElement('i', { className: 'fa fa-search fa-2x', 'aria-hidden': 'true' })
+						_react2.default.createElement('i', { className: 'fa fa-search', 'aria-hidden': 'true' })
 					),
 					_react2.default.createElement('input', {
 						className: 'form-control',
 						type: 'text',
 						name: 'search_term',
-						placeholder: 'Search for a product by name...',
+						placeholder: 'Start typing product name...',
 						onChange: this.handleSearch.bind(this)
 					})
 				);
@@ -36636,27 +36651,31 @@
 	      null,
 	      _react2.default.createElement(
 	        'li',
-	        { className: '' + (showAll ? 'activeGreen' : ''), onClick: handleFilter },
+	        { className: '' + (showAll ? 'activeBlue' : ''), onClick: handleFilter },
 	        'All'
 	      ),
+	      _react2.default.createElement('i', { className: 'fa fa-flask xsPadRight pharmaFilter' }),
 	      _react2.default.createElement(
 	        'li',
-	        { className: '' + (showPharma ? 'activeGreen' : ''), onClick: handleFilter },
+	        { className: '' + (showPharma ? 'activeBlue' : ''), onClick: handleFilter },
 	        'Pharmaceuticals'
 	      ),
+	      _react2.default.createElement('i', { className: 'fa fa-leaf xsPadRight herbalsFilter' }),
 	      _react2.default.createElement(
 	        'li',
-	        { className: '' + (showHerbals ? 'activeGreen' : ''), onClick: handleFilter },
+	        { className: '' + (showHerbals ? 'activeBlue' : ''), onClick: handleFilter },
 	        'Herbals'
 	      ),
+	      _react2.default.createElement('i', { className: 'fa fa-tags xsPadRight consumerFilter' }),
 	      _react2.default.createElement(
 	        'li',
-	        { className: '' + (showConsumer ? 'activeGreen' : ''), onClick: handleFilter },
+	        { className: '' + (showConsumer ? 'activeBlue' : ''), onClick: handleFilter },
 	        'Consumer'
 	      ),
+	      _react2.default.createElement('i', { className: 'fa fa-medkit xsPadRight otcFilter' }),
 	      _react2.default.createElement(
 	        'li',
-	        { className: '' + (showOTC ? 'activeGreen' : ''), onClick: handleFilter },
+	        { className: '' + (showOTC ? 'activeBlue' : ''), onClick: handleFilter },
 	        'OTC'
 	      )
 	    )
@@ -36800,15 +36819,15 @@
 
 	  if (productCategory === 'herbal') {
 
-	    return _react2.default.createElement('i', { className: 'fa fa-leaf fa-4x', onClick: showReceipt ? null : handleAddProduct });
+	    return _react2.default.createElement('i', { className: 'fa fa-leaf fa-4x herbalsFilter', onClick: showReceipt ? null : handleAddProduct });
 	  } else if (productCategory === 'pharmaceutical') {
 
-	    return _react2.default.createElement('i', { className: 'fa fa-flask fa-4x', onClick: showReceipt ? null : handleAddProduct });
+	    return _react2.default.createElement('i', { className: 'fa fa-flask fa-4x pharmaFilter', onClick: showReceipt ? null : handleAddProduct });
 	  } else if (productCategory === 'consumer') {
 
-	    return _react2.default.createElement('i', { className: 'fa fa-tags fa-4x', onClick: showReceipt ? null : handleAddProduct });
+	    return _react2.default.createElement('i', { className: 'fa fa-tags fa-4x consumerFilter', onClick: showReceipt ? null : handleAddProduct });
 	  } else {
-	    return _react2.default.createElement('i', { className: 'fa fa-medkit fa-4x', onClick: showReceipt ? null : handleAddProduct });
+	    return _react2.default.createElement('i', { className: 'fa fa-medkit fa-4x otcFilter', onClick: showReceipt ? null : handleAddProduct });
 	  }
 	};
 
@@ -37373,13 +37392,13 @@
 
 	  //note that the category property from product is lowercase
 	  if (category === "pharmaceutical") {
-	    return _react2.default.createElement('i', { className: 'rowCategoryIcon fa fa-flask' });
+	    return _react2.default.createElement('i', { className: 'rowCategoryIcon fa fa-flask pharmaFilter' });
 	  } else if (category === "herbal") {
-	    return _react2.default.createElement('i', { className: 'rowCategoryIcon fa fa-leaf' });
+	    return _react2.default.createElement('i', { className: 'rowCategoryIcon fa fa-leaf herbalsFilter' });
 	  } else if (category === "consumer") {
-	    return _react2.default.createElement('i', { className: 'rowCategoryIcon fa fa-tags' });
+	    return _react2.default.createElement('i', { className: 'rowCategoryIcon fa fa-tags consumerFilter' });
 	  } else {
-	    return _react2.default.createElement('i', { className: 'rowCategoryIcon fa fa-medkit' });
+	    return _react2.default.createElement('i', { className: 'rowCategoryIcon fa fa-medkit otcFilter' });
 	  }
 	};
 

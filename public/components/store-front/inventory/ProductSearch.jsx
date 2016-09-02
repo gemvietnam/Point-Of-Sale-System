@@ -37,13 +37,13 @@ class ProductSearch extends Component {
 		return (
 			<div id="productSearch" className="input-group">
 				<span className="input-group-addon">
-					<i className="fa fa-search fa-2x" aria-hidden="true"></i>
+					<i className="fa fa-search" aria-hidden="true"></i>
 				</span>
 	  	  <input
 	  	  	className="form-control"
 	  	  	type="text"
 		  	  name="search_term"
-		  	  placeholder="Search for a product by name..."
+		  	  placeholder="Start typing product name..."
 		  	  onChange={this.handleSearch.bind(this)}
 	  	  />
 			</div>
