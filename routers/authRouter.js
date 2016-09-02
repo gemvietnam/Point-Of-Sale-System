@@ -108,12 +108,24 @@ module.exports = function (app) {
 
 		    var mailOptions = {
 		      to: user.email,
-		      from: 'marcushurney@gmail.com',
-		      subject: 'Node.js Password Reset',
-		      text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
-		        'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-		        'http://' + req.headers.host + resetRoute + token + '\n\n' +
-		        'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+		      from: 'admin@hellohealthgroup.com',
+		      subject: 'Hello Bacsi P.O.S. Password Reset',
+		      text: `Hi ${user.profile.name},
+								 We received a request to reset your Hello Bacsi P.O.S. system password.
+								 \n
+								 To start the process, please click the following link:
+								 http://${req.headers.host}${resetRoute}${token}
+								 \n
+								 If the above link doesn’t take you to our password reset page,
+								 copy and paste the URL in a new browser window.
+								 \n
+								 The URL will expire in 1 hour for security reasons.
+								 If you didn’t make this request, simply ignore this message.`
+
+					//  'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+		      //   'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+		      //   'http://' + req.headers.host + resetRoute + token + '\n\n' +
+		      //   'If you did not request this, please ignore this email and your password will remain unchanged.\n'
 		    };
 		  	smtpTransport.sendMail(mailOptions, function(err) {
 		    	done(err, 'done');
@@ -152,16 +164,17 @@ module.exports = function (app) {
 	      var smtpTransport = nodemailer.createTransport('SMTP', {
 	        service: 'SendGrid',
 	        auth: {
-	          user: 'marcushurney@gmail.com',
+	          user: 'marcushurney',
 	          pass: 'jisuanqiRen90'
 	        }
 	      });
 	      var mailOptions = {
 	        to: user.email,
-	        from: 'marcushurney@gmail.com',
-	        subject: 'Your password has been changed',
-	        text: 'Hello, ' +
-	          'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
+	        from: 'admin@hellohealthgroup.com',
+	        subject: 'Hello Bacsi P.O.S. Password Changed',
+	        text: `Hello ${user.profile.name},\n
+								 This is a confirmation that the password for your account, ${user.email},
+								 has just been changed.`
 	      };
 	      smtpTransport.sendMail(mailOptions, function(err) {
 	        done(err);
