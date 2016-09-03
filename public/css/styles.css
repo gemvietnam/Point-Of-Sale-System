@@ -501,15 +501,37 @@ body .modal {
   color: #284A75;
 }
 /* ------------ StoreFrontContainer.jsx ----------------------------------------------------------------*/
+.inventory {
+    padding-top: 8%;
+}
+
+#searchTitle {
+  padding-left: 10px;
+  font-size: 1.5em;
+  color: #727272;
+}
+
+@media(max-width: 768px) {
+    .inventory {
+        padding-top: 15%;
+    }
+}
+
+.addPadding {
+    padding: 10px 10px 10px 10px;
+}
+
 #topProductsMessage {
   margin-top: 10px;
   text-align: center;
   font-size: 1.3em;
   color: #6D6D6D;
 }
+
 #spinner {
   text-align: center;
 }
+
 /* ------------ loadingSpinner.jsx ----------------------------------------------------------------*/
 #loadingSpinner {
   margin-top: 30px;
@@ -590,25 +612,6 @@ body .modal {
 }
 
 
-/* ------------ ClearCartBtn.jsx ----------------------------------------------------------------*/
-
-
-
-#clearCart {
-  text-align: center;
-}
-
-  #clearCart h5 {
-    font-weight: bold;
-  }
-
-  #clearCartBtn {
-    color: #DB4437;
-  }
-
-  #clearCartBtn:hover {
-    cursor: pointer;
-  }
 
 /* ------------ UndoSaleBtn.jsx ----------------------------------------------------------------*/
 #undoSale {
@@ -625,18 +628,6 @@ body .modal {
     cursor: pointer;
   }
 
-/* ------------ CartContainer.jsx ----------------------------------------------------------------*/
-#hideReceiptIcon {
-  color: white;
-}
-
-.checkOutBtn {
-  height: 68px !important;
-}
-
-#cartTotalsTable {
-  margin-bottom: 5px;
-}
 
 /* ------------ CartProductRow.jsx ----------------------------------------------------------------*/
 
@@ -865,8 +856,8 @@ body .modal {
 }
 
 #productSearch input {
-  border-width: 1.5px;
-  border-color: #6D6D6D;
+  border-width: 2px;
+  border-color: #A9A9A9;
   border-radius: 5px;
   height: 32px !important;
   box-shadow: none;
@@ -953,25 +944,6 @@ body .modal {
 .activeBlue {
     color: #337ab7; !important;
 }
-/* ------------ Inventory.jsx --------------------------------------------------------------*/
-
-.inventory {
-    padding-top: 8%;
-}
-
-.inventory h4 {
-  padding-left: 10px;
-}
-
-@media(max-width: 768px) {
-    .inventory {
-        padding-top: 15%;
-    }
-}
-
-.addPadding {
-    padding: 10px 10px 10px 10px;
-}
 
 /* ------------ SingleEmployee.jsx --------------------------------------------------------------*/
 #singleEmployee {
@@ -1048,39 +1020,78 @@ body .modal {
   }
 
 /* ------------ CartHeader.jsx --------------------------------------------------------------*/
-.checkout .panel-heading h5 {
-    padding-top: 0 !important;
+#cartHeaderDiv h5 {
     text-align: center;
-    color: #284A75;
+    color: #228AEB;
 }
 
-.checkout .panel-heading p {
+#cartHeaderDiv p {
     text-align: center;
     margin-bottom: 0px;
 }
 
 .cartHeaderActive i {
-  color: #284A75;
+  padding-bottom: 5px;
+  color: #228AEB;
 }
 
 .cartHeaderReceipt i {
-  color: #57C082;
+  color: #228AEB;
 }
 
 .cartHeaderSale i {
-  color: #284A75;
+  color: #228AEB;
 }
 
 
 /* ------------ CartContainer.jsx --------------------------------------------------------------*/
 
-.checkout {
-    margin-top: 25px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #284A75;
-    border-radius: 5px;
+@media(max-width: 991px) {
+  #checkoutContainer {
+    margin-top: 20px;
+  }
 }
+
+#checkoutTitle {
+  float: left;
+  font-size: 1.5em;
+  color: #727272;
+  margin-right: 5px;
+  padding-top: 5px;
+}
+#itemCount {
+  font-style: italic;
+  padding-top: 10px;
+  color: #BEBEBE;
+}
+
+#discardDiv {
+  padding-top: 10px;
+  text-align: right;
+}
+#discardSale {
+  color: #B5B5B5;
+  font-size: 1.1em;
+}
+#clearCartBtn {
+  margin-right: 10px;
+  color: #B5B5B5;
+  font-size: 1.5em;
+}
+#clearCartBtn:hover {
+  cursor: pointer;
+  color: #DB4437;
+}
+
+.checkout {
+  margin-top: 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #CECECE;
+  border-radius: 5px;
+}
+
+
 
 #checkoutPanel {
   margin-bottom: 0;
@@ -1114,6 +1125,19 @@ body .modal {
     height: 285px;
     overflow-y: scroll;
 }
+
+#hideReceiptIcon {
+  color: white;
+}
+
+.checkOutBtn {
+  height: 68px !important;
+}
+
+#cartTotalsTable {
+  margin-bottom: 5px;
+}
+
 
 /* ------------ Receipt.jsx --------------------------------------------------------------*/
 

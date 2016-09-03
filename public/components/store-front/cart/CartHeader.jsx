@@ -6,7 +6,7 @@ const CartHeader = ({ cart, showReceipt}) => {
 			return (
         <div className="cartHeaderSale">
           <h5>Make a Sale</h5>
-  				<p><i className="fa fa-plus-square-o fa-3x" aria-hidden="true"></i></p>
+          <p><i className="fa fa-plus-square-o fa-2x" aria-hidden="true"></i></p>
         </div>
       );
 
@@ -15,7 +15,7 @@ const CartHeader = ({ cart, showReceipt}) => {
       return (
         <div className="cartHeaderReceipt">
           <h5>Sale Summary</h5>
-  				<p><i className="fa fa-money fa-3x" aria-hidden="true"></i></p>
+  				<p><i className="fa fa-money fa-2x" aria-hidden="true"></i></p>
         </div>
       );
 
@@ -24,7 +24,7 @@ const CartHeader = ({ cart, showReceipt}) => {
 			return (
         <div className="cartHeaderActive">
           <h5>Active Cart</h5>
-  				<p><i className="fa fa-cart-plus fa-3x" aria-hidden="true"></i></p>
+  				<p><i className="fa fa-cart-plus fa-2x" aria-hidden="true"></i></p>
         </div>
       );
 

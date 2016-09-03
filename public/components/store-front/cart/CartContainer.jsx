@@ -94,50 +94,75 @@ class CartContainer extends Component {
           } = this.props;
 
       return (
-				<div className="checkout">
-					<div className="row">
-						<div className="col-lg-12 col-md-12">
-							<div id="checkoutPanel" className="panel panel-default">
-							  <div className="panel-heading">
-                  <div className="row">
-                    <div className="col-lg-4 col-md-4">
+        <div id="checkoutContainer">
+          {/* Checkout Header */}
+          <div className="row">
+            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <p id="checkoutTitle" className=".primaryGray">CHECKOUT</p>
+              <p id="itemCount">{cart.length} item(s)</p>
+            </div>
+            <div id="discardDiv" className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <p id="discardSale">
+                <i onClick={clearCart}
+                id="clearCartBtn"
+                className="fa fa-trash"
+                aria-hidden="true"></i>
+                 Discard Sale
+              </p>
 
-                      {showReceipt ?
-                        <UndoSaleBtn hideReceipt={hideReceipt} lastSale={lastSale} handleUndoSale={undoSale} /> :
-                        <ClearCartBtn handleClearCart={clearCart} /> }
+            </div>
+          </div>
 
-                    </div>
-                    <div className="col-lg-4 col-md-4">
-                      <CartHeader cart={cart} showReceipt={showReceipt} />
-                    </div>
-                  </div>
-							  </div>
-							  <div className="cartTableContainer">
 
-								  <CartProductsTable
-                    cart={cart}
-                    decrementProductInCart={decrementProductInCart}
-                    clearProductInCart={clearProductInCart}
-                    calculateCartTotals={calculateCartTotals}
-                    showReceipt={showReceipt}
-                    handlePlusBtn={this.handlePlusBtn}
-                    handleMinusBtn={this.handleMinusBtn}
-                  />
 
-							  </div>
-							  <div className="panel-footer">
+          <div className="checkout">
+              <div className="row">
+    						<div className="col-lg-12 col-md-12">
+    							<div id="checkoutPanel" className="panel panel-default">
 
-  							  <CartTotalsTable
-                    cartSubtotal={cartSubtotal}
-                    tax={tax}
-                    cartTotal={cartTotal}
-                  />
-                  {this.renderCheckoutBtns()}
-							  </div>
-							</div>
-						</div>
-					</div>
-				</div>
+                      <div id="cartHeaderDiv" className="row">
+                        <div className="col-lg-4 col-md-4">
+
+                          {showReceipt ?
+                            <UndoSaleBtn hideReceipt={hideReceipt} lastSale={lastSale} handleUndoSale={undoSale} /> :
+                            <noscript/>}
+
+                        </div>
+                        <div className="col-lg-4 col-md-4">
+                          <CartHeader cart={cart} showReceipt={showReceipt} />
+                        </div>
+                      </div>
+
+    							  <div className="cartTableContainer">
+
+    								  <CartProductsTable
+                        cart={cart}
+                        decrementProductInCart={decrementProductInCart}
+                        clearProductInCart={clearProductInCart}
+                        calculateCartTotals={calculateCartTotals}
+                        showReceipt={showReceipt}
+                        handlePlusBtn={this.handlePlusBtn}
+                        handleMinusBtn={this.handleMinusBtn}
+                      />
+
+    							  </div>
+    							  <div className="panel-footer">
+
+      							  <CartTotalsTable
+                        cartSubtotal={cartSubtotal}
+                        tax={tax}
+                        cartTotal={cartTotal}
+                      />
+                      {this.renderCheckoutBtns()}
+    							  </div>
+    							</div>
+    						</div>
+    					</div>
+          </div>
+
+          </div>
+
+
 			);
     // }
   }

@@ -168,7 +168,7 @@ class StoreFrontContainer extends Component {
 
 								<div className="row">
 									<div className="col-lg-12 col-md-12">
-                    <h4 className="primaryGray">Search For Products</h4>
+                    <p id="searchTitle" className="primaryGray">Search For Products</p>
                     <ProductSearch
                       showAll={showAll}
                       showPharma={showPharma}

@@ -36454,8 +36454,8 @@
 	                    'div',
 	                    { className: 'col-lg-12 col-md-12' },
 	                    _react2.default.createElement(
-	                      'h4',
-	                      { className: 'primaryGray' },
+	                      'p',
+	                      { id: 'searchTitle', className: 'primaryGray' },
 	                      'Search For Products'
 	                    ),
 	                    _react2.default.createElement(_ProductSearch2.default, {
@@ -36986,56 +36986,88 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'checkout' },
+	        { id: 'checkoutContainer' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'row' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-lg-12 col-md-12' },
+	            { className: 'col-lg-6 col-md-6 col-sm-6 col-xs-6' },
+	            _react2.default.createElement(
+	              'p',
+	              { id: 'checkoutTitle', className: '.primaryGray' },
+	              'CHECKOUT'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              { id: 'itemCount' },
+	              cart.length,
+	              ' item(s)'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { id: 'discardDiv', className: 'col-lg-6 col-md-6 col-sm-6 col-xs-6' },
+	            _react2.default.createElement(
+	              'p',
+	              { id: 'discardSale' },
+	              _react2.default.createElement('i', { onClick: clearCart,
+	                id: 'clearCartBtn',
+	                className: 'fa fa-trash',
+	                'aria-hidden': 'true' }),
+	              'Discard Sale'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'checkout' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
 	            _react2.default.createElement(
 	              'div',
-	              { id: 'checkoutPanel', className: 'panel panel-default' },
+	              { className: 'col-lg-12 col-md-12' },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'panel-heading' },
+	                { id: 'checkoutPanel', className: 'panel panel-default' },
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'row' },
+	                  { id: 'cartHeaderDiv', className: 'row' },
 	                  _react2.default.createElement(
 	                    'div',
 	                    { className: 'col-lg-4 col-md-4' },
-	                    showReceipt ? _react2.default.createElement(_UndoSaleBtn2.default, { hideReceipt: hideReceipt, lastSale: lastSale, handleUndoSale: undoSale }) : _react2.default.createElement(_ClearCartBtn2.default, { handleClearCart: clearCart })
+	                    showReceipt ? _react2.default.createElement(_UndoSaleBtn2.default, { hideReceipt: hideReceipt, lastSale: lastSale, handleUndoSale: undoSale }) : _react2.default.createElement('noscript', null)
 	                  ),
 	                  _react2.default.createElement(
 	                    'div',
 	                    { className: 'col-lg-4 col-md-4' },
 	                    _react2.default.createElement(_CartHeader2.default, { cart: cart, showReceipt: showReceipt })
 	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'cartTableContainer' },
+	                  _react2.default.createElement(_CartProductsTable2.default, {
+	                    cart: cart,
+	                    decrementProductInCart: decrementProductInCart,
+	                    clearProductInCart: clearProductInCart,
+	                    calculateCartTotals: calculateCartTotals,
+	                    showReceipt: showReceipt,
+	                    handlePlusBtn: this.handlePlusBtn,
+	                    handleMinusBtn: this.handleMinusBtn
+	                  })
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'panel-footer' },
+	                  _react2.default.createElement(_CartTotalsTable2.default, {
+	                    cartSubtotal: cartSubtotal,
+	                    tax: tax,
+	                    cartTotal: cartTotal
+	                  }),
+	                  this.renderCheckoutBtns()
 	                )
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'cartTableContainer' },
-	                _react2.default.createElement(_CartProductsTable2.default, {
-	                  cart: cart,
-	                  decrementProductInCart: decrementProductInCart,
-	                  clearProductInCart: clearProductInCart,
-	                  calculateCartTotals: calculateCartTotals,
-	                  showReceipt: showReceipt,
-	                  handlePlusBtn: this.handlePlusBtn,
-	                  handleMinusBtn: this.handleMinusBtn
-	                })
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'panel-footer' },
-	                _react2.default.createElement(_CartTotalsTable2.default, {
-	                  cartSubtotal: cartSubtotal,
-	                  tax: tax,
-	                  cartTotal: cartTotal
-	                }),
-	                this.renderCheckoutBtns()
 	              )
 	            )
 	          )
@@ -37104,7 +37136,7 @@
 	      _react2.default.createElement(
 	        "p",
 	        null,
-	        _react2.default.createElement("i", { className: "fa fa-plus-square-o fa-3x", "aria-hidden": "true" })
+	        _react2.default.createElement("i", { className: "fa fa-plus-square-o fa-2x", "aria-hidden": "true" })
 	      )
 	    );
 	  } else if (showReceipt) {
@@ -37120,7 +37152,7 @@
 	      _react2.default.createElement(
 	        "p",
 	        null,
-	        _react2.default.createElement("i", { className: "fa fa-money fa-3x", "aria-hidden": "true" })
+	        _react2.default.createElement("i", { className: "fa fa-money fa-2x", "aria-hidden": "true" })
 	      )
 	    );
 	  } else {
@@ -37136,7 +37168,7 @@
 	      _react2.default.createElement(
 	        "p",
 	        null,
-	        _react2.default.createElement("i", { className: "fa fa-cart-plus fa-3x", "aria-hidden": "true" })
+	        _react2.default.createElement("i", { className: "fa fa-cart-plus fa-2x", "aria-hidden": "true" })
 	      )
 	    );
 	  }
@@ -47813,12 +47845,7 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { id: 'clearCart' },
-	    _react2.default.createElement(
-	      'h5',
-	      null,
-	      'Clear Cart'
-	    ),
-	    _react2.default.createElement('i', { onClick: handleClearCart, id: 'clearCartBtn', className: 'fa fa-retweet fa-2x', 'aria-hidden': 'true' })
+	    _react2.default.createElement('i', { onClick: handleClearCart, id: 'clearCartBtn', className: 'fa fa-trash primaryGray', 'aria-hidden': 'true' })
 	  );
 	};
 
