@@ -274,20 +274,42 @@ body .modal {
 }
 /* ------------ PlusMinusBtns.jsx ----------------------------------------------------------------*/
 
+#plusMinusTD {
+  width: 115px;
+  padding-top: 11px;
+}
+
 #plusMinusBtns button {
   border: none;
-  border-radius: 0.3em;
 }
 
 #plusBtn {
+  border: none;
+  color: #B8B5B5;
   margin-right: 0.5em;
 }
 
-#plusBtn i {
+#plusBtn:hover {
+  border: none;
+  background-color: white;
+}
+
+#minusBtn {
+  border: none;
+  color: #B8B5B5;
+}
+
+#minusBtn:hover {
+  border: none;
+  background-color: white;
+}
+
+#plusBtn i:hover {
   color: #449D44;
 }
 
-#minusBtn i {
+#minusBtn i:hover {
+  background-color: white;
   color: #DB4437;
 }
 
@@ -540,7 +562,7 @@ body .modal {
 
 /* ------------ LoadProductsBtn.jsx ----------------------------------------------------------------*/
 #loadProductsBtn {
-  background-color: #284A75;
+  background-color: #2C87F3;
   color: white;
   margin-top: 25px;
   margin-bottom: 10px;
@@ -633,16 +655,31 @@ body .modal {
 
 .cartRow {
   font-family: 'Nunito', sans-serif;
-  color: #585858;
+  color: #6D6D6D;
+}
+
+.rowPadding {
+  padding-top: 16px !important;
 }
 
 .fa-check {
   color: #449D44;
 }
 
-.rowCategoryIcon {
-  color: #284A75;
+.productQuantity {
+  font-size: 1.3em;
+  margin-left: 5px;
 }
+
+#cartDelete {
+    color: #DB4437;
+    padding-top: 10px;
+}
+
+#cartDelete:hover {
+    cursor: pointer;
+}
+
 
 /* ------------ DeleteBtn.jsx ----------------------------------------------------------------*/
 
@@ -919,7 +956,7 @@ body .modal {
 
 #filterOptions ul {
   margin-bottom: 30px;
-  color: #284A75;
+  color: #6D6D6D;
   text-align: center;
 }
 
@@ -985,7 +1022,7 @@ body .modal {
 
 #examineIcon i {
    padding: 5px 0 0 5px;
-   color: #284A75;
+   color: #6D6D6D;
 }
 
 #examineIcon i:hover {
@@ -1092,47 +1129,72 @@ body .modal {
   border-radius: 5px;
 }
 
+.cartTableContainer {
+  height: 285px;
+  overflow-y: scroll;
+}
 
+.checkOutBtn {
+  width: 100%;
+  background-color: #228AEB;
+  border-color: #228AEB;
+  height: 65px;
+}
+
+.checkOutBtn:hover {
+  background-color: #00b359;
+  border-color: #00b359;
+}
+
+#payBtnText {
+  float: left;
+  font-size: 1.5em;
+}
+
+#payBtnTotal {
+  float: right;
+  font-size: 1.7em;
+}
 
 #checkoutPanel {
   margin-bottom: 0;
+}
+
+/* -- CartTotalsTable.jsx ------------------------------------------------------*/
+
+#cartTotals {
+  height: 217px;
+}
+
+.checkout .panel-footer {
+  background-color: white !important;
 }
 
 .cartTableContainer td {
     border-bottom: 1px solid #ddd !important;
 }
 
-#cartDelete {
-    color: #DB4437;
+.totalsData {
+  font-size: 1.3em;
+  color: #6D6D6D;
 }
 
-#cartDelete:hover {
-    cursor: pointer;
+.actualTotal {
+  font-size: 2.3em;
+  padding-top: 30px;
+  color: #6D6D6D;
 }
 
-.checkout .panel-footer {
-    background-color: white !important;
-    border-top: none !important;
-    padding: 0;
+#discount {
+  color: #228AEB;
 }
 
-.checkout .panel-footer .btn {
-    width: 100%;
-    background-color: #57C082;
-    height: 50px;
-}
-
-.cartTableContainer {
-    height: 285px;
-    overflow-y: scroll;
+.totalDiv {
+  border-top: 1px solid #CECECE;
 }
 
 #hideReceiptIcon {
   color: white;
-}
-
-.checkOutBtn {
-  height: 68px !important;
 }
 
 #cartTotalsTable {

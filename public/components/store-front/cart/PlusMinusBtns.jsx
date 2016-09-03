@@ -13,10 +13,5 @@ const PlusMinusBtns = ({ product, handlePlusBtn, handleMinusBtn, showReceipt }) 
   );
 };
 
-// PlusMinusBtns.propTypes = {
-//   product: Proptypes.object.isRequired,
-//   handlePlusBtn: Proptypes.func.isRequired,
-//   handleMinusBtn: Proptypes.func.isRequired
-// };
 
 export default PlusMinusBtns;

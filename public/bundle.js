@@ -36961,7 +36961,17 @@
 	        return _react2.default.createElement(
 	          'button',
 	          { onClick: this.handlePay, className: 'btn btn-success checkOutBtn' },
-	          'Pay'
+	          _react2.default.createElement(
+	            'span',
+	            { id: 'payBtnText' },
+	            'Pay'
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            { id: 'payBtnTotal' },
+	            '$',
+	            this.props.cartTotal
+	          )
 	        );
 	      }
 	    }
@@ -37274,49 +37284,38 @@
 	    { key: product._id, className: 'cartRow wow slideInUp', 'data-wow-duration': '0.5s' },
 	    _react2.default.createElement(
 	      'td',
-	      null,
+	      { className: 'rowPadding' },
 	      _react2.default.createElement(_ProductCategoryIcon2.default, { category: product.category })
 	    ),
 	    _react2.default.createElement(
 	      'td',
-	      null,
+	      { className: 'rowPadding' },
 	      product.name
 	    ),
 	    _react2.default.createElement(
 	      'td',
-	      null,
-	      product.cartQuantity
+	      { className: 'rowPadding' },
+	      'x',
+	      _react2.default.createElement(
+	        'span',
+	        { className: 'productQuantity' },
+	        product.cartQuantity
+	      )
 	    ),
 	    _react2.default.createElement(
 	      'td',
-	      null,
-	      'X'
-	    ),
-	    _react2.default.createElement(
-	      'td',
-	      null,
-	      '$',
-	      product.price
-	    ),
-	    _react2.default.createElement(
-	      'td',
-	      null,
-	      '='
-	    ),
-	    _react2.default.createElement(
-	      'td',
-	      null,
-	      '$',
-	      product.cartQuantity * product.price
-	    ),
-	    _react2.default.createElement(
-	      'td',
-	      null,
+	      { id: 'plusMinusTD' },
 	      _react2.default.createElement(_PlusMinusBtns2.default, {
 	        product: product,
 	        handlePlusBtn: handlePlusBtn,
 	        handleMinusBtn: handleMinusBtn,
 	        showReceipt: showReceipt })
+	    ),
+	    _react2.default.createElement(
+	      'td',
+	      { className: 'rowPadding' },
+	      '$',
+	      product.cartQuantity * product.price
 	    ),
 	    showReceipt ? _react2.default.createElement(
 	      'td',
@@ -37324,7 +37323,8 @@
 	      _react2.default.createElement('i', { className: 'fa fa-check', 'aria-hidden': 'true' })
 	    ) : _react2.default.createElement(
 	      'td',
-	      { id: 'cartDelete', onClick: function onClick() {
+	      { id: 'cartDelete',
+	        onClick: function onClick() {
 	          clearProductInCart(product);calculateCartTotals();
 	        } },
 	      _react2.default.createElement('i', { className: 'fa fa-trash-o fa-2x wow rotateInDownRight', 'aria-hidden': 'true' })
@@ -37386,12 +37386,6 @@
 	  );
 	};
 
-	// PlusMinusBtns.propTypes = {
-	//   product: Proptypes.object.isRequired,
-	//   handlePlusBtn: Proptypes.func.isRequired,
-	//   handleMinusBtn: Proptypes.func.isRequired
-	// };
-
 	exports.default = PlusMinusBtns;
 
 /***/ },
@@ -37452,37 +37446,92 @@
 	  var tax = _ref.tax;
 	  var cartTotal = _ref.cartTotal;
 
-	  return _react2.default.createElement(
-	    "table",
-	    { id: "cartTotalsTable", className: "table" },
+	  return(
+	    // <table id="cartTotalsTable" className="table">
+	    //   <tbody>
+	    //     <tr>
+	    // 			<td>Subtotal: ${cartSubtotal}</td>
+	    // 			<td>Discount: 0%</td>
+	    // 			<td>Tax: {tax}%</td>
+	    // 			<td>Total: ${cartTotal + (cartTotal * tax/100)}</td>
+	    // 		</tr>
+	    //   </tbody>
+	    // </table>
 	    _react2.default.createElement(
-	      "tbody",
-	      null,
+	      "div",
+	      { className: "row", id: "cartTotals" },
 	      _react2.default.createElement(
-	        "tr",
-	        null,
+	        "div",
+	        { className: "totalsData col-lg-6 col-md-6 col-sm-6 col-xs-6" },
 	        _react2.default.createElement(
-	          "td",
+	          "p",
 	          null,
-	          "Subtotal: $",
+	          "Sub-total"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "totalsData text-right col-lg-6 col-md-6 col-sm-6 col-xs-6" },
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          "$",
 	          cartSubtotal
-	        ),
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "totalsData col-lg-6 col-md-6 col-sm-6 col-xs-6" },
 	        _react2.default.createElement(
-	          "td",
-	          null,
-	          "Discount: 0%"
-	        ),
+	          "p",
+	          { id: "discount" },
+	          "Discount"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "totalsData text-right col-lg-6 col-md-6 col-sm-6 col-xs-6" },
 	        _react2.default.createElement(
-	          "td",
+	          "p",
 	          null,
-	          "Tax: ",
+	          "0%"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "totalsData col-lg-6 col-md-6 col-sm-6 col-xs-6" },
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          "Tax"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "totalsData text-right col-lg-6 col-md-6 col-sm-6 col-xs-6" },
+	        _react2.default.createElement(
+	          "p",
+	          null,
 	          tax,
 	          "%"
-	        ),
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "actualTotal totalDiv col-lg-6 col-md-6 col-sm-6 col-xs-6" },
 	        _react2.default.createElement(
-	          "td",
+	          "p",
 	          null,
-	          "Total: $",
+	          "Total"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "actualTotal totalDiv text-right col-lg-6 col-md-6 col-sm-6 col-xs-6" },
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          "$",
 	          cartTotal + cartTotal * tax / 100
 	        )
 	      )

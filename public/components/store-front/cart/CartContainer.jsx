@@ -73,7 +73,12 @@ class CartContainer extends Component {
 
       );
     } else {
-      return <button onClick={this.handlePay} className="btn btn-success checkOutBtn">Pay</button>;
+      return (
+        <button onClick={this.handlePay} className="btn btn-success checkOutBtn">
+          <span id="payBtnText">Pay</span>
+          <span id="payBtnTotal">${this.props.cartTotal}</span>
+        </button>
+      );
     }
   }
 
