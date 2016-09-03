@@ -37159,17 +37159,8 @@
 
 	    return _react2.default.createElement(
 	      "div",
-	      { className: "cartHeaderActive" },
-	      _react2.default.createElement(
-	        "h5",
-	        null,
-	        "Active Cart"
-	      ),
-	      _react2.default.createElement(
-	        "p",
-	        null,
-	        _react2.default.createElement("i", { className: "fa fa-cart-plus fa-2x", "aria-hidden": "true" })
-	      )
+	      { className: "cartHeaderActive text-center" },
+	      _react2.default.createElement("i", { className: "fa fa-cart-plus fa-2x", "aria-hidden": "true" })
 	    );
 	  }
 	};

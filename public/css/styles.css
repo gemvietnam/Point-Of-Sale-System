@@ -962,7 +962,7 @@ body .modal {
 /* ------------ Single-Product.jsx --------------------------------------------------------------*/
 
 #singleProduct {
-    border: 2.5px solid #284A75;
+    border: 2.5px solid #BCB5B9;
     border-radius: 5px;
     width: 100px;
     height: 140px;
@@ -1031,7 +1031,8 @@ body .modal {
 }
 
 .cartHeaderActive i {
-  padding-bottom: 5px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   color: #228AEB;
 }
 

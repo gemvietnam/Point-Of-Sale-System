@@ -22,9 +22,8 @@ const CartHeader = ({ cart, showReceipt}) => {
     } else {
 
 			return (
-        <div className="cartHeaderActive">
-          <h5>Active Cart</h5>
-  				<p><i className="fa fa-cart-plus fa-2x" aria-hidden="true"></i></p>
+        <div className="cartHeaderActive text-center">
+          <i className="fa fa-cart-plus fa-2x" aria-hidden="true"></i>
         </div>
       );
 
