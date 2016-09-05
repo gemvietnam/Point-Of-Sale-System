@@ -55,41 +55,50 @@ class SalesSearchForm extends Component {
 			<form id="salesByDateForm" ref="form">
 
 				{/*Start Dates Below*/}
-				<div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+				<div className="dateColumn col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<p className="primaryGray">Date From</p>
 					<div className="form-group">
-						<label for="selectStartYear">Start Year</label>
+						<label for="selectStartYear">Year</label>
 						<ComboBox name={"selectStartYear"} comboList={comboYears} />
 					</div>
 					<div className="form-group">
-						<label for="selectStartMonth">Start Month</label>
+						<label for="selectStartMonth">Month</label>
 						<ComboBox name={"selectStartMonth"} comboList={comboMonths} />
 					</div>
 					<div className="form-group">
-						<label for="selectStartDay">Start Day</label>
+						<label for="selectStartDay">Day</label>
 						<ComboBox name={"selectStartDay"} comboList={comboDays} />
 					</div>
 				</div>
 
 				{/*End Dates Below*/}
-				<div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+				<div className="dateColumn col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<p className="primaryGray">Date To</p>
 					<div className="form-group">
-						<label for="selectEndYear">End Year</label>
+						<label for="selectEndYear">Year</label>
 						<ComboBox name={"selectEndYear"} comboList={comboYears} />
 					</div>
 					<div className="form-group">
-						<label for="selectEndMonth">End Month</label>
+						<label for="selectEndMonth">Month</label>
 						<ComboBox name={"selectEndMonth"} comboList={comboMonths} />
 					</div>
 					<div className="form-group">
-						<label for="selectEndDay">End Day</label>
+						<label for="selectEndDay">Day</label>
 						<ComboBox name={"selectEndDay"} comboList={comboDays} />
 					</div>
 				</div>
-				<div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-lg-offset-3 col-md-offset-3 ">
-					<button id="searchSalesBtn" onClick={this.handleSearch} type="submit" className="btn btn-primary">Search By Date</button>
-				</div>
-				<div className="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-					<i id="refreshSalesBtn" onClick={this.refreshSales} className="fa fa-refresh fa-3x"></i>
+				<div id="historyBtns" className="text-center col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+						<button id="searchSalesBtn"
+							onClick={this.handleSearch}
+							type="submit"
+							className="btn btn-primary">Search</button>
+					</div>
+					<div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+						<i id="refreshSalesBtn"
+							onClick={this.refreshSales}
+							className="fa fa-refresh fa-3x"></i>
+					</div>
 				</div>
 			</form>
 		);

@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import SalesHistoryRow from 'SalesHistoryRow';
 
 const SalesHistoryTable = ({ sales, numSalesShowing }) => {
+
   return (
 		<div className="table-responsive">
 			<table className="table table-hover">

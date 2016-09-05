@@ -230,20 +230,44 @@ body .modal {
 
 /* ------------ SalesHistoryRow.jsx --------------------------------------------------------------*/
 .salesHistoryRow i {
-  color: #1EBEA5;
+  color: #228AEB;
 }
 
 .salesHistoryRow i:hover {
   cursor: pointer;
-  color: #284A75;
+  color: #1EBEA5;
+}
+
+#historyHead {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+#historySubHead {
+  font-size: 1.2em;
+  margin-bottom: 35px;
 }
 /* ------------ SalesHistoryContainer.jsx --------------------------------------------------------------*/
 #salesHistoryContainer {
   margin-top: 6em;
 }
-#salesHistoryContainer h4 {
-  text-align: center;
+#salesHistoryContainer .panel-heading {
+  background-color: #F2F2F2 !important;
 }
+#salesHistoryContainer p {
+  font-size: 1.3em;
+}
+.combobox-wrapper select {
+  width: 200px;
+  height: 30px !important;
+}
+.dateColumn {
+  padding-left: 75px;
+  width: 200px;
+  margin-right: 100px;
+}
+
+
 #salesHistoryContainer #loadingSpinner {
   margin-left: 45%;
 }
@@ -255,15 +279,22 @@ body .modal {
 #salesByDateForm select {
   height: 25px;
 }
+#historyBtns {
+  padding-top: 145px;
+  padding-left: 50px;
+}
+
 #searchSalesBtn {
-  background-color: #284A75;
+  background-color: #2C87F3;
+  border-color: #2C87F3;
+  height: 50px;
+  border-radius: 2px;
   width: 200px;
-  margin-top: 10px;
 }
 #refreshSalesBtn {
-  color: #1EBEA5;
-  margin-left: 2em;
-  margin-top: 0.2em;
+  padding-left: 200px;
+  padding-top: 6px;
+  color: #2C87F3;
 }
 #refreshSalesBtn:hover {
   cursor: pointer;
@@ -511,9 +542,14 @@ body .modal {
 }
 
 /* ------------ AddProductBtn.jsx ----------------------------------------------------------------*/
+#addProductBtn {
+  color: #2C87F3 !important;
+  background-color: #F8F8F8;
+  border: none;
+}
 #addProductBtn:hover {
-  border-color: #1EBEA5;
-  background-color: white !important;
+  border-color: #F8F8F8;
+  background-color: #F8F8F8 !important;
 }
 #addProductBtn i {
   color: #1EBEA5;
@@ -1237,22 +1273,35 @@ body .modal {
     margin-top: 100px;
 }
 
+.allProductsShown #productSearch .input-group-addon {
+  background-color: #F8F8F8;
+}
+
 .allProductsShown .panel-heading {
   background-color: #F8F8F8;
   padding: 0;
 }
 
-.allProductsShown .panel-heading h4 {
-    text-align: center;
-    color: #284A75;
-    padding-top: 10px;
+#allProductsHead {
+  font-size: 1.5em;
+  font-weight: 400;
 }
 
-.allProductsShown .panel-heading a {
-  margin-right: 160px;
-  margin-top: 10px;
-  float: right;
+#allProductsSubHead {
+  font-size: 1.2em;
+  margin-bottom: 35px;
 }
+
+#addProductTitle {
+  float: right;
+  margin-top: 25px;
+  font-size: 1.3em;
+}
+
+.allProductsShown #addProductBtn {
+  margin-top: 20px;
+}
+
 .allProductsShown input {
   box-shadow: none;
 }
@@ -1274,7 +1323,7 @@ body .modal {
 
 /* ------------- SaleDetailsContainer ------------------------------------ */
 #deleteSaleBtn {
-  margin-top: 1em;
+  margin-top: 2.5em;
   width: 100%;
 }
 

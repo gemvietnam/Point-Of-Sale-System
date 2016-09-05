@@ -66,18 +66,26 @@ class AllProducts extends Component {
 			return (
 				<div className="allProductsShown">
 					<div className="row">
+						<div className="col-lg-12">
+							<p id="allProductsHead" className="primaryGray">All Products</p>
+							<p id="allProductsSubHead" className="primaryGray">
+								Search through a complete listing of your products
+							</p>
+						</div>
 						<div className="col-lg-12 col-md-12">
 							<div className="panel panel-default">
 							<div className="panel-heading">
 								<div className="row">
-									<div className="col-lg-4 col-md-4">
-										<h4>Complete Product Listing</h4>
-									</div>
-									<div className="col-lg-4 col-md-4">
+									<div className="col-lg-6 col-md-6">
 										<ProductSearch showAll={true} showPharma={false} showHerbals={false} />
 									</div>
-									<div className="col-lg-4 col-md-4">
-										<AddProductBtn />
+									<div className="col-lg-6 col-md-6">
+										<div className="col-lg-6">
+											<p id="addProductTitle" className="primaryGray">Add A New Product</p>
+										</div>
+										<div className="col-lg-6">
+											<AddProductBtn />
+										</div>
 									</div>
 								</div>
 							</div>

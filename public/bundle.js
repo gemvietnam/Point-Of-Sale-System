@@ -37446,94 +37446,82 @@
 	  var tax = _ref.tax;
 	  var cartTotal = _ref.cartTotal;
 
-	  return(
-	    // <table id="cartTotalsTable" className="table">
-	    //   <tbody>
-	    //     <tr>
-	    // 			<td>Subtotal: ${cartSubtotal}</td>
-	    // 			<td>Discount: 0%</td>
-	    // 			<td>Tax: {tax}%</td>
-	    // 			<td>Total: ${cartTotal + (cartTotal * tax/100)}</td>
-	    // 		</tr>
-	    //   </tbody>
-	    // </table>
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "row", id: "cartTotals" },
 	    _react2.default.createElement(
 	      "div",
-	      { className: "row", id: "cartTotals" },
+	      { className: "totalsData col-lg-6 col-md-6 col-sm-6 col-xs-6" },
 	      _react2.default.createElement(
-	        "div",
-	        { className: "totalsData col-lg-6 col-md-6 col-sm-6 col-xs-6" },
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "Sub-total"
-	        )
-	      ),
+	        "p",
+	        null,
+	        "Sub-total"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "totalsData text-right col-lg-6 col-md-6 col-sm-6 col-xs-6" },
 	      _react2.default.createElement(
-	        "div",
-	        { className: "totalsData text-right col-lg-6 col-md-6 col-sm-6 col-xs-6" },
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "$",
-	          cartSubtotal
-	        )
-	      ),
+	        "p",
+	        null,
+	        "$",
+	        cartSubtotal
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "totalsData col-lg-6 col-md-6 col-sm-6 col-xs-6" },
 	      _react2.default.createElement(
-	        "div",
-	        { className: "totalsData col-lg-6 col-md-6 col-sm-6 col-xs-6" },
-	        _react2.default.createElement(
-	          "p",
-	          { id: "discount" },
-	          "Discount"
-	        )
-	      ),
+	        "p",
+	        { id: "discount" },
+	        "Discount"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "totalsData text-right col-lg-6 col-md-6 col-sm-6 col-xs-6" },
 	      _react2.default.createElement(
-	        "div",
-	        { className: "totalsData text-right col-lg-6 col-md-6 col-sm-6 col-xs-6" },
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "0%"
-	        )
-	      ),
+	        "p",
+	        null,
+	        "0%"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "totalsData col-lg-6 col-md-6 col-sm-6 col-xs-6" },
 	      _react2.default.createElement(
-	        "div",
-	        { className: "totalsData col-lg-6 col-md-6 col-sm-6 col-xs-6" },
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "Tax"
-	        )
-	      ),
+	        "p",
+	        null,
+	        "Tax"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "totalsData text-right col-lg-6 col-md-6 col-sm-6 col-xs-6" },
 	      _react2.default.createElement(
-	        "div",
-	        { className: "totalsData text-right col-lg-6 col-md-6 col-sm-6 col-xs-6" },
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          tax,
-	          "%"
-	        )
-	      ),
+	        "p",
+	        null,
+	        tax,
+	        "%"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "actualTotal totalDiv col-lg-6 col-md-6 col-sm-6 col-xs-6" },
 	      _react2.default.createElement(
-	        "div",
-	        { className: "actualTotal totalDiv col-lg-6 col-md-6 col-sm-6 col-xs-6" },
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "Total"
-	        )
-	      ),
+	        "p",
+	        null,
+	        "Total"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "actualTotal totalDiv text-right col-lg-6 col-md-6 col-sm-6 col-xs-6" },
 	      _react2.default.createElement(
-	        "div",
-	        { className: "actualTotal totalDiv text-right col-lg-6 col-md-6 col-sm-6 col-xs-6" },
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "$",
-	          cartTotal + cartTotal * tax / 100
-	        )
+	        "p",
+	        null,
+	        "$",
+	        cartTotal + cartTotal * tax / 100
 	      )
 	    )
 	  );
@@ -76597,6 +76585,20 @@
 						{ className: 'row' },
 						_react2.default.createElement(
 							'div',
+							{ className: 'col-lg-12' },
+							_react2.default.createElement(
+								'p',
+								{ id: 'allProductsHead', className: 'primaryGray' },
+								'All Products'
+							),
+							_react2.default.createElement(
+								'p',
+								{ id: 'allProductsSubHead', className: 'primaryGray' },
+								'Search through a complete listing of your products'
+							)
+						),
+						_react2.default.createElement(
+							'div',
 							{ className: 'col-lg-12 col-md-12' },
 							_react2.default.createElement(
 								'div',
@@ -76609,22 +76611,26 @@
 										{ className: 'row' },
 										_react2.default.createElement(
 											'div',
-											{ className: 'col-lg-4 col-md-4' },
-											_react2.default.createElement(
-												'h4',
-												null,
-												'Complete Product Listing'
-											)
-										),
-										_react2.default.createElement(
-											'div',
-											{ className: 'col-lg-4 col-md-4' },
+											{ className: 'col-lg-6 col-md-6' },
 											_react2.default.createElement(_ProductSearch2.default, { showAll: true, showPharma: false, showHerbals: false })
 										),
 										_react2.default.createElement(
 											'div',
-											{ className: 'col-lg-4 col-md-4' },
-											_react2.default.createElement(_AddProductBtn2.default, null)
+											{ className: 'col-lg-6 col-md-6' },
+											_react2.default.createElement(
+												'div',
+												{ className: 'col-lg-6' },
+												_react2.default.createElement(
+													'p',
+													{ id: 'addProductTitle', className: 'primaryGray' },
+													'Add A New Product'
+												)
+											),
+											_react2.default.createElement(
+												'div',
+												{ className: 'col-lg-6' },
+												_react2.default.createElement(_AddProductBtn2.default, null)
+											)
 										)
 									)
 								),
@@ -76867,6 +76873,20 @@
 	          { className: 'row' },
 	          _react2.default.createElement(
 	            'div',
+	            { className: 'col-lg-12' },
+	            _react2.default.createElement(
+	              'p',
+	              { className: 'primaryGray', id: 'historyHead' },
+	              'Sales History'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              { className: 'primaryGray', id: 'historySubHead' },
+	              'View your sales history during a certain period of time'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
 	            { className: 'col-lg-12 col-md-12' },
 	            _react2.default.createElement(
 	              'div',
@@ -76880,11 +76900,6 @@
 	                  _react2.default.createElement(
 	                    'div',
 	                    { className: 'col-lg-12 col-md-12' },
-	                    _react2.default.createElement(
-	                      'h4',
-	                      null,
-	                      'Complete Sales History'
-	                    ),
 	                    _react2.default.createElement(_SalesSearchForm2.default, null)
 	                  )
 	                )
@@ -76939,6 +76954,7 @@
 	var SalesHistoryTable = function SalesHistoryTable(_ref) {
 		var sales = _ref.sales;
 		var numSalesShowing = _ref.numSalesShowing;
+
 
 		return _react2.default.createElement(
 			'div',
@@ -77192,14 +77208,19 @@
 					{ id: 'salesByDateForm', ref: 'form' },
 					_react2.default.createElement(
 						'div',
-						{ className: 'col-lg-6 col-md-6 col-sm-6 col-xs-6' },
+						{ className: 'dateColumn col-lg-4 col-md-4 col-sm-4 col-xs-4' },
+						_react2.default.createElement(
+							'p',
+							{ className: 'primaryGray' },
+							'Date From'
+						),
 						_react2.default.createElement(
 							'div',
 							{ className: 'form-group' },
 							_react2.default.createElement(
 								'label',
 								{ 'for': 'selectStartYear' },
-								'Start Year'
+								'Year'
 							),
 							_react2.default.createElement(_ComboBox2.default, { name: "selectStartYear", comboList: _config.comboYears })
 						),
@@ -77209,7 +77230,7 @@
 							_react2.default.createElement(
 								'label',
 								{ 'for': 'selectStartMonth' },
-								'Start Month'
+								'Month'
 							),
 							_react2.default.createElement(_ComboBox2.default, { name: "selectStartMonth", comboList: _config.comboMonths })
 						),
@@ -77219,21 +77240,26 @@
 							_react2.default.createElement(
 								'label',
 								{ 'for': 'selectStartDay' },
-								'Start Day'
+								'Day'
 							),
 							_react2.default.createElement(_ComboBox2.default, { name: "selectStartDay", comboList: _config.comboDays })
 						)
 					),
 					_react2.default.createElement(
 						'div',
-						{ className: 'col-lg-6 col-md-6 col-sm-6 col-xs-6' },
+						{ className: 'dateColumn col-lg-4 col-md-4 col-sm-4 col-xs-4' },
+						_react2.default.createElement(
+							'p',
+							{ className: 'primaryGray' },
+							'Date To'
+						),
 						_react2.default.createElement(
 							'div',
 							{ className: 'form-group' },
 							_react2.default.createElement(
 								'label',
 								{ 'for': 'selectEndYear' },
-								'End Year'
+								'Year'
 							),
 							_react2.default.createElement(_ComboBox2.default, { name: "selectEndYear", comboList: _config.comboYears })
 						),
@@ -77243,7 +77269,7 @@
 							_react2.default.createElement(
 								'label',
 								{ 'for': 'selectEndMonth' },
-								'End Month'
+								'Month'
 							),
 							_react2.default.createElement(_ComboBox2.default, { name: "selectEndMonth", comboList: _config.comboMonths })
 						),
@@ -77253,24 +77279,33 @@
 							_react2.default.createElement(
 								'label',
 								{ 'for': 'selectEndDay' },
-								'End Day'
+								'Day'
 							),
 							_react2.default.createElement(_ComboBox2.default, { name: "selectEndDay", comboList: _config.comboDays })
 						)
 					),
 					_react2.default.createElement(
 						'div',
-						{ className: 'col-lg-3 col-md-3 col-sm-6 col-xs-6 col-lg-offset-3 col-md-offset-3 ' },
+						{ id: 'historyBtns', className: 'text-center col-lg-4 col-md-4 col-sm-4 col-xs-4' },
 						_react2.default.createElement(
-							'button',
-							{ id: 'searchSalesBtn', onClick: this.handleSearch, type: 'submit', className: 'btn btn-primary' },
-							'Search By Date'
+							'div',
+							{ className: 'col-lg-6 col-md-6 col-sm-6 col-xs-6' },
+							_react2.default.createElement(
+								'button',
+								{ id: 'searchSalesBtn',
+									onClick: this.handleSearch,
+									type: 'submit',
+									className: 'btn btn-primary' },
+								'Search'
+							)
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'col-lg-6 col-md-6 col-sm-6 col-xs-6' },
+							_react2.default.createElement('i', { id: 'refreshSalesBtn',
+								onClick: this.refreshSales,
+								className: 'fa fa-refresh fa-3x' })
 						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'col-lg-3 col-md-3 col-sm-3 col-xs-3' },
-						_react2.default.createElement('i', { id: 'refreshSalesBtn', onClick: this.refreshSales, className: 'fa fa-refresh fa-3x' })
 					)
 				);
 			}

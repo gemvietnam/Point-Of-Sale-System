@@ -38,12 +38,19 @@ class SalesHistoryContainer extends Component {
     return (
       <div id="salesHistoryContainer" className="container">
         <div className="row">
+          <div className="col-lg-12">
+            <p className="primaryGray" id="historyHead">
+              Sales History
+            </p>
+            <p className="primaryGray" id="historySubHead">
+              View your sales history during a certain period of time
+            </p>
+          </div>
           <div className="col-lg-12 col-md-12">
             <div className="panel panel-default">
               <div className="panel-heading">
                 <div className="row">
                   <div className="col-lg-12 col-md-12">
-                    <h4>Complete Sales History</h4>
                     <SalesSearchForm />
                   </div>
                 </div>
