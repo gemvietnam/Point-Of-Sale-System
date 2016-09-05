@@ -7,7 +7,7 @@ const AddEmployeeThumbnail = ({ employeeName, employeeEmail, employeePassword,
     <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12">
       <div className="thumbnail">
         <div className="caption">
-          <h4 className="text-center">Add Employee to Store</h4>
+          <h4 className="title text-center">Add Employee to Store</h4>
           <form onSubmit={addEmployee}>
 
             <fieldset className="form-group">
@@ -55,7 +55,7 @@ const AddEmployeeThumbnail = ({ employeeName, employeeEmail, employeePassword,
               <div className="text-help"></div>
             </fieldset>
 
-            <button type="submit" className="btn btn-primary">Add</button>
+            <button id="addEmployeeBtn" type="submit" className="btn btn-primary">Add</button>
 
           </form>
         </div>

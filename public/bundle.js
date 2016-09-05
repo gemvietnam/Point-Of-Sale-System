@@ -60428,7 +60428,7 @@
 													{ className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center' },
 													_react2.default.createElement(
 														'h3',
-														null,
+														{ className: 'primaryGray' },
 														singleProduct.name,
 														' Profile'
 													)
@@ -74922,6 +74922,15 @@
 							{ className: 'container' },
 							_react2.default.createElement(
 								'div',
+								{ className: 'col-lg-12' },
+								_react2.default.createElement(
+									'p',
+									{ id: 'profileTitle', className: 'primaryGray' },
+									'Admin Profile'
+								)
+							),
+							_react2.default.createElement(
+								'div',
 								{ className: 'row' },
 								_react2.default.createElement(
 									'div',
@@ -74929,15 +74938,6 @@
 									_react2.default.createElement(
 										'div',
 										{ className: 'panel panel-default' },
-										_react2.default.createElement(
-											'div',
-											{ className: 'panel-heading' },
-											_react2.default.createElement(
-												'h3',
-												{ className: 'text-center' },
-												'Admin Profile'
-											)
-										),
 										_react2.default.createElement(
 											'div',
 											{ className: 'table-responsive' },
@@ -75235,20 +75235,20 @@
 	        { className: 'row' },
 	        _react2.default.createElement(
 	          'div',
+	          { className: 'col-lg-12' },
+	          _react2.default.createElement(
+	            'p',
+	            { id: 'storeTitle', className: 'primaryGray' },
+	            activeUser.company,
+	            ' Settings'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
 	          { className: 'col-lg-12 col-md-12' },
 	          _react2.default.createElement(
 	            'div',
 	            { id: 'storeSettings', className: 'panel panel-default' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'panel-heading text-center' },
-	              _react2.default.createElement(
-	                'h3',
-	                null,
-	                activeUser.company,
-	                ' Settings'
-	              )
-	            ),
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'panel-body' },
@@ -75316,7 +75316,7 @@
 	        { className: "caption" },
 	        _react2.default.createElement(
 	          "h4",
-	          { className: "text-center" },
+	          { className: "title text-center" },
 	          "Current Store Tax Rate: ",
 	          tax,
 	          "%"
@@ -75339,7 +75339,7 @@
 	          ),
 	          _react2.default.createElement(
 	            "button",
-	            { type: "submit", className: "btn btn-primary" },
+	            { id: "setTaxBtn", type: "submit", className: "btn btn-primary" },
 	            "Set"
 	          )
 	        )
@@ -75385,7 +75385,7 @@
 	        { className: "caption" },
 	        _react2.default.createElement(
 	          "h4",
-	          { className: "text-center" },
+	          { className: "title text-center" },
 	          "Add Employee to Store"
 	        ),
 	        _react2.default.createElement(
@@ -75458,7 +75458,7 @@
 	          ),
 	          _react2.default.createElement(
 	            "button",
-	            { type: "submit", className: "btn btn-primary" },
+	            { id: "addEmployeeBtn", type: "submit", className: "btn btn-primary" },
 	            "Add"
 	          )
 	        )
@@ -75503,7 +75503,7 @@
 	        { className: 'caption' },
 	        _react2.default.createElement(
 	          'h4',
-	          { className: 'text-center' },
+	          { className: 'title text-center' },
 	          'Store Employees'
 	        ),
 	        _react2.default.createElement(
@@ -75618,7 +75618,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'h3',
-	          null,
+	          { className: 'title' },
 	          'Active Employee'
 	        ),
 	        _react2.default.createElement(
@@ -76616,21 +76616,8 @@
 										),
 										_react2.default.createElement(
 											'div',
-											{ className: 'col-lg-6 col-md-6' },
-											_react2.default.createElement(
-												'div',
-												{ className: 'col-lg-6' },
-												_react2.default.createElement(
-													'p',
-													{ id: 'addProductTitle', className: 'primaryGray' },
-													'Add A New Product'
-												)
-											),
-											_react2.default.createElement(
-												'div',
-												{ className: 'col-lg-6' },
-												_react2.default.createElement(_AddProductBtn2.default, null)
-											)
+											{ className: 'text-right col-lg-6 col-md-6' },
+											_react2.default.createElement(_AddProductBtn2.default, null)
 										)
 									)
 								),
@@ -76771,7 +76758,12 @@
 	  return _react2.default.createElement(
 	    _reactRouter.Link,
 	    { to: '/manageProduct', id: 'addProductBtn', className: 'btn btn-default' },
-	    _react2.default.createElement('i', { className: 'fa fa-plus fa-2x', 'aria-hidden': 'true' })
+	    _react2.default.createElement(
+	      'p',
+	      { id: 'addProductTitle', className: 'primaryGray' },
+	      'Add A New Product ',
+	      _react2.default.createElement('i', { className: 'fa fa-plus', 'aria-hidden': 'true' })
+	    )
 	  );
 	};
 
@@ -78622,10 +78614,10 @@
 						),
 						_react2.default.createElement(
 							'div',
-							{ className: 'col-lg-4 col-md-4 col-sm-6 col-xs-6 text-center' },
+							{ id: 'manageTitle', className: 'col-lg-4 col-md-4 col-sm-6 col-xs-6 text-center' },
 							_react2.default.createElement(
-								'h3',
-								null,
+								'h2',
+								{ className: 'primaryGray' },
 								this.state.isEditForm ? 'Edit Product Info' : 'Create New Product'
 							)
 						),

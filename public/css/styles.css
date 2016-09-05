@@ -2,6 +2,14 @@ p, h1 {
  font-family: 'Droid Sans', sans-serif;
 }
 
+th {
+  color: #6D6D6D;
+}
+
+.panel-heading {
+  background-color: white !important;
+}
+
 body {
   background-color: white !important;
 }
@@ -21,13 +29,7 @@ body .modal {
   display: block;
 }
 
-.primaryGray {
-  color: #6D6D6D;
-}
 
-.secondaryGray {
-  color: #F2F2F2;
-}
 
 /* Reusable classes */
 .marginTop {
@@ -38,6 +40,20 @@ body .modal {
 }
 .error {
   color: red;
+}
+
+.primaryGray {
+  color: #6D6D6D;
+}
+
+.secondaryGray {
+  color: #F2F2F2;
+}
+
+.title {
+  font-size: 1.3em;
+  color: #6D6D6D;
+  padding-bottom: 30px;
 }
 
 /* Moves the body of app 5 em right, so side navbar will fit */
@@ -77,10 +93,25 @@ body .modal {
 }
 
 /* ------------ SingleEmployeeTab.jsx --------------------------------------------------------------*/
+#singleEmployee {
+    border: 2.5px solid #BCB5B9;
+    border-radius: 5px;
+    width: 90px;
+    height: 120px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#employeeName {
+  text-align: center;
+  color: #284A75;
+}
+
 #singleEmployee p {
   margin-top: 10px;
   font-size: 0.9em;
 }
+
 #singleEmployee i {
   margin-top: 15px;
 }
@@ -246,6 +277,7 @@ body .modal {
 #historySubHead {
   font-size: 1.2em;
   margin-bottom: 35px;
+  color:
 }
 /* ------------ SalesHistoryContainer.jsx --------------------------------------------------------------*/
 #salesHistoryContainer {
@@ -543,21 +575,36 @@ body .modal {
 
 /* ------------ AddProductBtn.jsx ----------------------------------------------------------------*/
 #addProductBtn {
-  color: #2C87F3 !important;
-  background-color: #F8F8F8;
+  background-color: white;
   border: none;
 }
 #addProductBtn:hover {
-  border-color: #F8F8F8;
-  background-color: #F8F8F8 !important;
+  border-color: white;
+  background-color: white !important;
 }
 #addProductBtn i {
   color: #1EBEA5;
 }
 /* ------------ StoreSettings.jsx ----------------------------------------------------------------*/
-#storeSettings h4 {
-  color: #284A75;
+#userProfile label {
+  color: #2C87F3;
 }
+/* ------------ TaxThumbnail.jsx ----------------------------------------------------------------*/
+#setTaxBtn {
+  background-color: #2C87F3;
+  border-color: #2C87F3;
+  border-radius: 2px;
+  width: 100%;
+}
+/* ------------ AddEmployeeThumbnail.jsx ----------------------------------------------------------------*/
+
+#addEmployeeBtn {
+  width: 100%;
+  background-color: #2C87F3;
+  border-color: #2C87F3;
+  border-radius: 2px;
+}
+
 /* ------------ StoreFrontContainer.jsx ----------------------------------------------------------------*/
 .inventory {
     padding-top: 8%;
@@ -969,6 +1016,18 @@ body .modal {
     color: #284A75;
 }
 
+#profileTitle {
+  font-size: 1.8em;
+  margin-bottom: 30px;
+}
+
+#storeTitle {
+  padding-left: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 1.8em;
+}
+
 
 
 /* ------------ ProductFilter.jsx --------------------------------------------------------------*/
@@ -1018,20 +1077,7 @@ body .modal {
     color: #337ab7; !important;
 }
 
-/* ------------ SingleEmployee.jsx --------------------------------------------------------------*/
-#singleEmployee {
-    border: 2.5px solid #284A75;
-    border-radius: 5px;
-    width: 90px;
-    height: 120px;
-    margin-top: 10px;
-    margin-left: 20px;
-}
 
-#employeeName {
-  text-align: center;
-  color: #284A75;
-}
 /* ------------ Single-Product.jsx --------------------------------------------------------------*/
 
 #singleProduct {
@@ -1070,10 +1116,6 @@ body .modal {
 #productProfile {
     margin-top: 150px;
 }
-
-  #productProfile h3 {
-      color: #284A75;
-  }
 
   #productBackArrow i {
     color: #57C082;
@@ -1274,7 +1316,11 @@ body .modal {
 }
 
 .allProductsShown #productSearch .input-group-addon {
-  background-color: #F8F8F8;
+  background-color: white;
+}
+
+.allProductsShown #productSearch input {
+  height: 50px !important;
 }
 
 .allProductsShown .panel-heading {
@@ -1283,23 +1329,26 @@ body .modal {
 }
 
 #allProductsHead {
-  font-size: 1.5em;
+  font-size: 2.0em;
   font-weight: 400;
 }
 
 #allProductsSubHead {
-  font-size: 1.2em;
+  font-size: 1.3em;
   margin-bottom: 35px;
 }
 
 #addProductTitle {
-  float: right;
-  margin-top: 25px;
-  font-size: 1.3em;
+  font-size: 1.6em;
+  margin-right: 50px;
 }
 
 .allProductsShown #addProductBtn {
-  margin-top: 20px;
+  padding-top: 45px;
+}
+
+.allProductsShown #addProductBtn i {
+  padding-left: 25px;
 }
 
 .allProductsShown input {
@@ -1307,6 +1356,7 @@ body .modal {
 }
 .allProductsShown .input-group-addon {
   background-color: white;
+  font-size: 2em !important;
 }
 .allProductsShown .panel-heading div {
   padding-top: 5px;
@@ -1329,13 +1379,18 @@ body .modal {
 
 /* ------------ ManageProductForm.jsx --------------------------------------------------------------*/
 
-#manageProductForm {
-    color: #284A75;
-}
-
 #manageProductForm #deleteProductBtn {
   margin-top: 0.5em;
   margin-bottom: 1em;
+}
+
+#manageTitle {
+  margin-bottom: 60px;
+}
+
+#manageProductForm label {
+  color:#228AEB;
+  padding-bottom: 10px;
 }
 
 #manageProductForm h3 {
@@ -1347,12 +1402,25 @@ body .modal {
 }
 
 #saveProductBtn {
-    width: 100%;
+  margin-top: 50px;
+  height: 50px;
+  background-color: #228AEB;
+  border-color: #228AEB;
+  border-radius: 2px;
+  width: 100%;
 }
 
 #cancelProductBtn {
-    width: 100%;
-    margin: 20px 0 20px;
+  background-color: #DB4437;
+  height: 50px;
+  padding-top: 12px;
+  border-radius: 2px;
+  width: 100%;
+  margin: 20px 0 20px;
+}
+
+#cancelProductBtn:hover {
+  background-color: #DB4437;
 }
 
 #manageBackArrow i {

@@ -7,7 +7,7 @@ const ActiveEmployeeThumbnail = ({ employee, logOutActiveEmployee }) => {
       <div className="thumbnail">
         <div className="caption text-center">
           <Link to={`/employeeProfile/${employee._id}`}><i className="fa fa-user-md fa-3x" aria-hidden="true"></i></Link>
-          <h3>Active Employee</h3>
+          <h3 className="title">Active Employee</h3>
           <label>Name</label>
           <h4>{employee.name}</h4>
           <label>Position</label>

@@ -50,7 +50,7 @@ class ProductProfile extends Component {
 												<BackArrowBtn route='inventory' />
 	                    </div>
 	                    <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
-	                      <h3>{singleProduct.name} Profile</h3>
+	                      <h3 className="primaryGray">{singleProduct.name} Profile</h3>
 	                    </div>
 											<div id="productEditIcon" className="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 

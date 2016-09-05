@@ -185,8 +185,8 @@ class ManageProductForm extends Component {
 						<div id="manageBackArrow" className="col-lg-4 col-md-4 col-sm-6 col-xs-6">
 							<BackArrowBtn route={`/inventory`} />
 						</div>
-						<div className="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-center">
-							<h3>{this.state.isEditForm ? 'Edit Product Info' : 'Create New Product'}</h3>
+						<div id="manageTitle" className="col-lg-4 col-md-4 col-sm-6 col-xs-6 text-center">
+							<h2 className="primaryGray">{this.state.isEditForm ? 'Edit Product Info' : 'Create New Product'}</h2>
 						</div>
 
 				    <form onSubmit={this.handleSubmit}>

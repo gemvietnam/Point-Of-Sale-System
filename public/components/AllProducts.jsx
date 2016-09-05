@@ -76,17 +76,15 @@ class AllProducts extends Component {
 							<div className="panel panel-default">
 							<div className="panel-heading">
 								<div className="row">
+
 									<div className="col-lg-6 col-md-6">
 										<ProductSearch showAll={true} showPharma={false} showHerbals={false} />
 									</div>
-									<div className="col-lg-6 col-md-6">
-										<div className="col-lg-6">
-											<p id="addProductTitle" className="primaryGray">Add A New Product</p>
-										</div>
-										<div className="col-lg-6">
-											<AddProductBtn />
-										</div>
+
+									<div className="text-right col-lg-6 col-md-6">
+										<AddProductBtn />
 									</div>
+
 								</div>
 							</div>
 								<div className="table-responsive">

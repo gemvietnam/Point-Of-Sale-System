@@ -144,9 +144,11 @@ class StoreSettingsContainer extends Component {
 
     return (
       <div className="row">
+        <div className="col-lg-12">
+          <p id="storeTitle" className="primaryGray">{activeUser.company} Settings</p>
+        </div>
         <div className="col-lg-12 col-md-12">
           <div id="storeSettings" className="panel panel-default">
-            <div className="panel-heading text-center"><h3>{activeUser.company} Settings</h3></div>
             <div className="panel-body">
 
               <TaxThumbnail

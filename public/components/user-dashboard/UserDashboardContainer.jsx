@@ -44,11 +44,12 @@ class UserDashboardContainer extends Component {
 			return (
 				<div id="userProfile">
 					<div className="container">
+						<div className="col-lg-12">
+							<p id="profileTitle" className="primaryGray">Admin Profile</p>
+						</div>
 						<div className="row">
 							<div className="col-lg-12 col-md-12">
 								<div className="panel panel-default">
-									<div className="panel-heading"><h3 className="text-center">Admin Profile</h3></div>
-
 										<div className="table-responsive">
 											<table className="table">
 												<tbody>
