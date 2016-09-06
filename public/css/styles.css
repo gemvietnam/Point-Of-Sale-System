@@ -204,6 +204,7 @@ body .modal {
 
 #editEmployeeIcon:hover{
   cursor: pointer;
+  color: #228AEB;
 }
 
 #employeeInfo {
