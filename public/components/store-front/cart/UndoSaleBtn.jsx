@@ -4,13 +4,15 @@ import toastr from 'toastr';
 const UndoSaleBtn = ({ hideReceipt, handleUndoSale, lastSale }) => {
   return (
     <div id="undoSale">
-      <h5>Undo Sale</h5>
+      <p className="primaryGray">
+        Undo Sale
         <i onClick={() => {
             handleUndoSale(lastSale._id).then(() => {
               toastr.success('Sale Undone!');
               hideReceipt();
             });
-          }} id="undoSaleBtn" className="fa fa-undo fa-2x" aria-hidden="true" />
+          }} id="undoSaleBtn" className="fa fa-undo primaryGray" aria-hidden="true" />
+       </p>
     </div>
 
 

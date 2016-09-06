@@ -42,8 +42,8 @@ class SalesHistoryContainer extends Component {
             <p className="primaryGray" id="historyHead">
               Sales History
             </p>
-            <p className="primaryGray" id="historySubHead">
-              View your sales history during a certain period of time
+            <p className="lightOrange" id="historySubHead">
+              View your sales history during a selected period of time
             </p>
           </div>
           <div className="col-lg-12 col-md-12">

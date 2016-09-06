@@ -182,5 +182,5 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps,
   { setCartTax, fetchAllEmployees, addNewEmployee,
     logOutActiveEmployee, loadEmployeeTodayRevenue,
-    fetchUser })
-  (StoreSettingsContainer);
+    fetchUser
+  })(StoreSettingsContainer);

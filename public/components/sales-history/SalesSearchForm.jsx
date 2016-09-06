@@ -34,9 +34,6 @@ class SalesSearchForm extends Component {
 		// while startDate is automatically set to the beginning of the day
     var endDate = new Date(endYear, endMonth, endDay, 23, 59, 59);
 
-		console.log("Start Date ", startDate);
-		console.log("End Date ", endDate);
-
 		//the result of this function will be set to this.props.allSales
 		this.props.fetchSalesByDate(this.props.activeUser._id, startDate, endDate); //need to enter userId, startDate, and endDate as params
 
@@ -56,7 +53,7 @@ class SalesSearchForm extends Component {
 
 				{/*Start Dates Below*/}
 				<div className="dateColumn col-lg-4 col-md-4 col-sm-4 col-xs-4">
-					<p className="primaryGray">Date From</p>
+					<p className="secondaryBlue">Date From</p>
 					<div className="form-group">
 						<label for="selectStartYear">Year</label>
 						<ComboBox name={"selectStartYear"} comboList={comboYears} />
@@ -73,7 +70,7 @@ class SalesSearchForm extends Component {
 
 				{/*End Dates Below*/}
 				<div className="dateColumn col-lg-4 col-md-4 col-sm-4 col-xs-4">
-					<p className="primaryGray">Date To</p>
+					<p className="secondaryBlue">Date To</p>
 					<div className="form-group">
 						<label for="selectEndYear">Year</label>
 						<ComboBox name={"selectEndYear"} comboList={comboYears} />

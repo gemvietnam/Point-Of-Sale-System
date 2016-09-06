@@ -15,7 +15,6 @@ const CartHeader = ({ cart, showReceipt}) => {
       return (
         <div className="cartHeaderReceipt">
           <h5>Sale Summary</h5>
-  				<p><i className="fa fa-money fa-2x" aria-hidden="true"></i></p>
         </div>
       );
 

@@ -68,7 +68,7 @@ class AllProducts extends Component {
 					<div className="row">
 						<div className="col-lg-12">
 							<p id="allProductsHead" className="primaryGray">All Products</p>
-							<p id="allProductsSubHead" className="primaryGray">
+							<p id="allProductsSubHead" className="lightOrange">
 								Search through a complete listing of your products
 							</p>
 						</div>
@@ -77,11 +77,11 @@ class AllProducts extends Component {
 							<div className="panel-heading">
 								<div className="row">
 
-									<div className="col-lg-6 col-md-6">
+									<div className="col-lg-6 col-md-12">
 										<ProductSearch showAll={true} showPharma={false} showHerbals={false} />
 									</div>
 
-									<div className="text-right col-lg-6 col-md-6">
+									<div className="text-right col-lg-6 col-md-12">
 										<AddProductBtn />
 									</div>
 

@@ -36475,7 +36475,11 @@
 	                      'p',
 	                      { id: 'topProductsMessage' },
 	                      'Top ',
-	                      showProductsNum,
+	                      _react2.default.createElement(
+	                        'span',
+	                        { className: 'secondaryBlue' },
+	                        showProductsNum
+	                      ),
 	                      ' Products'
 	                    )
 	                  ),
@@ -37158,11 +37162,6 @@
 	        "h5",
 	        null,
 	        "Sale Summary"
-	      ),
-	      _react2.default.createElement(
-	        "p",
-	        null,
-	        _react2.default.createElement("i", { className: "fa fa-money fa-2x", "aria-hidden": "true" })
 	      )
 	    );
 	  } else {
@@ -37564,16 +37563,16 @@
 	    'div',
 	    { id: 'undoSale' },
 	    _react2.default.createElement(
-	      'h5',
-	      null,
-	      'Undo Sale'
-	    ),
-	    _react2.default.createElement('i', { onClick: function onClick() {
-	        handleUndoSale(lastSale._id).then(function () {
-	          _toastr2.default.success('Sale Undone!');
-	          hideReceipt();
-	        });
-	      }, id: 'undoSaleBtn', className: 'fa fa-undo fa-2x', 'aria-hidden': 'true' })
+	      'p',
+	      { className: 'primaryGray' },
+	      'Undo Sale',
+	      _react2.default.createElement('i', { onClick: function onClick() {
+	          handleUndoSale(lastSale._id).then(function () {
+	            _toastr2.default.success('Sale Undone!');
+	            hideReceipt();
+	          });
+	        }, id: 'undoSaleBtn', className: 'fa fa-undo primaryGray', 'aria-hidden': 'true' })
+	    )
 	  );
 	};
 
@@ -75281,7 +75280,8 @@
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { setCartTax: _Actions.setCartTax, fetchAllEmployees: _Actions.fetchAllEmployees, addNewEmployee: _Actions.addNewEmployee,
 	  logOutActiveEmployee: _Actions.logOutActiveEmployee, loadEmployeeTodayRevenue: _Actions.loadEmployeeTodayRevenue,
-	  fetchUser: _Actions.fetchUser })(StoreSettingsContainer);
+	  fetchUser: _Actions.fetchUser
+	})(StoreSettingsContainer);
 
 /***/ },
 /* 467 */
@@ -76593,7 +76593,7 @@
 							),
 							_react2.default.createElement(
 								'p',
-								{ id: 'allProductsSubHead', className: 'primaryGray' },
+								{ id: 'allProductsSubHead', className: 'lightOrange' },
 								'Search through a complete listing of your products'
 							)
 						),
@@ -76611,12 +76611,12 @@
 										{ className: 'row' },
 										_react2.default.createElement(
 											'div',
-											{ className: 'col-lg-6 col-md-6' },
+											{ className: 'col-lg-6 col-md-12' },
 											_react2.default.createElement(_ProductSearch2.default, { showAll: true, showPharma: false, showHerbals: false })
 										),
 										_react2.default.createElement(
 											'div',
-											{ className: 'text-right col-lg-6 col-md-6' },
+											{ className: 'text-right col-lg-6 col-md-12' },
 											_react2.default.createElement(_AddProductBtn2.default, null)
 										)
 									)
@@ -76760,9 +76760,9 @@
 	    { to: '/manageProduct', id: 'addProductBtn', className: 'btn btn-default' },
 	    _react2.default.createElement(
 	      'p',
-	      { id: 'addProductTitle', className: 'primaryGray' },
+	      { id: 'addProductTitle' },
 	      'Add A New Product ',
-	      _react2.default.createElement('i', { className: 'fa fa-plus', 'aria-hidden': 'true' })
+	      _react2.default.createElement('i', { className: 'fa fa-plus primaryGray', 'aria-hidden': 'true' })
 	    )
 	  );
 	};
@@ -76873,8 +76873,8 @@
 	            ),
 	            _react2.default.createElement(
 	              'p',
-	              { className: 'primaryGray', id: 'historySubHead' },
-	              'View your sales history during a certain period of time'
+	              { className: 'lightOrange', id: 'historySubHead' },
+	              'View your sales history during a selected period of time'
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -77178,9 +77178,6 @@
 				// while startDate is automatically set to the beginning of the day
 				var endDate = new Date(endYear, endMonth, endDay, 23, 59, 59);
 
-				console.log("Start Date ", startDate);
-				console.log("End Date ", endDate);
-
 				//the result of this function will be set to this.props.allSales
 				this.props.fetchSalesByDate(this.props.activeUser._id, startDate, endDate); //need to enter userId, startDate, and endDate as params
 			}
@@ -77203,7 +77200,7 @@
 						{ className: 'dateColumn col-lg-4 col-md-4 col-sm-4 col-xs-4' },
 						_react2.default.createElement(
 							'p',
-							{ className: 'primaryGray' },
+							{ className: 'secondaryBlue' },
 							'Date From'
 						),
 						_react2.default.createElement(
@@ -77242,7 +77239,7 @@
 						{ className: 'dateColumn col-lg-4 col-md-4 col-sm-4 col-xs-4' },
 						_react2.default.createElement(
 							'p',
-							{ className: 'primaryGray' },
+							{ className: 'secondaryBlue' },
 							'Date To'
 						),
 						_react2.default.createElement(

@@ -184,7 +184,9 @@ class StoreFrontContainer extends Component {
                       showOTC={showOTC}
                       handleFilter={this.handleFilter} />
 
-                    <p id="topProductsMessage">Top {showProductsNum} Products</p>
+                    <p id="topProductsMessage">
+                      Top <span className="secondaryBlue">{showProductsNum}</span> Products
+                    </p>
 
 									</div>
 
