@@ -661,8 +661,8 @@ body .modal {
 
 /* ------------ loadingSpinner.jsx ----------------------------------------------------------------*/
 #loadingSpinner {
-  margin-top: 30px;
-  color: #284A75;
+  margin-top: 50px;
+  color: #2C87F3;
 }
 
 /* ------------ LoadProductsBtn.jsx ----------------------------------------------------------------*/
