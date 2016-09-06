@@ -165,13 +165,108 @@ body .modal {
 }
 
 /* ------------ EmployeeProfileContainer.jsx --------------------------------------------------------------*/
+#employeeProfilePage {
+  border: 3px solid #F2F2F2;
+  border-radius: 5px;
+  height: auto;
+  width: 900px;
+  padding: 30px;
+}
+
+@media all and (max-width: 991px) {
+  #employeeProfilePage {
+    width: auto;
+  }
+}
+
+#employeeTitle {
+  font-size: 2.0em;
+  font-weight: 400;
+  color: #6D6D6D;
+}
+
+#employeeSubTitle {
+  font-size: 1.3em;
+  margin-bottom: 35px;
+  color: #FF9885;
+}
+
+.employeeIcon {
+  font-size: 15em !important;
+  padding-left: 10px;
+}
+
+#editEmployee {
+  padding-top: 30px;
+  font-size: 1.8em;
+  color: #1EBEA5;
+}
+
+#editEmployeeIcon:hover{
+  cursor: pointer;
+}
+
+#employeeInfo {
+  padding-top: 50px;
+}
+
+#employeeInfo p {
+  margin-top: 5px;
+  color: #6D6D6D;
+  font-size: 1.7em;
+}
+
+#employeeInfo span {
+  color: #228AEB;
+  font-size: 1.2em !important;
+}
+
+#forgotEmployeePass {
+  margin-top: 20px;
+  color: #6D6D6D;
+}
+
+#forgotEmployeePass:hover {
+  color: #228AEB;
+  cursor: pointer;
+}
+
+#employeeLogin {
+  padding-top: 40px;
+}
+
+#employeeLogin input {
+  margin-top: 10px;
+  height: 40px;
+}
+
+#employeeLogin label {
+  color: #228AEB;
+  text-align: center;
+}
+
+#loginEmployeeBtn {
+  margin-top: 20px;
+  background-color: #228AEB;
+  border-color: #228AEB;
+  color: white;
+  height: 40px;
+  border-radius: 2px;
+  width: 100%;
+}
+
+
+
 #employeeProfilePage #backArrow {
   color: #1EBEA5;
 }
 #employeeProfilePage #backArrow:hover {
   cursor: pointer;
 }
-#employeeProfile {
+
+
+
+/*#employeeProfile {
   border: 2px solid #284A75;
   min-height: 500px;
   width: auto;
@@ -203,10 +298,7 @@ body .modal {
     background-color: #1EBEA5;
   }
 
-  #editEmployeeIcon:hover{
-    cursor: pointer;
-    color: #1EBEA5;
-  }
+
   @media all and (max-width: 768px) {
       #employeeProfile button {
         width: 75%;
@@ -215,7 +307,7 @@ body .modal {
   }
 #employeeLogin h5 {
   color: red;
-}
+}*/
 /* ------------ SaleProfile.jsx --------------------------------------------------------------*/
 #saleProfile {
   margin-top: 75px;
@@ -1500,18 +1592,6 @@ body .modal {
     margin-top: 125px;
 }
 
-
-/* ------------ Pricing.jsx --------------------------------------------------------------*/
-
-.pricing {
-    padding-top: 10%
-}
-
-/* ------------ Examples.jsx --------------------------------------------------------------*/
-
-.examples {
-    padding-top: 10%
-}
 
 /* ------------ LoginFormContainer.jsx --------------------------------------------------------------*/
 

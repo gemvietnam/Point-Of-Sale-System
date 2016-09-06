@@ -75850,147 +75850,146 @@
 	      } else {
 	        return _react2.default.createElement(
 	          'div',
-	          { id: 'employeeProfilePage', className: 'container marginTop marginBottom' },
+	          { className: 'container marginTop marginBottom' },
+	          _react2.default.createElement(
+	            'p',
+	            { id: 'employeeTitle' },
+	            'Employee Profile'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            { id: 'employeeSubTitle' },
+	            'View account information or log in to begin making sales'
+	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'row' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-lg-12 col-md-12' },
-	              _react2.default.createElement(_BackArrowBtn2.default, { route: '/userProfile' })
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3' },
+	              { id: 'employeeProfilePage', className: 'col-lg-12 col-md-12' },
 	              _react2.default.createElement(
 	                'div',
-	                { id: 'employeeProfile', className: 'text-center' },
-	                _react2.default.createElement('i', { onClick: function onClick() {
-	                    _reactRouter.browserHistory.push('/editEmployee/' + singleEmployee._id);
-	                  },
-	                  id: 'editEmployeeIcon',
-	                  className: 'fa fa-pencil-square-o fa-3x',
-	                  'aria-hidden': 'true' }),
-	                _react2.default.createElement(
-	                  'h1',
-	                  null,
-	                  'Employee Profile'
-	                ),
-	                _react2.default.createElement('i', { className: 'fa fa-user-md fa-5x wow flipInY', 'aria-hidden': 'true' }),
+	                { className: 'row' },
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'row' },
+	                  { className: 'col-lg-6 col-md-6 col-sm-12 col-xs-12' },
+	                  _react2.default.createElement('i', { className: 'secondaryBlue employeeIcon fa fa-user-md wow flipInY', 'aria-hidden': 'true' })
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'text-center col-lg-6 col-md-6 col-sm-12 col-xs-12' },
 	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-lg-6 col-md-6' },
-	                    _react2.default.createElement(
-	                      'label',
-	                      null,
-	                      'Name'
-	                    ),
-	                    _react2.default.createElement(
-	                      'h3',
-	                      null,
-	                      singleEmployee.name
-	                    )
+	                    'p',
+	                    { id: 'editEmployee' },
+	                    'Edit Employee'
+	                  ),
+	                  _react2.default.createElement('i', { onClick: function onClick() {
+	                      _reactRouter.browserHistory.push('/editEmployee/' + singleEmployee._id);
+	                    },
+	                    id: 'editEmployeeIcon',
+	                    className: 'primaryGray fa fa-pencil-square-o fa-4x',
+	                    'aria-hidden': 'true' })
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'row' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { id: 'employeeInfo', className: 'col-lg-6 col-md-6 col-sm-12 col-xs-12' },
+	                  _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    'Name'
+	                  ),
+	                  ' ',
+	                  _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    singleEmployee.name
 	                  ),
 	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-lg-6 col-md-6' },
-	                    _react2.default.createElement(
-	                      'label',
-	                      null,
-	                      'Position'
-	                    ),
-	                    _react2.default.createElement(
-	                      'h3',
-	                      null,
-	                      singleEmployee.position
-	                    )
+	                    'span',
+	                    null,
+	                    'Position'
+	                  ),
+	                  ' ',
+	                  _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    singleEmployee.position
+	                  ),
+	                  _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    'Email'
+	                  ),
+	                  ' ',
+	                  _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    singleEmployee.email
+	                  ),
+	                  _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    'ID Number'
+	                  ),
+	                  ' ',
+	                  _react2.default.createElement(
+	                    'p',
+	                    { id: 'idNum' },
+	                    singleEmployee._id
 	                  )
 	                ),
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'row' },
+	                  { id: 'employeeLogin', className: 'col-lg-6 col-md-6 col-sm-12 col-xs-12' },
 	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-lg-6 col-md-12' },
+	                    'h5',
+	                    { className: 'error' },
+	                    this.props.errorMessage
+	                  ),
+	                  _react2.default.createElement(
+	                    'fieldset',
+	                    { className: 'form-group' },
 	                    _react2.default.createElement(
 	                      'label',
 	                      null,
 	                      'Email'
 	                    ),
-	                    _react2.default.createElement(
-	                      'h3',
-	                      null,
-	                      singleEmployee.email
-	                    )
+	                    _react2.default.createElement('input', {
+	                      type: 'text',
+	                      className: 'form-control',
+	                      name: 'employeeEmail',
+	                      onChange: this.handleUserInput,
+	                      value: employeeEmail
+	                    })
 	                  ),
 	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-lg-6 col-md-12' },
+	                    'fieldset',
+	                    { className: 'form-group' },
 	                    _react2.default.createElement(
 	                      'label',
 	                      null,
-	                      'ID Number'
+	                      'Password'
 	                    ),
-	                    _react2.default.createElement(
-	                      'h4',
-	                      null,
-	                      singleEmployee._id
-	                    )
+	                    _react2.default.createElement('input', {
+	                      type: 'password',
+	                      className: 'form-control',
+	                      name: 'employeePassword',
+	                      onChange: this.handleUserInput,
+	                      value: employeePassword })
 	                  ),
 	                  _react2.default.createElement(
-	                    'div',
-	                    { id: 'employeeLogin', className: 'col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3' },
-	                    _react2.default.createElement(
-	                      'h5',
-	                      null,
-	                      this.props.errorMessage
-	                    ),
-	                    _react2.default.createElement(
-	                      'fieldset',
-	                      { className: 'form-group' },
-	                      _react2.default.createElement(
-	                        'label',
-	                        null,
-	                        'Email'
-	                      ),
-	                      _react2.default.createElement('input', {
-	                        type: 'text',
-	                        className: 'form-control',
-	                        name: 'employeeEmail',
-	                        onChange: this.handleUserInput,
-	                        value: employeeEmail
-	                      }),
-	                      _react2.default.createElement('div', { className: 'text-help' })
-	                    ),
-	                    _react2.default.createElement(
-	                      'fieldset',
-	                      { className: 'form-group' },
-	                      _react2.default.createElement(
-	                        'label',
-	                        null,
-	                        'Password'
-	                      ),
-	                      _react2.default.createElement('input', {
-	                        type: 'password',
-	                        className: 'form-control',
-	                        name: 'employeePassword',
-	                        onChange: this.handleUserInput,
-	                        value: employeePassword }),
-	                      _react2.default.createElement('div', { className: 'text-help' })
-	                    ),
-	                    _react2.default.createElement(
-	                      'button',
-	                      { onClick: this.handleForgotPassword },
-	                      'Forgot Your Password?'
-	                    ),
-	                    _react2.default.createElement(
-	                      'button',
-	                      { onClick: this.handleLogin, className: 'btn btn-default' },
-	                      'Login'
-	                    )
+	                    'p',
+	                    { id: 'forgotEmployeePass', onClick: this.handleForgotPassword },
+	                    'Forgot Your Password?'
+	                  ),
+	                  _react2.default.createElement(
+	                    'button',
+	                    { id: 'loginEmployeeBtn', onClick: this.handleLogin, className: 'btn btn-default' },
+	                    'Login'
 	                  )
 	                )
 	              )
