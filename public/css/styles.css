@@ -1192,7 +1192,10 @@ body .modal {
 
 
 /* ------------ ProductFilter.jsx --------------------------------------------------------------*/
-
+#filterTitle {
+  color: #696969;
+  font-size: 1.2em!important;
+}
 .pharmaFilter {
   color: #34CAAF;
 }
@@ -1219,7 +1222,7 @@ body .modal {
 #filterOptions li {
     padding-right: 20px;
     display: inline;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 #filterOptions li:hover {

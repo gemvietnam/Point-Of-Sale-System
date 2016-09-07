@@ -36625,7 +36625,7 @@
 /* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -36648,39 +36648,44 @@
 	  // In order to add the | symbol here, the onClick handler needs to check for a value via the ref system
 	  // not the innerHTML
 	  return _react2.default.createElement(
-	    'form',
-	    { id: 'filterOptions' },
+	    "form",
+	    { id: "filterOptions" },
 	    _react2.default.createElement(
-	      'ul',
+	      "ul",
 	      null,
 	      _react2.default.createElement(
-	        'li',
-	        { className: '' + (showAll ? 'activeBlue' : ''), onClick: handleFilter },
-	        'All'
+	        "li",
+	        { id: "filterTitle" },
+	        "Filter"
 	      ),
-	      _react2.default.createElement('i', { className: 'fa fa-flask xsPadRight pharmaFilter' }),
 	      _react2.default.createElement(
-	        'li',
-	        { className: '' + (showPharma ? 'activeBlue' : ''), onClick: handleFilter },
-	        'Pharmaceuticals'
+	        "li",
+	        { className: "" + (showAll ? 'activeBlue' : ''), onClick: handleFilter },
+	        "All"
 	      ),
-	      _react2.default.createElement('i', { className: 'fa fa-leaf xsPadRight herbalsFilter' }),
+	      _react2.default.createElement("i", { className: "fa fa-flask xsPadRight pharmaFilter" }),
 	      _react2.default.createElement(
-	        'li',
-	        { className: '' + (showHerbals ? 'activeBlue' : ''), onClick: handleFilter },
-	        'Herbals'
+	        "li",
+	        { className: "" + (showPharma ? 'activeBlue' : ''), onClick: handleFilter },
+	        "Pharmaceuticals"
 	      ),
-	      _react2.default.createElement('i', { className: 'fa fa-tags xsPadRight consumerFilter' }),
+	      _react2.default.createElement("i", { className: "fa fa-leaf xsPadRight herbalsFilter" }),
 	      _react2.default.createElement(
-	        'li',
-	        { className: '' + (showConsumer ? 'activeBlue' : ''), onClick: handleFilter },
-	        'Consumer'
+	        "li",
+	        { className: "" + (showHerbals ? 'activeBlue' : ''), onClick: handleFilter },
+	        "Herbals"
 	      ),
-	      _react2.default.createElement('i', { className: 'fa fa-medkit xsPadRight otcFilter' }),
+	      _react2.default.createElement("i", { className: "fa fa-tags xsPadRight consumerFilter" }),
 	      _react2.default.createElement(
-	        'li',
-	        { className: '' + (showOTC ? 'activeBlue' : ''), onClick: handleFilter },
-	        'OTC'
+	        "li",
+	        { className: "" + (showConsumer ? 'activeBlue' : ''), onClick: handleFilter },
+	        "Consumer"
+	      ),
+	      _react2.default.createElement("i", { className: "fa fa-medkit xsPadRight otcFilter" }),
+	      _react2.default.createElement(
+	        "li",
+	        { className: "" + (showOTC ? 'activeBlue' : ''), onClick: handleFilter },
+	        "OTC"
 	      )
 	    )
 	  );

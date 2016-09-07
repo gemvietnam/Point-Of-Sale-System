@@ -6,7 +6,7 @@ const ProductFilter = ({showAll, showPharma, showHerbals, showConsumer, showOTC,
   return (
     <form id="filterOptions">
       <ul>
-
+        <li id="filterTitle">Filter</li>
         <li className={`${ showAll ? 'activeBlue' : '' }`} onClick={handleFilter}>All</li>
 
         <i className='fa fa-flask xsPadRight pharmaFilter'></i>
