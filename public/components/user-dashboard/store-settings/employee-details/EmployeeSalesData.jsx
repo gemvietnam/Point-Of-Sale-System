@@ -5,9 +5,9 @@ const EmployeeSalesData = ({ title, salesData }) => {
     <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12">
       <div className="thumbnail">
         <div className="caption text-center">
-          <h4>Active Employee's</h4>
-          <h5>{title}</h5>
-          <h6>{salesData}</h6>
+          <h4 className="primaryGray">Active Employee's</h4>
+          <h5 className="primaryGray">{title}</h5>
+          <h2 className="secondaryBlue">{salesData}</h2>
         </div>
       </div>
     </div>

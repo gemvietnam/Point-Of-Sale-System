@@ -70,7 +70,7 @@ class EditEmployeeForm extends Component {
       <div id="editEmployeeForm" className="container marginTop text-center">
         <div className="row">
           <div className="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">
-            <h4 className="text-center">Edit Employee Information</h4>
+            <h2 className="primaryGray">Edit Employee Information</h2>
             <form onSubmit={this.handleSubmitEdit}>
 
               <fieldset className="form-group">
@@ -106,20 +106,20 @@ class EditEmployeeForm extends Component {
                   value={position} />
                 <div className="text-help"></div>
               </fieldset>
-              <div className="row">
-                <div className="col-lg-6 col-md-6">
+
+                <div className="col-lg-12 col-md-12">
                   <button
                     id="submitEmployeeEdits"
                     type="submit"
                     className="btn btn-primary">Submit Edits</button>
                 </div>
-                <div className="col-lg-6 col-md-6">
+                <div className="col-lg-12 col-md-12">
                   <button
                     id="cancelEmployeeEdits"
                     className="btn btn-danger"
                     onClick={this.handleCancelEdit}>Cancel</button>
                 </div>
-              </div>
+
             </form>
             <div className="col-lg-12 col-md-12">
               <DeleteBtn

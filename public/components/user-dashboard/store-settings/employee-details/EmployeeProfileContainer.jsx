@@ -70,22 +70,23 @@ class EmployeeProfileContainer extends Component {
       );
     } else {
       return (
-        <div className="container marginTop marginBottom">
-          <p id="employeeTitle">Employee Profile</p>
-          <p id="employeeSubTitle">
-            View account information or log in to begin making sales
-          </p>
+        <div id="employeeProContainer" className="container marginBottom">
+
           {/* start of main EmployeeProfile bootstrap row */}
           <div className="row">
 
-            <div id="employeeProfilePage" className="col-lg-12 col-md-12">
+            <div id="employeeProfilePage" className="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2">
+              <p id="employeeTitle">Employee Profile</p>
+              <p id="employeeSubTitle">
+                View account information or log in to begin making sales
+              </p>
               <div className="row">
 
-                <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                   <i className="secondaryBlue employeeIcon fa fa-user-md wow flipInY" aria-hidden="true"></i>
-                </div>
+                </div>{/* .col-lg-6 */}
 
-                <div className="text-center col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div className="text-center col-lg-6 col-md-6 col-sm-6 col-xs-6">
                   {/* Start Edit Button */}
                   <p id="editEmployee">
                     Edit Employee
@@ -98,10 +99,11 @@ class EmployeeProfileContainer extends Component {
                    className="primaryGray fa fa-pencil-square-o fa-4x"
                    aria-hidden="true"></i>
                   {/* End Edit Button */}
-                </div>
+                </div>{/* .col-lg-6 */}
               </div>{/* .row */}
 
               <div className="row">
+
                 <div id="employeeInfo" className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                   <span>Name</span> <p>{singleEmployee.name}</p>
 
@@ -110,7 +112,8 @@ class EmployeeProfileContainer extends Component {
                   <span>Email</span> <p>{singleEmployee.email}</p>
 
                   <span>ID Number</span> <p id="idNum">{singleEmployee._id}</p>
-                </div>
+                </div>{/* .col-lg-6 */}
+
                 <div id="employeeLogin" className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                   <h5 className="error">{this.props.errorMessage}</h5>
                   <fieldset className="form-group">
@@ -136,9 +139,8 @@ class EmployeeProfileContainer extends Component {
 
                   <p id="forgotEmployeePass" onClick={this.handleForgotPassword}>Forgot Your Password?</p>
                   <button id="loginEmployeeBtn" onClick={this.handleLogin} className="btn btn-default">Login</button>
-
-                </div>
-              </div>
+                </div>{/* .col-lg-6 */}
+              </div>{/* .row */}
 
 
 

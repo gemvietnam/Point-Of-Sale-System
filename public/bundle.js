@@ -75607,57 +75607,66 @@
 	    { className: 'col-lg-4 col-md-4 col-sm-6 col-xs-12' },
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'thumbnail' },
+	      { className: 'thumbnail activeEmployee' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'caption text-center' },
+	        { className: 'text-center col-lg-12 col-md-12 col-sm-12 col-xs-12' },
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/employeeProfile/' + employee._id },
 	          _react2.default.createElement('i', { className: 'fa fa-user-md fa-3x', 'aria-hidden': 'true' })
-	        ),
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'text-center col-lg-12 col-md-12 col-sm-12 col-x-12' },
 	        _react2.default.createElement(
-	          'h3',
-	          { className: 'title' },
+	          'h4',
+	          { className: 'activeHead title' },
 	          'Active Employee'
-	        ),
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'text-center col-lg-12 col-md-12', id: 'activeInfo' },
 	        _react2.default.createElement(
-	          'label',
+	          'span',
 	          null,
 	          'Name'
 	        ),
 	        _react2.default.createElement(
-	          'h4',
+	          'p',
 	          null,
 	          employee.name
 	        ),
 	        _react2.default.createElement(
-	          'label',
+	          'span',
 	          null,
 	          'Position'
 	        ),
 	        _react2.default.createElement(
-	          'h4',
+	          'p',
 	          null,
 	          employee.position
 	        ),
 	        _react2.default.createElement(
-	          'label',
+	          'span',
 	          null,
 	          'ID'
 	        ),
 	        _react2.default.createElement(
-	          'h4',
+	          'p',
 	          null,
 	          employee._id
-	        ),
-	        _react2.default.createElement(
-	          'button',
-	          {
-	            className: 'btn btn-primary',
-	            onClick: logOutActiveEmployee },
-	          'Log Out'
 	        )
+	      ),
+	      _react2.default.createElement(
+	        'button',
+	        {
+	          id: 'logoutEmployeeBtn',
+	          className: 'btn btn-primary',
+	          onClick: logOutActiveEmployee },
+	        'Log Out'
 	      )
 	    )
 	  );
@@ -75701,17 +75710,17 @@
 	        { className: "caption text-center" },
 	        _react2.default.createElement(
 	          "h4",
-	          null,
+	          { className: "primaryGray" },
 	          "Active Employee's"
 	        ),
 	        _react2.default.createElement(
 	          "h5",
-	          null,
+	          { className: "primaryGray" },
 	          title
 	        ),
 	        _react2.default.createElement(
-	          "h6",
-	          null,
+	          "h2",
+	          { className: "secondaryBlue" },
 	          salesData
 	        )
 	      )
@@ -75850,34 +75859,34 @@
 	      } else {
 	        return _react2.default.createElement(
 	          'div',
-	          { className: 'container marginTop marginBottom' },
-	          _react2.default.createElement(
-	            'p',
-	            { id: 'employeeTitle' },
-	            'Employee Profile'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            { id: 'employeeSubTitle' },
-	            'View account information or log in to begin making sales'
-	          ),
+	          { id: 'employeeProContainer', className: 'container marginBottom' },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'row' },
 	            _react2.default.createElement(
 	              'div',
-	              { id: 'employeeProfilePage', className: 'col-lg-12 col-md-12' },
+	              { id: 'employeeProfilePage', className: 'col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2' },
+	              _react2.default.createElement(
+	                'p',
+	                { id: 'employeeTitle' },
+	                'Employee Profile'
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                { id: 'employeeSubTitle' },
+	                'View account information or log in to begin making sales'
+	              ),
 	              _react2.default.createElement(
 	                'div',
 	                { className: 'row' },
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'col-lg-6 col-md-6 col-sm-12 col-xs-12' },
+	                  { className: 'col-lg-6 col-md-6 col-sm-6 col-xs-6' },
 	                  _react2.default.createElement('i', { className: 'secondaryBlue employeeIcon fa fa-user-md wow flipInY', 'aria-hidden': 'true' })
 	                ),
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'text-center col-lg-6 col-md-6 col-sm-12 col-xs-12' },
+	                  { className: 'text-center col-lg-6 col-md-6 col-sm-6 col-xs-6' },
 	                  _react2.default.createElement(
 	                    'p',
 	                    { id: 'editEmployee' },
@@ -76144,8 +76153,8 @@
 	            'div',
 	            { className: 'col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3' },
 	            _react2.default.createElement(
-	              'h4',
-	              { className: 'text-center' },
+	              'h2',
+	              { className: 'primaryGray' },
 	              'Edit Employee Information'
 	            ),
 	            _react2.default.createElement(
@@ -76202,30 +76211,26 @@
 	              ),
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'row' },
+	                { className: 'col-lg-12 col-md-12' },
 	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'col-lg-6 col-md-6' },
-	                  _react2.default.createElement(
-	                    'button',
-	                    {
-	                      id: 'submitEmployeeEdits',
-	                      type: 'submit',
-	                      className: 'btn btn-primary' },
-	                    'Submit Edits'
-	                  )
-	                ),
+	                  'button',
+	                  {
+	                    id: 'submitEmployeeEdits',
+	                    type: 'submit',
+	                    className: 'btn btn-primary' },
+	                  'Submit Edits'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'col-lg-12 col-md-12' },
 	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'col-lg-6 col-md-6' },
-	                  _react2.default.createElement(
-	                    'button',
-	                    {
-	                      id: 'cancelEmployeeEdits',
-	                      className: 'btn btn-danger',
-	                      onClick: this.handleCancelEdit },
-	                    'Cancel'
-	                  )
+	                  'button',
+	                  {
+	                    id: 'cancelEmployeeEdits',
+	                    className: 'btn btn-danger',
+	                    onClick: this.handleCancelEdit },
+	                  'Cancel'
 	                )
 	              )
 	            ),
@@ -76563,12 +76568,8 @@
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
-					{ className: 'allProducts' },
-					_react2.default.createElement(
-						'div',
-						{ className: 'container' },
-						this.renderProducts()
-					)
+					{ className: 'container' },
+					this.renderProducts()
 				);
 			}
 		}, {

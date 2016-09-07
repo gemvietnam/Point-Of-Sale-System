@@ -131,24 +131,55 @@ body .modal {
 #singleEmployee i:hover {
   color:#1EBEA5;
 }
+/* ------------ ActiveEmployeeThumbnail.jsx --------------------------------------------------------------*/
+.activeEmployee {
+  padding-bottom: 13px;
+}
+.activeEmployee span {
+  color: #228AEB;
+}
+.activeEmployee p {
+  color: #6D6D6D;
+}
+.activeHead {
+  padding-bottom: 0;
+}
+#logoutEmployeeBtn {
+  background-color: #228AEB;
+  border-color: #228AEB;
+  color: white;
+  border-radius: 2px;
+  width: 100%
+}
+#activeInfo {
+  padding-top: 0;
+}
+
 /* ------------ EditEmployeeForm.jsx --------------------------------------------------------------*/
-#editEmployeeForm h4 {
-  color: #284A75;
-  margin-bottom: 25px;
+#editEmployeeForm h2 {
+  margin-bottom: 35px;
 }
-#editEmployeeForm #deleteBtn {
-  margin-top: 0.5em;
+
+#editEmployeeForm label {
+  color: #228AEB;
+  margin-bottom: 15px;
 }
+
 #submitEmployeeEdits {
+  margin-top: 20px;
+  height: 40px;
+  background-color: #228AEB;
+  border-color: #228AEB;
+  border-radius: 2px;
   width: 100%;
-  background-color: #284A75;
 }
-#submitEmployeeEdits:hover {
-  background-color: #1EBEA5;
-  border-color: #1EBEA5;
-}
+
 #cancelEmployeeEdits {
+  background-color: #DB4437;
+  height: 40px;
+  border-radius: 2px;
   width: 100%;
+  margin: 20px 0 20px;
 }
 /* ------------ EmployeeSalesData.jsx --------------------------------------------------------------*/
 #employeeRevenue {
@@ -165,11 +196,14 @@ body .modal {
 }
 
 /* ------------ EmployeeProfileContainer.jsx --------------------------------------------------------------*/
+#employeeProContainer {
+  margin-top: 75px;
+}
 #employeeProfilePage {
   border: 3px solid #F2F2F2;
   border-radius: 5px;
   height: auto;
-  width: 900px;
+  width: 700px;
   padding: 30px;
 }
 
@@ -187,18 +221,18 @@ body .modal {
 
 #employeeSubTitle {
   font-size: 1.3em;
-  margin-bottom: 35px;
+  margin-bottom: 15px;
   color: #FF9885;
 }
 
 .employeeIcon {
-  font-size: 15em !important;
+  font-size: 10em !important;
   padding-left: 10px;
 }
 
 #editEmployee {
-  padding-top: 30px;
-  font-size: 1.8em;
+  padding-top: 35px;
+  font-size: 1.5em;
   color: #1EBEA5;
 }
 
@@ -214,12 +248,12 @@ body .modal {
 #employeeInfo p {
   margin-top: 5px;
   color: #6D6D6D;
-  font-size: 1.7em;
+  font-size: 1.4em;
 }
 
 #employeeInfo span {
   color: #228AEB;
-  font-size: 1.2em !important;
+  font-size: 0.8em !important;
 }
 
 #forgotEmployeePass {
@@ -237,8 +271,8 @@ body .modal {
 }
 
 #employeeLogin input {
-  margin-top: 10px;
-  height: 40px;
+  margin-top: 5px;
+  height: 35px;
 }
 
 #employeeLogin label {
@@ -251,7 +285,7 @@ body .modal {
   background-color: #228AEB;
   border-color: #228AEB;
   color: white;
-  height: 40px;
+  height: 35px;
   border-radius: 2px;
   width: 100%;
 }
@@ -377,10 +411,12 @@ body .modal {
 
 /* ------------ SalesHistoryContainer.jsx --------------------------------------------------------------*/
 #salesHistoryContainer {
-  margin-top: 6em;
+  margin-top: 75px;
 }
+
 #salesHistoryContainer .panel-heading {
   background-color: white !important;
+  padding-bottom: 15px;
 }
 
 #salesHistoryContainer p {
@@ -393,14 +429,13 @@ body .modal {
 }
 
 #historySubHead {
-  margin-bottom: 35px;
+  margin-bottom: 15px;
 }
 .combobox-wrapper select {
   width: 200px;
   height: 30px !important;
 }
 .dateColumn {
-  padding-left: 75px;
   width: 200px;
   margin-right: 100px;
 }
@@ -410,6 +445,7 @@ body .modal {
   margin-left: 45%;
 }
 /* ------------ SalesSearchForm.jsx ----------------------------------------------------------------*/
+
 #salesByDateForm .form-group {
   margin-top: 0em;
   margin-bottom: 0em;
@@ -418,7 +454,7 @@ body .modal {
   height: 25px;
 }
 #historyBtns {
-  padding-top: 145px;
+  padding-top: 75px;
   padding-left: 50px;
 }
 
@@ -1129,7 +1165,7 @@ body .modal {
 }
 
 
-/* ------------ Profile.jsx --------------------------------------------------------------*/
+/* ------------ UserDashboardContainer.jsx --------------------------------------------------------------*/
 
 #userProfile {
     margin-top: 100px;
@@ -1141,12 +1177,12 @@ body .modal {
 
 #profileTitle {
   font-size: 1.8em;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 #storeTitle {
-  padding-left: 15px;
-  margin-top: 30px;
+  padding-left: 12px;
+  margin-top: 15px;
   margin-bottom: 30px;
   font-size: 1.8em;
 }
@@ -1439,10 +1475,10 @@ body .modal {
 #allProductsFooter {
   text-align: center;
   padding: 0;
-  background-color: #F8F8F8;
+  background-color: white;
 }
 .allProductsShown {
-    margin-top: 100px;
+    margin-top: 75px;
 }
 
 .allProductsShown #productSearch .input-group-addon {
@@ -1471,7 +1507,7 @@ body .modal {
 
 #allProductsSubHead {
   font-size: 1.3em;
-  margin-bottom: 35px;
+  margin-bottom: 15px;
 }
 
 #addProductTitle {

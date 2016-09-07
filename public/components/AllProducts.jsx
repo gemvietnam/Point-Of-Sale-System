@@ -50,13 +50,9 @@ class AllProducts extends Component {
 
 	render() {
 		return (
-			<div className="allProducts">
-
-			  <div className="container">
-			  	{this.renderProducts()}
-			  </div>
-
-			</div>
+		  <div className="container">
+		  	{this.renderProducts()}
+		  </div>
 		);
 	}
 
