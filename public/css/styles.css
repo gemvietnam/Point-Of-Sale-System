@@ -811,8 +811,8 @@ body .modal {
 
 .navbar-brand {
     height: auto;
-    width: 175px;
-    padding: 10px 0 5px;
+    width: 150px;
+    padding: 15px 0 5px;
 }
 @media all and (max-width: 768px) {
     .navbar-brand {
