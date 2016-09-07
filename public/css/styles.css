@@ -983,6 +983,7 @@ body .modal {
     width: 4.5em;
     height: 100%;
     background-color: #EFEFEF;
+    color: #696969;
     transition: left 0.3s linear;
     -moz-transition: left 0.3s linear;
     -webkit-transition: left 0.3s linear;
@@ -1014,7 +1015,7 @@ body .modal {
   .homeLabel {
     font-size: 0.8em;
     font-weight: bold;
-    margin-top: 0em !important;
+    margin-top: 0.1em !important;
     margin-bottom: 0em !important;
     margin-left: -0.2em !important;
   }
@@ -1027,7 +1028,7 @@ body .modal {
 
     font-size: 0.8em;
     font-weight: bold;
-    margin-top: 0em !important;
+    margin-top: 0.1em !important;
     margin-bottom: 0em !important;
     margin-left: 0.5em !important;
   }
@@ -1039,7 +1040,7 @@ body .modal {
   .inventoryLabel {
     font-size: 0.8em;
     font-weight: bold;
-    margin-top: 0em !important;
+    margin-top: 0.1em !important;
     margin-bottom: 0em !important;
     margin-left: -0.6em !important;
   }
@@ -1051,7 +1052,7 @@ body .modal {
   .reportingLabel {
     font-size: 0.8em;
     font-weight: bold;
-    margin-top: 0em !important;
+    margin-top: 0.1em !important;
     margin-bottom: 0em !important;
     margin-left: -0.8em !important;
   }
@@ -1063,7 +1064,7 @@ body .modal {
   .salesLabel {
     font-size: 0.8em;
     font-weight: bold;
-    margin-top: 0em !important;
+    margin-top: 0.1em !important;
     margin-bottom: 0em !important;
     margin-left: -1em !important;
   }
