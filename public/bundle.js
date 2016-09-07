@@ -36769,7 +36769,7 @@
 						),
 						_react2.default.createElement(
 							'div',
-							{ id: 'pricetag', className: 'col-lg-12 col-md-12' },
+							{ id: 'pricetag', className: 'text-center col-lg-12 col-md-12' },
 							_react2.default.createElement(_SingleProductSymbol2.default, {
 								productCategory: product.category,
 								handleAddProduct: this.handleAddProduct,

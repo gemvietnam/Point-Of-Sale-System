@@ -1,5 +1,5 @@
 p, h1 {
- font-family: 'Droid Sans', sans-serif;
+ font-family: 'OpenSans', sans-serif;
 }
 
 th {
@@ -9,6 +9,7 @@ th {
 td {
   padding: 10px 0 10px 5px !important;
   height: 40px;
+  color: #6D6D6D;
 }
 
 .panel-heading {
@@ -895,7 +896,7 @@ body .modal {
 /* ------------ CartProductRow.jsx ----------------------------------------------------------------*/
 
 .cartRow {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'OpenSans', sans-serif;
   color: #6D6D6D;
 }
 
@@ -964,7 +965,7 @@ body .modal {
 .navbar {
   background-color: white;
   box-shadow : 0px 0px 5px 0px #eaeaea;
-  font-family: 'Lato', sans-serif;
+  font-family: 'OpenSans', sans-serif;
 }
 
 @media all and (max-width: 768px) {
@@ -1241,11 +1242,11 @@ body .modal {
 /* ------------ Single-Product.jsx --------------------------------------------------------------*/
 
 #singleProduct {
-    border: 2.5px solid #BCB5B9;
-    border-radius: 5px;
-    width: 100px;
-    height: 140px;
-    margin-top: 10px;
+  border: 2.5px solid #BCB5B9;
+  border-radius: 5px;
+  width: 100px;
+  height: 140px;
+  margin-top: 10px;
 }
 
 @media(max-width: 400px) {
@@ -1254,18 +1255,15 @@ body .modal {
   }
 }
 
-#pricetag i {
-    padding-left: 25px;
-}
-
 #pricetag i:hover {
     cursor: pointer;
     color: #2C87F3;
 }
 
 #productName {
+  padding-top: 15px;
   text-align: center;
-  color: #284A75;
+  color: #6D6D6D;
 }
 
 #examineIcon i {

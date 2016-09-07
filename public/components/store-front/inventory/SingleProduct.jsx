@@ -29,7 +29,7 @@ class SingleProduct extends Component {
 					</div>
 					{/* May want to turn product's symbol into a component that returns its value
 						based on product.category */}
-					<div id="pricetag" className="col-lg-12 col-md-12">
+					<div id="pricetag" className="text-center col-lg-12 col-md-12">
 						<SingleProductSymbol
 							productCategory={product.category}
 							handleAddProduct={this.handleAddProduct}
