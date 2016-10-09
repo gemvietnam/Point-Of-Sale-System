@@ -78450,31 +78450,33 @@
 				// check to see if there is a url param for product id
 				if (this.props.params.productId) {
 					// there is a param, so this is an edit product form
-					this.setState({ isEditForm: true });
+					this.setState({ isEditForm: true, isNewForm: false });
 					// fetch the product to edit based on the url param (product's id)
 					this.props.fetchSingleProduct(this.props.params.productId);
 				} else {
 					// no url param, so this is a form to create a new product
-					this.setState({
-						isNewForm: true
-					});
+					this.setState({ isNewForm: true, isEditForm: false, product: {} });
 				}
 			}
 		}, {
 			key: 'componentDidMount',
 			value: function componentDidMount() {
-				// set singleProduct to the product to edit in local state
-				this.setState({
-					product: Object.assign({}, this.props.singleProduct)
-				});
+				if (this.state.isEditForm) {
+					// set singleProduct to the product to edit in local state
+					this.setState({
+						product: Object.assign({}, this.props.singleProduct)
+					});
+				}
 			}
 		}, {
 			key: 'componentWillReceiveProps',
 			value: function componentWillReceiveProps(nextProps) {
-				// set singleProduct to the product to edit in local state
-				this.setState({
-					product: Object.assign({}, nextProps.singleProduct)
-				});
+				if (this.state.isEditForm) {
+					// set singleProduct to the product to edit in local state
+					this.setState({
+						product: Object.assign({}, nextProps.singleProduct)
+					});
+				}
 			}
 		}, {
 			key: 'handleDeleteProduct',
