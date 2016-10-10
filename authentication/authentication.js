@@ -1,6 +1,6 @@
 const jwt = require('jwt-simple');
 const User = require('../models/user'); //This will contain the user class, so it contains all instances of user
-const config = require('../config');
+const config = require('../secret');
 
 
 

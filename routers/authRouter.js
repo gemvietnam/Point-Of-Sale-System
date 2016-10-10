@@ -24,6 +24,8 @@ const passport = require('passport');
 const requireAuth = passport.authenticate('jwt', { session: false });
 const requireLogin = passport.authenticate('local', { session: false });
 
+const config = require('../secret');
+
 module.exports = function (app) {
 
 	app.post('/login', requireLogin, Authentication.login);

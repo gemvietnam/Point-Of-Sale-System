@@ -14,7 +14,7 @@ const reportingRouter = require('./routers/reportingRouter');
 
 
 const mongoose = require('mongoose');
-const config = require('./config.js');
+const config = require('./secret');
 const webpack = require('webpack');
 const path = require('path');
 
