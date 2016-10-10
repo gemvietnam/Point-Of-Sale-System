@@ -93,8 +93,8 @@ module.exports = function (app) {
 		    var smtpTransport = nodemailer.createTransport('SMTP', {
 		      service: 'SendGrid',
 		      auth: {
-		        user: 'marcushurney',
-		        pass: 'jisuanqiRen90'
+		        user: config.sendGridUser,
+		        pass: config.sendGridPass
 		      }
 		    });
 
@@ -164,8 +164,8 @@ module.exports = function (app) {
 	      var smtpTransport = nodemailer.createTransport('SMTP', {
 	        service: 'SendGrid',
 	        auth: {
-	          user: 'marcushurney',
-	          pass: 'jisuanqiRen90'
+	          user: config.sendGridUser,
+	          pass: config.sendGridPass
 	        }
 	      });
 	      var mailOptions = {
@@ -191,36 +191,6 @@ module.exports = function (app) {
 	app.get('/fetchUser', requireAuth, function(req, res, next) {
 		res.json(req.user);
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	///FOR TESTING ONLY
@@ -291,14 +261,5 @@ module.exports = function (app) {
 		});
 
 	});
-
-
-
-
-
-
-
-
-
 
 }
