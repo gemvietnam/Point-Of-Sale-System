@@ -1,12 +1,11 @@
-var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
-  entry: [
-    './public/index.jsx'
-  ],
+  devtool: 'cheap-module-source-map',
+  entry: path.join(__dirname, 'public', 'index.jsx'),
   output: {
-    path: __dirname,
-    filename: './public/bundle.js'
+   path: path.join(__dirname, 'public'),
+   filename: "bundle.js"
   },
   resolve: {
     root: __dirname,
