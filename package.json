@@ -40,8 +40,7 @@
     "redux-promise": "^0.5.1",
     "redux-thunk": "^2.0.1",
     "toastr": "^2.1.2",
-    "underscore": "^1.8.3",
-
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "webpack": "^1.12.9",
