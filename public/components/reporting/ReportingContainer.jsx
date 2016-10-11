@@ -74,14 +74,14 @@ class ReportingContainer extends Component {
 					<RevenueThumbnail
 						totalRevenue={this.props.thisWeeksTotalRevenue}
 						salesData={this.props.revenueForDaysThisWeek}
-						name={"This Week's"}
+						name={"Week's"}
 						ChartComponent={ThisWeeksRevenueChart}
 					/>
 
 					<RevenueThumbnail
 						totalRevenue={this.props.thisMonthsTotalRevenue}
 						salesData={this.props.everyMonthsRevenue}
-						name={"This Month's"}
+						name={"Month's"}
 						ChartComponent={AllMonthsRevenueChart}
 					/>
 
@@ -92,13 +92,13 @@ class ReportingContainer extends Component {
 					/>
 
 					<TopItemsPanel
-						name={"This Week's"}
+						name={"Week's"}
 						items={this.props.weeksTopItems}
 						TopItemsTable={WeeksTopItemsTable}
 					/>
 
 					<TopItemsPanel
-						name={"This Month's"}
+						name={"Month's"}
 						items={this.props.monthsTopItems}
 						TopItemsTable={MonthsTopItemsTable}
 					/>

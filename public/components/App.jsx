@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import NavBarContainer from 'NavBarContainer';
 import PostAuthSideNavbar from 'PostAuthSideNavbar';
 
-export default class App extends Component {
+class App extends Component {
   render() {
     const { userAuthed } = this.props;
     return (

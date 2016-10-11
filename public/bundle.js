@@ -34498,9 +34498,6 @@
 	  return App;
 	}(_react.Component);
 
-	exports.default = App;
-
-
 	function mapStateToProps(state) {
 	  return { userAuthed: state.user.authenticated };
 	}
@@ -77559,13 +77556,13 @@
 						_react2.default.createElement(_RevenueThumbnail2.default, {
 							totalRevenue: this.props.thisWeeksTotalRevenue,
 							salesData: this.props.revenueForDaysThisWeek,
-							name: "This Week's",
+							name: "Week's",
 							ChartComponent: _ThisWeeksRevenueChart2.default
 						}),
 						_react2.default.createElement(_RevenueThumbnail2.default, {
 							totalRevenue: this.props.thisMonthsTotalRevenue,
 							salesData: this.props.everyMonthsRevenue,
-							name: "This Month's",
+							name: "Month's",
 							ChartComponent: _AllMonthsRevenueChart2.default
 						}),
 						_react2.default.createElement(_TopItemsPanel2.default, {
@@ -77574,12 +77571,12 @@
 							TopItemsTable: _TodaysTopItemsTable2.default
 						}),
 						_react2.default.createElement(_TopItemsPanel2.default, {
-							name: "This Week's",
+							name: "Week's",
 							items: this.props.weeksTopItems,
 							TopItemsTable: _WeeksTopItemsTable2.default
 						}),
 						_react2.default.createElement(_TopItemsPanel2.default, {
-							name: "This Month's",
+							name: "Month's",
 							items: this.props.monthsTopItems,
 							TopItemsTable: _MonthsTopItemsTable2.default
 						})
@@ -77652,8 +77649,12 @@
 	          { className: "caption" },
 	          _react2.default.createElement(
 	            "h3",
-	            null,
-	            name,
+	            { className: "chartTitle" },
+	            _react2.default.createElement(
+	              "span",
+	              { className: "lightOrange" },
+	              name
+	            ),
 	            " Total Revenue: $",
 	            totalRevenue
 	          )
@@ -78233,7 +78234,7 @@
 	        // this is a blatant hack for offsetting heroku's 13 hour time surplus in deployment
 	        var newDate = new Date(monthData[0]);
 	        var currentMinutes = newDate.getMinutes();
-	        var currentHour = newDate.getHours() - 13;
+	        var currentHour = newDate.getHours();
 	        var currentDay = newDate.getDate();
 	        var currentMonth = newDate.getMonth();
 	        var currentYear = newDate.getFullYear();

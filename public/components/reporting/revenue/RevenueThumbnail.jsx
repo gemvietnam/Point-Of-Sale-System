@@ -9,7 +9,7 @@ const RevenueThumbnail = ({totalRevenue, salesData, name, ChartComponent}) => {
         <div className="thumbnail">
           <ChartComponent salesData={salesData} />
           <div className="caption">
-            <h3>{name} Total Revenue: ${totalRevenue}</h3>
+            <h3 className="chartTitle"><span className="lightOrange">{name}</span> Total Revenue: ${totalRevenue}</h3>
           </div>
         </div>
       </div>

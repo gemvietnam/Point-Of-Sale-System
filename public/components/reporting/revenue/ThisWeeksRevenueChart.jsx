@@ -23,14 +23,14 @@ class ThisWeeksRevenueChart extends Component {
       // this is a blatant hack for offsetting heroku's 13 hour time surplus in deployment
       let newDate = new Date(monthData[0]);
       let currentMinutes = newDate.getMinutes();
-      let currentHour = newDate.getHours() - 13;
+      let currentHour = newDate.getHours();
       let currentDay = newDate.getDate();
       let currentMonth = newDate.getMonth();
       let currentYear = newDate.getFullYear();
 
       // the previous code below
       // let newMonthData = [new Date(monthData[0], monthData[1])];
-      
+
       let newMonthData = [new Date(currentYear, currentMonth, currentDay, currentHour, currentMinutes), monthData[1]];
       return newMonthData;
     });

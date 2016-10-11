@@ -1631,6 +1631,10 @@ body .modal {
     margin-top: 125px;
 }
 
+.chartTitle {
+  color: #727272;
+}
+
 
 /* ------------ LoginFormContainer.jsx --------------------------------------------------------------*/
 
