@@ -80505,7 +80505,7 @@
 	        // this is a blatant hack for offsetting heroku's 13 hour time surplus in deployment
 	        var newDate = new Date(monthData[0]);
 	        var currentMinutes = newDate.getMinutes();
-	        var currentHour = newDate.getHours() - 13;
+	        var currentHour = newDate.getHours();
 	        var currentDay = newDate.getDate();
 	        var currentMonth = newDate.getMonth();
 	        var currentYear = newDate.getFullYear();

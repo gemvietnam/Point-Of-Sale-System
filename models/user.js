@@ -30,28 +30,29 @@ const userSchema = new Schema({
 
 });
 
-// On Save Hook, encrypt password
-
-// pre = Before authentication.js saves a user, it will run this function
 userSchema.pre('save', function(next) {
-
 	const user = this; //accessing the specific user model that is about to be saved
 
-	// generate a salt then run callback
-	bcrypt.genSalt(10, function(err, salt) {
-
-		if (err) { return next(err); }
-
-		// hash (encrypt) our password using the salt
-		bcrypt.hash(user.password, salt, null, function(err, hash) {
+	// only rehash the password if the user alters the password!!!!!
+	if (user.isModified('password')) {
+		// generate a salt then run callback
+		bcrypt.genSalt(10, function(err, salt) {
 
 			if (err) { return next(err); }
 
-			// overwrite plain text password with encrypted password
-			user.password = hash;
-			next();
+			// hash (encrypt) our password using the salt
+			bcrypt.hash(user.password, salt, null, function(err, hash) {
+
+				if (err) { return next(err); }
+
+				// overwrite plain text password with encrypted password
+				user.password = hash;
+				next();
+			});
 		});
-	});
+	} else {
+		next();
+	}
 });
 
 // this.password pulls the user's encrypted password from the database
