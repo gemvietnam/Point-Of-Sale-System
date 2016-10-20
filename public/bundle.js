@@ -79736,27 +79736,27 @@
 
 	var _TopItemsPanel2 = _interopRequireDefault(_TopItemsPanel);
 
-	var _TodaysRevenueChart = __webpack_require__(506);
+	var _TodaysRevenueChart = __webpack_require__(500);
 
 	var _TodaysRevenueChart2 = _interopRequireDefault(_TodaysRevenueChart);
 
-	var _ThisWeeksRevenueChart = __webpack_require__(507);
+	var _ThisWeeksRevenueChart = __webpack_require__(501);
 
 	var _ThisWeeksRevenueChart2 = _interopRequireDefault(_ThisWeeksRevenueChart);
 
-	var _AllMonthsRevenueChart = __webpack_require__(508);
+	var _AllMonthsRevenueChart = __webpack_require__(502);
 
 	var _AllMonthsRevenueChart2 = _interopRequireDefault(_AllMonthsRevenueChart);
 
-	var _TodaysTopItemsTable = __webpack_require__(500);
+	var _TodaysTopItemsTable = __webpack_require__(503);
 
 	var _TodaysTopItemsTable2 = _interopRequireDefault(_TodaysTopItemsTable);
 
-	var _WeeksTopItemsTable = __webpack_require__(502);
+	var _WeeksTopItemsTable = __webpack_require__(505);
 
 	var _WeeksTopItemsTable2 = _interopRequireDefault(_WeeksTopItemsTable);
 
-	var _MonthsTopItemsTable = __webpack_require__(504);
+	var _MonthsTopItemsTable = __webpack_require__(507);
 
 	var _MonthsTopItemsTable2 = _interopRequireDefault(_MonthsTopItemsTable);
 
@@ -79980,8 +79980,16 @@
 	      _react2.default.createElement(
 	        "div",
 	        { className: "panel-heading" },
-	        name,
-	        " Top Sellers"
+	        _react2.default.createElement(
+	          "h3",
+	          { className: "chartTitle" },
+	          _react2.default.createElement(
+	            "span",
+	            { className: "lightOrange" },
+	            name
+	          ),
+	          " Top Sellers"
+	        )
 	      ),
 	      _react2.default.createElement(TopItemsTable, { items: items })
 	    )
@@ -79992,375 +80000,6 @@
 
 /***/ },
 /* 500 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _TodaysTopItemsRow = __webpack_require__(501);
-
-	var _TodaysTopItemsRow2 = _interopRequireDefault(_TodaysTopItemsRow);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var TodaysTopItemsTable = function TodaysTopItemsTable(_ref) {
-		var items = _ref.items;
-
-		return _react2.default.createElement(
-			'div',
-			{ className: 'table-responsive' },
-			_react2.default.createElement(
-				'table',
-				{ className: 'table' },
-				_react2.default.createElement(
-					'thead',
-					null,
-					_react2.default.createElement(
-						'tr',
-						null,
-						_react2.default.createElement(
-							'th',
-							null,
-							'Product Name'
-						),
-						_react2.default.createElement(
-							'th',
-							null,
-							'SKU #'
-						),
-						_react2.default.createElement(
-							'th',
-							null,
-							'Price'
-						),
-						_react2.default.createElement(
-							'th',
-							null,
-							'Number Sold Today'
-						)
-					)
-				),
-				_react2.default.createElement(
-					'tbody',
-					null,
-					items.map(function (item) {
-						return _react2.default.createElement(_TodaysTopItemsRow2.default, { key: item.item.itemId, item: item.item, numSold: item.occurrences });
-					})
-				)
-			)
-		);
-	};
-
-	exports.default = TodaysTopItemsTable;
-
-/***/ },
-/* 501 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var TodaysTopItemsRow = function TodaysTopItemsRow(_ref) {
-	  var item = _ref.item;
-	  var numSold = _ref.numSold;
-
-	  return _react2.default.createElement(
-	    'tr',
-	    null,
-	    _react2.default.createElement(
-	      'td',
-	      null,
-	      item.itemName
-	    ),
-	    _react2.default.createElement(
-	      'td',
-	      null,
-	      item.itemId
-	    ),
-	    _react2.default.createElement(
-	      'td',
-	      null,
-	      '$',
-	      item.price
-	    ),
-	    _react2.default.createElement(
-	      'td',
-	      null,
-	      numSold
-	    )
-	  );
-	};
-	TodaysTopItemsRow.propTypes = {
-	  item: _react.PropTypes.object.isRequired,
-	  numSold: _react.PropTypes.number.isRequired
-	};
-
-		exports.default = TodaysTopItemsRow;
-
-/***/ },
-/* 502 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _WeeksTopItemsRow = __webpack_require__(503);
-
-	var _WeeksTopItemsRow2 = _interopRequireDefault(_WeeksTopItemsRow);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var WeeksTopItemsTable = function WeeksTopItemsTable(_ref) {
-		var items = _ref.items;
-
-		return _react2.default.createElement(
-			'div',
-			{ className: 'table-responsive' },
-			_react2.default.createElement(
-				'table',
-				{ className: 'table' },
-				_react2.default.createElement(
-					'thead',
-					null,
-					_react2.default.createElement(
-						'tr',
-						null,
-						_react2.default.createElement(
-							'th',
-							null,
-							'Product Name'
-						),
-						_react2.default.createElement(
-							'th',
-							null,
-							'SKU #'
-						),
-						_react2.default.createElement(
-							'th',
-							null,
-							'Price'
-						),
-						_react2.default.createElement(
-							'th',
-							null,
-							'Number Sold This Week'
-						)
-					)
-				),
-				_react2.default.createElement(
-					'tbody',
-					null,
-					items.map(function (item) {
-						return _react2.default.createElement(_WeeksTopItemsRow2.default, { key: item.item.itemId, item: item.item, numSold: item.occurrences });
-					})
-				)
-			)
-		);
-	};
-
-	exports.default = WeeksTopItemsTable;
-
-/***/ },
-/* 503 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var WeeksTopItemsRow = function WeeksTopItemsRow(_ref) {
-	  var item = _ref.item;
-	  var numSold = _ref.numSold;
-
-	  return _react2.default.createElement(
-	    'tr',
-	    null,
-	    _react2.default.createElement(
-	      'td',
-	      null,
-	      item.itemName
-	    ),
-	    _react2.default.createElement(
-	      'td',
-	      null,
-	      item.itemId
-	    ),
-	    _react2.default.createElement(
-	      'td',
-	      null,
-	      '$',
-	      item.price
-	    ),
-	    _react2.default.createElement(
-	      'td',
-	      null,
-	      numSold
-	    )
-	  );
-	};
-	WeeksTopItemsRow.propTypes = {
-	  item: _react.PropTypes.object.isRequired,
-	  numSold: _react.PropTypes.number.isRequired
-	};
-
-		exports.default = WeeksTopItemsRow;
-
-/***/ },
-/* 504 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _MonthsTopItemsRow = __webpack_require__(505);
-
-	var _MonthsTopItemsRow2 = _interopRequireDefault(_MonthsTopItemsRow);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var MonthsTopItemsTable = function MonthsTopItemsTable(_ref) {
-		var items = _ref.items;
-
-		return _react2.default.createElement(
-			'div',
-			{ className: 'table-responsive' },
-			_react2.default.createElement(
-				'table',
-				{ className: 'table' },
-				_react2.default.createElement(
-					'thead',
-					null,
-					_react2.default.createElement(
-						'tr',
-						null,
-						_react2.default.createElement(
-							'th',
-							null,
-							'Product Name'
-						),
-						_react2.default.createElement(
-							'th',
-							null,
-							'SKU #'
-						),
-						_react2.default.createElement(
-							'th',
-							null,
-							'Price'
-						),
-						_react2.default.createElement(
-							'th',
-							null,
-							'Number Sold This Month'
-						)
-					)
-				),
-				_react2.default.createElement(
-					'tbody',
-					null,
-					items.map(function (item) {
-						return _react2.default.createElement(_MonthsTopItemsRow2.default, { key: item.item.itemId, item: item.item, numSold: item.occurrences });
-					})
-				)
-			)
-		);
-	};
-
-	exports.default = MonthsTopItemsTable;
-
-/***/ },
-/* 505 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var MonthsTopItemsRow = function MonthsTopItemsRow(_ref) {
-	  var item = _ref.item;
-	  var numSold = _ref.numSold;
-
-	  return _react2.default.createElement(
-	    'tr',
-	    null,
-	    _react2.default.createElement(
-	      'td',
-	      null,
-	      item.itemName
-	    ),
-	    _react2.default.createElement(
-	      'td',
-	      null,
-	      item.itemId
-	    ),
-	    _react2.default.createElement(
-	      'td',
-	      null,
-	      '$',
-	      item.price
-	    ),
-	    _react2.default.createElement(
-	      'td',
-	      null,
-	      numSold
-	    )
-	  );
-	};
-	MonthsTopItemsRow.propTypes = {
-	  item: _react.PropTypes.object.isRequired,
-	  numSold: _react.PropTypes.number.isRequired
-	};
-
-		exports.default = MonthsTopItemsRow;
-
-/***/ },
-/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -80463,7 +80102,7 @@
 		exports.default = TodaysRevenueChart;
 
 /***/ },
-/* 507 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -80565,7 +80204,7 @@
 		exports.default = ThisWeeksRevenueChart;
 
 /***/ },
-/* 508 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -80637,7 +80276,7 @@
 	      var myChart = new Chart(ctx, {
 	        type: 'bar',
 	        data: {
-	          labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'August', 'Sept', 'Oct', 'Nov', 'Dec'],
+	          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
 	          datasets: [{
 	            label: 'Total Revenue Per Month',
 	            data: this.state.dataRowsForChart,
@@ -80657,6 +80296,408 @@
 	}(_react.Component);
 
 		exports.default = AllMonthsRevenueChart;
+
+/***/ },
+/* 503 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _TodaysTopItemsRow = __webpack_require__(504);
+
+	var _TodaysTopItemsRow2 = _interopRequireDefault(_TodaysTopItemsRow);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var TodaysTopItemsTable = function TodaysTopItemsTable(_ref) {
+		var items = _ref.items;
+
+		return _react2.default.createElement(
+			'div',
+			{ className: 'table-responsive' },
+			_react2.default.createElement(
+				'table',
+				{ className: 'table' },
+				_react2.default.createElement(
+					'thead',
+					null,
+					_react2.default.createElement(
+						'tr',
+						null,
+						_react2.default.createElement(
+							'th',
+							null,
+							'Rank'
+						),
+						_react2.default.createElement(
+							'th',
+							null,
+							'Product Name'
+						),
+						_react2.default.createElement(
+							'th',
+							null,
+							'SKU #'
+						),
+						_react2.default.createElement(
+							'th',
+							null,
+							'Price'
+						),
+						_react2.default.createElement(
+							'th',
+							null,
+							'Number Sold Today'
+						)
+					)
+				),
+				_react2.default.createElement(
+					'tbody',
+					null,
+					items.slice(0, 10).map(function (item, index) {
+						return _react2.default.createElement(_TodaysTopItemsRow2.default, { key: item.item.itemId, rank: index, item: item.item, numSold: item.occurrences });
+					})
+				)
+			)
+		);
+	};
+
+	exports.default = TodaysTopItemsTable;
+
+/***/ },
+/* 504 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var TodaysTopItemsRow = function TodaysTopItemsRow(_ref) {
+	  var item = _ref.item;
+	  var numSold = _ref.numSold;
+	  var rank = _ref.rank;
+
+	  return _react2.default.createElement(
+	    'tr',
+	    null,
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      rank + 1
+	    ),
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      item.itemName
+	    ),
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      item.itemId
+	    ),
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      '$',
+	      item.price
+	    ),
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      numSold
+	    )
+	  );
+	};
+	TodaysTopItemsRow.propTypes = {
+	  item: _react.PropTypes.object.isRequired,
+	  numSold: _react.PropTypes.number.isRequired
+	};
+
+		exports.default = TodaysTopItemsRow;
+
+/***/ },
+/* 505 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _WeeksTopItemsRow = __webpack_require__(506);
+
+	var _WeeksTopItemsRow2 = _interopRequireDefault(_WeeksTopItemsRow);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var WeeksTopItemsTable = function WeeksTopItemsTable(_ref) {
+		var items = _ref.items;
+
+		return _react2.default.createElement(
+			'div',
+			{ className: 'table-responsive' },
+			_react2.default.createElement(
+				'table',
+				{ className: 'table' },
+				_react2.default.createElement(
+					'thead',
+					null,
+					_react2.default.createElement(
+						'tr',
+						null,
+						_react2.default.createElement(
+							'th',
+							null,
+							'Rank'
+						),
+						_react2.default.createElement(
+							'th',
+							null,
+							'Product Name'
+						),
+						_react2.default.createElement(
+							'th',
+							null,
+							'SKU #'
+						),
+						_react2.default.createElement(
+							'th',
+							null,
+							'Price'
+						),
+						_react2.default.createElement(
+							'th',
+							null,
+							'Number Sold This Week'
+						)
+					)
+				),
+				_react2.default.createElement(
+					'tbody',
+					null,
+					items.slice(0, 10).map(function (item, index) {
+						return _react2.default.createElement(_WeeksTopItemsRow2.default, { key: item.item.itemId, rank: index, item: item.item, numSold: item.occurrences });
+					})
+				)
+			)
+		);
+	};
+
+	exports.default = WeeksTopItemsTable;
+
+/***/ },
+/* 506 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var WeeksTopItemsRow = function WeeksTopItemsRow(_ref) {
+	  var item = _ref.item;
+	  var numSold = _ref.numSold;
+	  var rank = _ref.rank;
+
+	  return _react2.default.createElement(
+	    'tr',
+	    null,
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      rank + 1
+	    ),
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      item.itemName
+	    ),
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      item.itemId
+	    ),
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      '$',
+	      item.price
+	    ),
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      numSold
+	    )
+	  );
+	};
+	WeeksTopItemsRow.propTypes = {
+	  item: _react.PropTypes.object.isRequired,
+	  numSold: _react.PropTypes.number.isRequired
+	};
+
+		exports.default = WeeksTopItemsRow;
+
+/***/ },
+/* 507 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _MonthsTopItemsRow = __webpack_require__(508);
+
+	var _MonthsTopItemsRow2 = _interopRequireDefault(_MonthsTopItemsRow);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var MonthsTopItemsTable = function MonthsTopItemsTable(_ref) {
+		var items = _ref.items;
+
+		return _react2.default.createElement(
+			'div',
+			{ className: 'table-responsive' },
+			_react2.default.createElement(
+				'table',
+				{ className: 'table' },
+				_react2.default.createElement(
+					'thead',
+					null,
+					_react2.default.createElement(
+						'tr',
+						null,
+						_react2.default.createElement(
+							'th',
+							null,
+							'Rank'
+						),
+						_react2.default.createElement(
+							'th',
+							null,
+							'Product Name'
+						),
+						_react2.default.createElement(
+							'th',
+							null,
+							'SKU #'
+						),
+						_react2.default.createElement(
+							'th',
+							null,
+							'Price'
+						),
+						_react2.default.createElement(
+							'th',
+							null,
+							'Number Sold This Month'
+						)
+					)
+				),
+				_react2.default.createElement(
+					'tbody',
+					null,
+					items.slice(0, 10).map(function (item, index) {
+						return _react2.default.createElement(_MonthsTopItemsRow2.default, { key: item.item.itemId, rank: index, item: item.item, numSold: item.occurrences });
+					})
+				)
+			)
+		);
+	};
+
+	exports.default = MonthsTopItemsTable;
+
+/***/ },
+/* 508 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var MonthsTopItemsRow = function MonthsTopItemsRow(_ref) {
+	  var item = _ref.item;
+	  var numSold = _ref.numSold;
+	  var rank = _ref.rank;
+
+	  return _react2.default.createElement(
+	    'tr',
+	    null,
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      rank + 1
+	    ),
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      item.itemName
+	    ),
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      item.itemId
+	    ),
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      '$',
+	      item.price
+	    ),
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      numSold
+	    )
+	  );
+	};
+	MonthsTopItemsRow.propTypes = {
+	  item: _react.PropTypes.object.isRequired,
+	  numSold: _react.PropTypes.number.isRequired
+	};
+
+		exports.default = MonthsTopItemsRow;
 
 /***/ },
 /* 509 */

@@ -36,8 +36,8 @@ class AllMonthsRevenueChart extends Component {
     var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Jan', 'Feb', 'March', 'April',
-                 'May', 'June', 'July', 'August',
+        labels: ['Jan', 'Feb', 'Mar', 'Apr',
+                 'May', 'Jun', 'Jul', 'Aug',
                  'Sept', 'Oct', 'Nov', 'Dec'],
         datasets: [{
           label: 'Total Revenue Per Month',

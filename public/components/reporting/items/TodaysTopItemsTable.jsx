@@ -7,6 +7,7 @@ const TodaysTopItemsTable = ({items}) => {
 			<table className="table">
 				<thead>
 					<tr>
+					  <th>Rank</th>
 						<th>Product Name</th>
 						<th>SKU #</th>
 						<th>Price</th>
@@ -14,8 +15,8 @@ const TodaysTopItemsTable = ({items}) => {
 					</tr>
 				</thead>
 				<tbody>
-					{items.map(item => {
-						return <TodaysTopItemsRow key={item.item.itemId} item={item.item} numSold={item.occurrences} />
+					{items.slice(0, 10).map((item, index) => {
+						return <TodaysTopItemsRow key={item.item.itemId} rank={index} item={item.item} numSold={item.occurrences} />
 					})}
 				</tbody>
 			</table>
