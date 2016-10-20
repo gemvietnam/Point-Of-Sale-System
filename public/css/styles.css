@@ -520,179 +520,25 @@ body .modal {
 }
 
 /* ------------ LandingPage.jsx ----------------------------------------------------------------*/
-/*-- Header ------*/
-.header {
-  padding: 140px 0 60px;
-  border-bottom: 2px solid #c9c9c9;
-}
-  .header h1 {
-    color: #284A75;
-    font-family: 'Pacifico', cursive;
-    font-size: 6.5em;
-    margin-bottom: 0.2em;
-  }
-  .header p {
-    font-size: 1.2em;
-    color: #404040;
-  }
 
-  @media(max-width:768px) {
-
-   .header {
-    text-align:center;
-    padding-top: 20%;
-   }
-
-   .header h1 {
-   font-size:5em;
-   }
-
-   .header p {
-    font-size:1em;
-   }
-
-   .header img {
-    padding-top:10%;
-   }
-
-}
-/*-- About ------*/
-
-.about {
- padding: 100px 0 100px;
- text-align: center;
-}
-
-.about h1 {
- font-size: 1.8em;
- color: #284A75;
- padding: 0 0 25px;
-}
-
-.about p {
- padding-bottom:25px;
-}
 
 /*-- Features ------*/
 
 .features {
- background-color: #1EBEA5;
+ background-color: white;
  text-align:center;
- color:white;
+ color: #284A75;
  padding:90px 0 90px;
 }
 
 .features h1 {
- font-size:2em;
- padding-bottom:25px;
+ font-size: 2em;
 }
 
 .features img {
- padding:15px 0 35px;
+ padding: 125px 0 35px;
 }
 
-/* PRESS */
-
-.press {
-	padding: 90px 0 90px;
-	text-align: center;
-}
-
-.press h1 {
-	font-size: 1.8em;
-	padding-bottom: 25px;
-	color: #337ab7;
-}
-
-.press .press-logo li img {
-	opacity: 0.3;
-	padding-bottom: 25px;
-}
-
-.press .press-logo li:hover img {
-	opacity: 1;
-}
-
-/* ScreenShots */
-
-.screenshots {
-	background-color: #235178;
-	padding: 90px 0 90px;
-	text-align: center;
-	color: white;
-}
-
-.screenshots img {
-	padding: 20px 0 20px;
-}
-
-.screenshots h1 {
-	font-size: 2em;
-}
-
-/* Reviews */
-
-.reviews {
-	padding: 90px 0 90px;
-	text-align: center;
-  border-bottom: 2px solid #c9c9c9;
-}
-
-.reviews h1 {
-	font-size: 2em;
-	padding-bottom: 25px;
-	color: #337ab7;
-}
-
-.reviews p {
-	padding-bottom: 35px;
-}
-
-.reviews .bigQuote {
-	padding-top: 35px;
-}
-
-
-/* Buy */
-
-.buy {
-	padding: 100px 0 100px;
-	background-color: #1c3f5c;
-	color: white;
-	text-align: center;
-}
-
-.buy h1 {
-	font-size: 2em;
-	padding-bottom: 25px;
-}
-
-.buy button {
-	background: transparent;
-	border: none;
-	padding-top: 25px;
-}
-
-/* Contact */
-
-.contact {
-	padding: 100px 0 100px;
-	text-align: center;
-}
-
-.contact h1 {
-	font-size: 2em;
-	padding-bottom: 25px;
-}
-
-.contact .fa {
-	color: #1c3f5c;
-	padding: 20px 10px 40px;
-}
-
-.contact li {
-	padding-top: 20px;
-}
 
 /* Footer */
 
@@ -980,15 +826,13 @@ body .modal {
     position: absolute;
     top: 3.6em;
     left: 0em;
-    width: 4.5em;
+    width: 4.7em;
     height: 100%;
     background-color: #EFEFEF;
     color: #696969;
     transition: left 0.3s linear;
     -moz-transition: left 0.3s linear;
     -webkit-transition: left 0.3s linear;
-    border-right: 1px solid #284A75;
-    border-bottom: 1px solid #284A75;
 }
 
   .side-nav-wrapper ul {

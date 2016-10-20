@@ -35942,15 +35942,6 @@
 	        null,
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: '#about' },
-	          'About'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
 	          { to: '#features' },
 	          'Features'
 	        )
@@ -35960,44 +35951,17 @@
 	        null,
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: '#press' },
-	          'Press'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '#screenshots' },
-	          'Screens'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '#reviews' },
-	          'Reviews'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '#contact' },
-	          'Contact'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
 	          { to: '/signup' },
 	          'Signup'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/requestReset' },
+	          'Forgot Password'
 	        )
 	      )
 	    ),
@@ -36416,163 +36380,6 @@
 					{ id: 'landingPage' },
 					_react2.default.createElement(
 						'div',
-						{ className: 'header' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'container' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-6 col-md-6 col-sm-12 col-xs-12 wow fadeInLeft' },
-									_react2.default.createElement(
-										'h1',
-										null,
-										'Point of Sale'
-									),
-									_react2.default.createElement(
-										'p',
-										null,
-										'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut dolor vel sapien feugiat lacinia. In et felis turpis. Sed ac erat ut libero volutpat condimentum. Pellentesque ut dolor vel sapien feugiat lacinia. In et felis turpis. Sed ac erat ut libero volutpat condimentum.'
-									),
-									_react2.default.createElement(
-										'p',
-										null,
-										'Pellentesque ut dolor vel sapien feugiat lacinia. In et felis turpis. Sed ac erat ut libero volutpat condimentum.'
-									)
-								),
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-6 col-md-6 col-sm-12 col-xs-12 wow fadeInRight', align: 'center' },
-									_react2.default.createElement('img', { className: 'img-responsive', src: '../../images/spilled_bottle.png' })
-								)
-							)
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'about', id: 'about' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'container' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-12 col-md-12' },
-									_react2.default.createElement(
-										'h1',
-										{ className: 'wow fadeIn', 'data-wow-delay': '0.4s' },
-										'\'THIS APP WILL HELP YOU CONNECT WITH PEOPLE AND SHARE EXPERIENCES LIKE NO OTHER\''
-									),
-									_react2.default.createElement(
-										'p',
-										{ className: 'wow fadeIn', 'data-wow-delay': '0.8s' },
-										_react2.default.createElement(
-											'em',
-											null,
-											'Mauris tempor vulputate dolor, nec convallis turpis luctus quis. Morbi id justo vel diam dignissim commodo. Aenean id luctus libero, vel gravida magna. Vestibulum ac purus lobortis, varius tellus non, rhoncus sapien. Mauris elementum, nisl sed interdum venenatis, metus enim pellentesque massa, eget laoreet eros ex vitae felis. Curabitur vitae rhoncus odio, sit amet porta tortor. Duis in mollis odio.'
-										)
-									)
-								)
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-12 col-md-12' },
-									_react2.default.createElement(
-										'h1',
-										null,
-										'WHO WE ARE...'
-									),
-									_react2.default.createElement(
-										'p',
-										null,
-										'A brief introduction:'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-4 col-md-4 wow fadeIn', 'data-wow-delay': '0.3s' },
-									_react2.default.createElement('img', { src: '../../images/face1.jpg', className: 'img-circle' }),
-									_react2.default.createElement(
-										'blockquote',
-										null,
-										_react2.default.createElement(
-											'p',
-											null,
-											_react2.default.createElement(
-												'em',
-												null,
-												'"Ei saperet facilis fuisset mea. Malis evertitur sea in, eu mea tota nusquam."',
-												_react2.default.createElement(
-													'footer',
-													null,
-													'J.Doe - Founder.'
-												)
-											)
-										)
-									)
-								),
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-4 col-md-4 wow fadeIn', 'data-wow-delay': '0.5s' },
-									_react2.default.createElement('img', { src: '../../images/face2.jpg', className: 'img-circle' }),
-									_react2.default.createElement(
-										'blockquote',
-										null,
-										_react2.default.createElement(
-											'p',
-											null,
-											_react2.default.createElement(
-												'em',
-												null,
-												'"Ei saperet facilis fuisset mea. Malis evertitur sea in, eu mea tota nusquam."',
-												_react2.default.createElement(
-													'footer',
-													null,
-													'J.Doe - Designer.'
-												)
-											)
-										)
-									)
-								),
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-4 col-md-4 wow fadeIn', 'data-wow-delay': '0.7s' },
-									_react2.default.createElement('img', { src: '../../images/face3.jpg', className: 'img-circle' }),
-									_react2.default.createElement(
-										'blockquote',
-										null,
-										_react2.default.createElement(
-											'p',
-											null,
-											_react2.default.createElement(
-												'em',
-												null,
-												'"Ei saperet facilis fuisset mea. Malis evertitur sea in, eu mea tota nusquam."',
-												_react2.default.createElement(
-													'footer',
-													null,
-													'J.Doe - Marketing.'
-												)
-											)
-										)
-									)
-								)
-							)
-						)
-					),
-					_react2.default.createElement(
-						'div',
 						{ className: 'features', id: 'features' },
 						_react2.default.createElement(
 							'div',
@@ -36586,12 +36393,12 @@
 									_react2.default.createElement(
 										'h1',
 										null,
-										'FEATURES'
+										'Point of Sale System'
 									),
 									_react2.default.createElement(
 										'p',
 										null,
-										'See how awesome our app is, with a list of its finest features....'
+										'This app was built for pharmacies in Vietnam and Indonesia. Its purpose is to help pharmacies manage their inventories and sales digitally instead of through the current pen and paper.'
 									)
 								)
 							),
@@ -36601,22 +36408,22 @@
 								_react2.default.createElement(
 									'div',
 									{ className: 'col-lg-4 col-md-4 wow bounceInLeft' },
-									_react2.default.createElement('i', { className: 'fa fa-cloud-upload fa-3x' }),
+									_react2.default.createElement('i', { className: 'fa fa-user-md fa-3x' }),
 									_react2.default.createElement(
 										'h4',
-										null,
-										'Sync All Devices'
+										{ className: 'lightOrange' },
+										'Add Employees'
 									),
 									_react2.default.createElement(
 										'p',
 										null,
 										'This app will sync all of your information across all your devices with just one single login.'
 									),
-									_react2.default.createElement('i', { className: 'fa fa-map-pin fa-3x' }),
+									_react2.default.createElement('i', { className: 'fa fa-tags fa-3x' }),
 									_react2.default.createElement(
 										'h4',
-										null,
-										'Location Services'
+										{ className: 'lightOrange' },
+										'Add Products'
 									),
 									_react2.default.createElement(
 										'p',
@@ -36626,8 +36433,8 @@
 									_react2.default.createElement('i', { className: 'fa fa-battery-full fa-3x' }),
 									_react2.default.createElement(
 										'h4',
-										null,
-										'Conserve Battery Life'
+										{ className: 'lightOrange' },
+										'Make Sales'
 									),
 									_react2.default.createElement(
 										'p',
@@ -36638,7 +36445,7 @@
 								_react2.default.createElement(
 									'div',
 									{ className: 'col-lg-4 col-md-4 wow fadeIn', 'data-wow-delay': '0.2s', align: 'center' },
-									_react2.default.createElement('img', { className: 'img-responsive', src: '../../images/iphonescreen.png' })
+									_react2.default.createElement('img', { className: 'img-responsive', src: '../../images/spilled_bottle.png' })
 								),
 								_react2.default.createElement(
 									'div',
@@ -36646,8 +36453,8 @@
 									_react2.default.createElement('i', { className: 'fa fa-share-square-o fa-3x' }),
 									_react2.default.createElement(
 										'h4',
-										null,
-										'Share with Friends'
+										{ className: 'lightOrange' },
+										'Manage Inventory'
 									),
 									_react2.default.createElement(
 										'p',
@@ -36657,451 +36464,24 @@
 									_react2.default.createElement('i', { className: 'fa fa-film fa-3x' }),
 									_react2.default.createElement(
 										'h4',
-										null,
-										'Stream on the go'
+										{ className: 'lightOrange' },
+										'Track Sales'
 									),
 									_react2.default.createElement(
 										'p',
 										null,
 										'Download your videos to your device or stream video with superfast 4g data.'
 									),
-									_react2.default.createElement('i', { className: 'fa fa-safari fa-3x' }),
+									_react2.default.createElement('i', { className: 'fa fa-money fa-3x' }),
 									_react2.default.createElement(
 										'h4',
-										null,
-										'Cross Browser'
+										{ className: 'lightOrange' },
+										'Maximize Profits'
 									),
 									_react2.default.createElement(
 										'p',
 										null,
 										'Log into your desktop site and view your feed and videos on any browser at any time, even share links direct from your profile on the web.'
-									)
-								)
-							)
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'press', id: 'press' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'container' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-12 col-md-12' },
-									_react2.default.createElement(
-										'h1',
-										null,
-										'PRESS COVERAGE'
-									),
-									_react2.default.createElement(
-										'p',
-										null,
-										'We have been lucky to be featured in the following:'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-12 col-md-12' },
-									_react2.default.createElement(
-										'ul',
-										{ className: 'press-logo list-inline' },
-										_react2.default.createElement(
-											'li',
-											{ className: 'col-lg-3 col-md-3 col-sm-3 col-xs-6' },
-											_react2.default.createElement(
-												'a',
-												{ href: '#' },
-												_react2.default.createElement('img', { className: 'img-responsive', src: '../../images/logos/cnn.png' })
-											)
-										),
-										_react2.default.createElement(
-											'li',
-											{ className: 'col-lg-3 col-md-3 col-sm-3 col-xs-6' },
-											_react2.default.createElement(
-												'a',
-												{ href: '#' },
-												_react2.default.createElement('img', { className: 'img-responsive', src: '../../images/logos/wired.png' })
-											)
-										),
-										_react2.default.createElement(
-											'li',
-											{ className: 'col-lg-3 col-md-3 col-sm-3 col-xs-6' },
-											_react2.default.createElement(
-												'a',
-												{ href: '#' },
-												_react2.default.createElement('img', { className: 'img-responsive', src: '../../images/logos/kickstarter.png' })
-											)
-										),
-										_react2.default.createElement(
-											'li',
-											{ className: 'col-lg-3 col-md-3 col-sm-3 col-xs-6' },
-											_react2.default.createElement(
-												'a',
-												{ href: '#' },
-												_react2.default.createElement('img', { className: 'img-responsive', src: '../../images/logos/bbc.png' })
-											)
-										)
-									),
-									_react2.default.createElement(
-										'ul',
-										{ className: 'press-logo list-inline' },
-										_react2.default.createElement(
-											'li',
-											{ className: 'col-lg-3 col-md-3 col-sm-3 col-xs-6' },
-											_react2.default.createElement(
-												'a',
-												{ href: '#' },
-												_react2.default.createElement('img', { className: 'img-responsive', src: '../../images/logos/verge.png' })
-											)
-										),
-										_react2.default.createElement(
-											'li',
-											{ className: 'col-lg-3 col-md-3 col-sm-3 col-xs-6' },
-											_react2.default.createElement(
-												'a',
-												{ href: '#' },
-												_react2.default.createElement('img', { className: 'img-responsive', src: '../../images/logos/guardian.png' })
-											)
-										),
-										_react2.default.createElement(
-											'li',
-											{ className: 'col-lg-3 col-md-3 col-sm-3 col-xs-6' },
-											_react2.default.createElement(
-												'a',
-												{ href: '#' },
-												_react2.default.createElement('img', { className: 'img-responsive', src: '../../images/logos/techradar.png' })
-											)
-										),
-										_react2.default.createElement(
-											'li',
-											{ className: 'col-lg-3 col-md-3 col-sm-3 col-xs-6' },
-											_react2.default.createElement(
-												'a',
-												{ href: '#' },
-												_react2.default.createElement('img', { className: 'img-responsive', src: '../../images/logos/telegraph.png' })
-											)
-										)
-									)
-								)
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-12 col-md-12' },
-									_react2.default.createElement(
-										'p',
-										null,
-										'If you would like to contact our press team, then please do so on ',
-										_react2.default.createElement('a', { href: 'mailto:marcushurney@gmail.com' })
-									)
-								)
-							)
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'screenshots', id: 'screenshots' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'container' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-12 col-md-12' },
-									_react2.default.createElement(
-										'h1',
-										null,
-										'TAKE A LOOK'
-									),
-									_react2.default.createElement(
-										'p',
-										null,
-										'View some of the screenshots from our recent update, now available to download....'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-3 col-md-3 col-sm-6 col-xs-6 wow flipInY', 'data-wow-delay': '0.2s' },
-									_react2.default.createElement('img', { className: 'img-responsive', src: '../../images/screenshots/profile-home.jpg' })
-								),
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-3 col-md-3 col-sm-6 col-xs-6 wow flipInY', 'data-wow-delay': '0.3s' },
-									_react2.default.createElement('img', { className: 'img-responsive', src: '../../images/screenshots/Photostream.jpg' })
-								),
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-3 col-md-3 col-sm-6 col-xs-6 wow flipInY', 'data-wow-delay': '0.4s' },
-									_react2.default.createElement('img', { className: 'img-responsive', src: '../../images/screenshots/messenger-overview.jpg' })
-								),
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-3 col-md-3 col-sm-6 col-xs-6 wow flipInY', 'data-wow-delay': '0.5s' },
-									_react2.default.createElement('img', { className: 'img-responsive', src: '../../images/screenshots/weather.jpg' })
-								)
-							)
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'reviews', id: 'reviews' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'container' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-12 col-md-12' },
-									_react2.default.createElement(
-										'h1',
-										null,
-										'REVIEWS'
-									),
-									_react2.default.createElement(
-										'p',
-										null,
-										'Read what our loyal customers have to say about us...'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-4 col-md-4' },
-									_react2.default.createElement(
-										'blockquote',
-										null,
-										_react2.default.createElement(
-											'p',
-											null,
-											'This is easily the greatest app I\'ve ever used!',
-											_react2.default.createElement(
-												'footer',
-												null,
-												'A.N Other ',
-												_react2.default.createElement(
-													'cite',
-													null,
-													'London, UK'
-												)
-											)
-										)
-									)
-								),
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-4 col-md-4' },
-									_react2.default.createElement(
-										'blockquote',
-										null,
-										_react2.default.createElement(
-											'p',
-											null,
-											'This is a must buy for an optimized work flow.',
-											_react2.default.createElement(
-												'footer',
-												null,
-												'A.N Other ',
-												_react2.default.createElement(
-													'cite',
-													null,
-													'NY, USA'
-												)
-											)
-										)
-									)
-								),
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-4 col-md-4' },
-									_react2.default.createElement(
-										'blockquote',
-										null,
-										_react2.default.createElement(
-											'p',
-											null,
-											'I haven\'t stopped using this app since I bought it!',
-											_react2.default.createElement(
-												'footer',
-												null,
-												'A.N Other ',
-												_react2.default.createElement(
-													'cite',
-													null,
-													'Sydney, AUS'
-												)
-											)
-										)
-									)
-								)
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'bigQuote col-lg-12 col-md-12' },
-									_react2.default.createElement(
-										'blockquote',
-										null,
-										_react2.default.createElement(
-											'p',
-											null,
-											'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
-											_react2.default.createElement(
-												'footer',
-												null,
-												'A.N Other ',
-												_react2.default.createElement(
-													'cite',
-													null,
-													'Paris, FR'
-												)
-											)
-										)
-									)
-								)
-							)
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'contact', id: 'contact' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'container' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-12 col-md-12' },
-									_react2.default.createElement(
-										'h1',
-										null,
-										'CONTACT US:'
-									),
-									_react2.default.createElement(
-										'p',
-										null,
-										'Connect with us via'
-									),
-									_react2.default.createElement(
-										'ul',
-										{ className: 'list-inline' },
-										_react2.default.createElement(
-											'li',
-											{ className: 'wow fadeIn', 'data-wow-delay': '0.2s' },
-											_react2.default.createElement(
-												'a',
-												{ href: 'http://www.flickr.com', target: 'blank' },
-												_react2.default.createElement('i', { className: 'fa fa-flickr fa-4x' })
-											)
-										),
-										_react2.default.createElement(
-											'li',
-											{ className: 'wow fadeIn', 'data-wow-delay': '0.3s' },
-											_react2.default.createElement(
-												'a',
-												{ href: 'http://www.facebook.com', target: 'blank' },
-												_react2.default.createElement('i', { className: 'fa fa-facebook-official fa-4x' })
-											)
-										),
-										_react2.default.createElement(
-											'li',
-											{ className: 'wow fadeIn', 'data-wow-delay': '0.4s' },
-											_react2.default.createElement(
-												'a',
-												{ href: 'http://www.twitter.com', target: 'blank' },
-												_react2.default.createElement('i', { className: 'fa fa-twitter-square fa-4x' })
-											)
-										),
-										_react2.default.createElement(
-											'li',
-											{ className: 'wow fadeIn', 'data-wow-delay': '0.4s' },
-											_react2.default.createElement(
-												'a',
-												{ href: 'http://www.instagram.com', target: 'blank' },
-												_react2.default.createElement('i', { className: 'fa fa-instagram fa-4x' })
-											)
-										),
-										_react2.default.createElement(
-											'li',
-											{ className: 'wow fadeIn', 'data-wow-delay': '0.3s' },
-											_react2.default.createElement(
-												'a',
-												{ href: 'http://www.linkedin.com', target: 'blank' },
-												_react2.default.createElement('i', { className: 'fa fa-linkedin-square fa-4x' })
-											)
-										),
-										_react2.default.createElement(
-											'li',
-											{ className: 'wow fadeIn', 'data-wow-delay': '0.2s' },
-											_react2.default.createElement(
-												'a',
-												{ href: 'http://www.pinterest.com', target: 'blank' },
-												_react2.default.createElement('i', { className: 'fa fa-pinterest-square fa-4x' })
-											)
-										)
-									)
-								)
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-lg-12 col-md-12' },
-									_react2.default.createElement(
-										'p',
-										null,
-										'Or contact us on the following:'
-									),
-									_react2.default.createElement(
-										'ul',
-										{ className: 'list-inline' },
-										_react2.default.createElement(
-											'li',
-											null,
-											_react2.default.createElement('i', { className: 'fa fa-map-marker' }),
-											'Address line 1, Address line 2, Country, Postcode, Country'
-										),
-										_react2.default.createElement(
-											'li',
-											null,
-											_react2.default.createElement('i', { className: 'fa fa-phone' }),
-											'1-800-888-0000'
-										),
-										_react2.default.createElement(
-											'li',
-											null,
-											_react2.default.createElement('i', { className: 'fa fa-envelope' }),
-											_react2.default.createElement(
-												'a',
-												{ href: 'mailto:info@appname.com' },
-												'info@appname.com'
-											)
-										)
 									)
 								)
 							)
@@ -77329,9 +76709,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Actions = __webpack_require__(307);
-
 	var _reactRedux = __webpack_require__(172);
+
+	var _Actions = __webpack_require__(307);
 
 	var _TaxThumbnail = __webpack_require__(477);
 
@@ -77353,6 +76733,14 @@
 
 	var _EmployeeSalesData2 = _interopRequireDefault(_EmployeeSalesData);
 
+	var _toastr = __webpack_require__(356);
+
+	var _toastr2 = _interopRequireDefault(_toastr);
+
+	var _lodash = __webpack_require__(362);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -77360,6 +76748,15 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// import action creators
+
+
+	// import components
+
+
+	// import helper libraries
+
 
 	var StoreSettingsContainer = function (_Component) {
 	  _inherits(StoreSettingsContainer, _Component);
@@ -77375,7 +76772,8 @@
 	        employeeName: '',
 	        employeeEmail: '',
 	        employeePassword: '',
-	        employeePosition: ''
+	        employeePosition: '',
+	        errors: {}
 	      },
 	      newTax: 0
 	    };
@@ -77435,29 +76833,55 @@
 	      return this.setState({ employee: employee });
 	    }
 	  }, {
+	    key: 'validateEmployee',
+	    value: function validateEmployee() {
+	      var _this2 = this;
+
+	      //Checks for errors in the input fields for creating a new employee
+	      return new Promise(function (resolve, reject) {
+
+	        var errors = {};
+	        // right now function only checks for length of employee name
+	        if (_this2.state.employee.employeeName.length > 8) {
+	          errors.employeeName = 'Employee name must be less than 8 characters';
+	        }
+
+	        _this2.setState({
+	          errors: errors
+	        }, function () {
+	          resolve(_this2.state);
+	        });
+	      });
+	    }
+	  }, {
 	    key: 'addEmployee',
 	    value: function addEmployee(event) {
-	      var _this2 = this;
+	      var _this3 = this;
 
 	      event.preventDefault();
 
-	      // convert employee properties from state into JSON
-	      var jsonEmployee = JSON.stringify(this.state.employee);
+	      this.validateEmployee().then(function () {
+	        if (_lodash2.default.isEmpty(_this3.state.errors)) {
+	          // convert employee properties from state into JSON
+	          var jsonEmployee = JSON.stringify(_this3.state.employee);
 
-	      this.props.addNewEmployee(jsonEmployee).then(function () {
-
-	        //reload user's employees
-	        _this2.props.fetchAllEmployees(_this2.props.activeUser._id);
-	        //reset this.state to an empty employee object
-	        _this2.setState({
-	          employee: {
-	            adminId: _this2.props.activeUser._id,
-	            employeeName: '',
-	            employeeEmail: '',
-	            employeePassword: '',
-	            employeePosition: ''
-	          }
-	        });
+	          _this3.props.addNewEmployee(jsonEmployee).then(function () {
+	            //reload user's employees
+	            _this3.props.fetchAllEmployees(_this3.props.activeUser._id);
+	            //reset this.state to an empty employee object
+	            _this3.setState({
+	              employee: {
+	                adminId: _this3.props.activeUser._id,
+	                employeeName: '',
+	                employeeEmail: '',
+	                employeePassword: '',
+	                employeePosition: ''
+	              }
+	            });
+	          });
+	        } else {
+	          return _toastr2.default.warning('' + _this3.state.errors.employeeName);
+	        }
 	      });
 	    }
 	  }, {
@@ -77553,8 +76977,12 @@
 	  };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { setCartTax: _Actions.setCartTax, fetchAllEmployees: _Actions.fetchAllEmployees, addNewEmployee: _Actions.addNewEmployee,
-	  logOutActiveEmployee: _Actions.logOutActiveEmployee, loadEmployeeTodayRevenue: _Actions.loadEmployeeTodayRevenue,
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, {
+	  setCartTax: _Actions.setCartTax,
+	  fetchAllEmployees: _Actions.fetchAllEmployees,
+	  addNewEmployee: _Actions.addNewEmployee,
+	  logOutActiveEmployee: _Actions.logOutActiveEmployee,
+	  loadEmployeeTodayRevenue: _Actions.loadEmployeeTodayRevenue,
 	  fetchUser: _Actions.fetchUser
 		})(StoreSettingsContainer);
 
@@ -80819,7 +80247,6 @@
 				var _this2 = this;
 
 				//Check for errors and assign them to errors object in local state
-
 				return new Promise(function (resolve, reject) {
 
 					var errors = {};
@@ -80839,6 +80266,7 @@
 							errors['tax'] = 'Please enter a number';
 						}
 					});
+
 					_this2.setState({
 						errors: errors
 					}, function () {

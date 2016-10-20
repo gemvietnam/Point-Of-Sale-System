@@ -69,9 +69,7 @@ class ManageProductForm extends Component {
 	}
 
 	validate(values) {
-
 		//Check for errors and assign them to errors object in local state
-
 		return new Promise((resolve, reject) => {
 
 			const errors = {};
@@ -91,15 +89,14 @@ class ManageProductForm extends Component {
 					errors['tax'] = 'Please enter a number';
 				}
 			});
+
 			this.setState({
 				errors
 			}, () => {
 				resolve(this.state);
 			});
-
+			
 		});
-
-
 	}
 
 	handleFieldEdit(event) {

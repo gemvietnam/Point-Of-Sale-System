@@ -1,15 +1,27 @@
 import React, { Component, PropTypes } from 'react';
-
-import { setCartTax, fetchAllEmployees,
-         addNewEmployee, logOutActiveEmployee,
-         loadEmployeeTodayRevenue, fetchUser } from 'Actions';
-
 import { connect } from 'react-redux';
+
+// import action creators
+import {
+  setCartTax,
+  fetchAllEmployees,
+  addNewEmployee,
+  logOutActiveEmployee,
+  loadEmployeeTodayRevenue,
+  fetchUser
+} from 'Actions';
+
+// import components
 import TaxThumbnail from 'TaxThumbnail';
 import AddEmployeeThumbnail from 'AddEmployeeThumbnail';
 import ListEmployeeTabs from 'ListEmployeeTabs';
 import ActiveEmployeeThumbnail from 'ActiveEmployeeThumbnail';
 import EmployeeSalesData from 'EmployeeSalesData';
+
+// import helper libraries
+import toastr from 'toastr';
+import _ from 'lodash';
+
 
 class StoreSettingsContainer extends Component {
 
@@ -22,7 +34,8 @@ class StoreSettingsContainer extends Component {
         employeeName: '',
         employeeEmail: '',
         employeePassword: '',
-        employeePosition: ''
+        employeePosition: '',
+        errors: {}
       },
       newTax: 0
   	};
@@ -76,29 +89,51 @@ class StoreSettingsContainer extends Component {
     return this.setState({ employee });
   }
 
+  validateEmployee() {
+		//Checks for errors in the input fields for creating a new employee
+		return new Promise((resolve, reject) => {
+
+			const errors = {};
+      // right now function only checks for length of employee name
+			if (this.state.employee.employeeName.length > 8) {
+        errors.employeeName = 'Employee name must be less than 8 characters';
+      }
+
+			this.setState({
+				errors
+			}, () => {
+				resolve(this.state);
+			});
+
+		});
+	}
+
   addEmployee(event) {
     event.preventDefault();
 
-    // convert employee properties from state into JSON
-    const jsonEmployee = JSON.stringify(this.state.employee);
+    this.validateEmployee().then(() => {
+      if (_.isEmpty(this.state.errors)) {
+        // convert employee properties from state into JSON
+        const jsonEmployee = JSON.stringify(this.state.employee);
 
-    this.props.addNewEmployee(jsonEmployee).then(() => {
-
-      //reload user's employees
-      this.props.fetchAllEmployees(this.props.activeUser._id);
-      //reset this.state to an empty employee object
-      this.setState({
-        employee: {
-          adminId: this.props.activeUser._id,
-          employeeName: '',
-          employeeEmail: '',
-          employeePassword: '',
-          employeePosition: ''
-        }
-      });
-
+        this.props.addNewEmployee(jsonEmployee).then(() => {
+          //reload user's employees
+          this.props.fetchAllEmployees(this.props.activeUser._id);
+          //reset this.state to an empty employee object
+          this.setState({
+            employee: {
+              adminId: this.props.activeUser._id,
+              employeeName: '',
+              employeeEmail: '',
+              employeePassword: '',
+              employeePosition: ''
+            }
+          });
+        });
+      } else {
+        return toastr.warning(`${this.state.errors.employeeName}`);
+      }
     });
-
   }
 
   renderEmployeeThumbnails() {
@@ -165,7 +200,6 @@ class StoreSettingsContainer extends Component {
       </div>
     );
   }
-
 }
 
 function mapStateToProps(state) {
@@ -180,7 +214,11 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps,
-  { setCartTax, fetchAllEmployees, addNewEmployee,
-    logOutActiveEmployee, loadEmployeeTodayRevenue,
+  {
+    setCartTax,
+    fetchAllEmployees,
+    addNewEmployee,
+    logOutActiveEmployee,
+    loadEmployeeTodayRevenue,
     fetchUser
   })(StoreSettingsContainer);
