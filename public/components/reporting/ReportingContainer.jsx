@@ -11,16 +11,22 @@ import {
 	calculateRevenueForDaysThisWeek
 } from 'Actions';
 
+// RevenueThumbnail will contain a single chart (day, week, or month)
 import RevenueThumbnail from 'RevenueThumbnail';
+// TopItemsPanel will contain a single table (day, week, or month)
 import TopItemsPanel from 'TopItemsPanel';
 
+// import revenue charts for today, week, and month
+import TodaysRevenueChart from 'TodaysRevenueChart';
+import ThisWeeksRevenueChart from 'ThisWeeksRevenueChart';
+import AllMonthsRevenueChart from 'AllMonthsRevenueChart';
+
+// import top selling items tables for today, week, and month
 import TodaysTopItemsTable from 'TodaysTopItemsTable';
 import WeeksTopItemsTable from 'WeeksTopItemsTable';
 import MonthsTopItemsTable from 'MonthsTopItemsTable';
 
-import TodaysRevenueChart from 'TodaysRevenueChart';
-import ThisWeeksRevenueChart from 'ThisWeeksRevenueChart';
-import AllMonthsRevenueChart from 'AllMonthsRevenueChart';
+
 
 class ReportingContainer extends Component {
 
@@ -64,6 +70,7 @@ class ReportingContainer extends Component {
 			<div className="container">
 				<div className="row">
 
+				{/* 3 thumbnails containing revenue charts (day, week, month) */}
 					<RevenueThumbnail
 						totalRevenue={this.props.todaysTotalRevenue}
 						salesData={this.props.todaysSales}
@@ -85,6 +92,7 @@ class ReportingContainer extends Component {
 						ChartComponent={AllMonthsRevenueChart}
 					/>
 
+					{/* 3 top items panels containing tables (day, week, month) */}
 					<TopItemsPanel
 						name={"Today's"}
 						items={this.props.todaysTopItems}

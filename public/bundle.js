@@ -22536,7 +22536,7 @@
 /* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module, global) {'use strict';
+	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -22548,7 +22548,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var root = module; /* global window */
+	var root; /* global window */
 
 
 	if (typeof self !== 'undefined') {
@@ -22557,13 +22557,15 @@
 	  root = window;
 	} else if (typeof global !== 'undefined') {
 	  root = global;
+	} else if (true) {
+	  root = module;
 	} else {
 	  root = Function('return this')();
 	}
 
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(187)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(187)(module)))
 
 /***/ },
 /* 187 */
@@ -79734,18 +79736,6 @@
 
 	var _TopItemsPanel2 = _interopRequireDefault(_TopItemsPanel);
 
-	var _TodaysTopItemsTable = __webpack_require__(500);
-
-	var _TodaysTopItemsTable2 = _interopRequireDefault(_TodaysTopItemsTable);
-
-	var _WeeksTopItemsTable = __webpack_require__(502);
-
-	var _WeeksTopItemsTable2 = _interopRequireDefault(_WeeksTopItemsTable);
-
-	var _MonthsTopItemsTable = __webpack_require__(504);
-
-	var _MonthsTopItemsTable2 = _interopRequireDefault(_MonthsTopItemsTable);
-
 	var _TodaysRevenueChart = __webpack_require__(506);
 
 	var _TodaysRevenueChart2 = _interopRequireDefault(_TodaysRevenueChart);
@@ -79758,6 +79748,18 @@
 
 	var _AllMonthsRevenueChart2 = _interopRequireDefault(_AllMonthsRevenueChart);
 
+	var _TodaysTopItemsTable = __webpack_require__(500);
+
+	var _TodaysTopItemsTable2 = _interopRequireDefault(_TodaysTopItemsTable);
+
+	var _WeeksTopItemsTable = __webpack_require__(502);
+
+	var _WeeksTopItemsTable2 = _interopRequireDefault(_WeeksTopItemsTable);
+
+	var _MonthsTopItemsTable = __webpack_require__(504);
+
+	var _MonthsTopItemsTable2 = _interopRequireDefault(_MonthsTopItemsTable);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -79765,6 +79767,17 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// RevenueThumbnail will contain a single chart (day, week, or month)
+
+	// TopItemsPanel will contain a single table (day, week, or month)
+
+
+	// import revenue charts for today, week, and month
+
+
+	// import top selling items tables for today, week, and month
+
 
 	var ReportingContainer = function (_Component) {
 		_inherits(ReportingContainer, _Component);
@@ -80465,6 +80478,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _moment = __webpack_require__(369);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -80482,6 +80499,7 @@
 	    var _this = _possibleConstructorReturn(this, (ThisWeeksRevenueChart.__proto__ || Object.getPrototypeOf(ThisWeeksRevenueChart)).call(this, props));
 
 	    _this.state = {
+	      labelsForChart: [],
 	      dataRowsForChart: []
 	    };
 	    _this.drawThisWeeksRevenueChart = _this.drawThisWeeksRevenueChart.bind(_this);
@@ -80500,51 +80518,44 @@
 	    value: function formatDataForThisWeeksChart(salesData) {
 	      var _this2 = this;
 
-	      var dataRowsForChart = salesData.map(function (monthData) {
-
-	        // this is a blatant hack for offsetting heroku's 13 hour time surplus in deployment
-	        var newDate = new Date(monthData[0]);
-	        var currentMinutes = newDate.getMinutes();
-	        var currentHour = newDate.getHours();
-	        var currentDay = newDate.getDate();
-	        var currentMonth = newDate.getMonth();
-	        var currentYear = newDate.getFullYear();
-
-	        // the previous code below
-	        // let newMonthData = [new Date(monthData[0], monthData[1])];
-
-	        var newMonthData = [new Date(currentYear, currentMonth, currentDay, currentHour, currentMinutes), monthData[1]];
-	        return newMonthData;
+	      var dataRowsForChart = salesData.map(function (weekDayData) {
+	        return weekDayData[1];
+	      });
+	      var labelsForChart = salesData.map(function (weekDayData) {
+	        var newDate = new Date(weekDayData[0]);
+	        var month = newDate.getMonth() + 1;
+	        var day = newDate.getDate();
+	        return month + '/' + day;
 	      });
 
 	      this.setState({
+	        labelsForChart: labelsForChart,
 	        dataRowsForChart: dataRowsForChart
 	      }, function () {
-	        google.charts.setOnLoadCallback(_this2.drawThisWeeksRevenueChart);
+	        _this2.drawThisWeeksRevenueChart();
 	      });
 	    }
 	  }, {
 	    key: 'drawThisWeeksRevenueChart',
 	    value: function drawThisWeeksRevenueChart() {
 
-	      var data = new google.visualization.DataTable();
-	      data.addColumn('date', 'Date');
-	      data.addColumn('number', 'Revenue');
-
-	      data.addRows(this.state.dataRowsForChart);
-
-	      var options = google.charts.Bar.convertOptions({
-	        title: 'Revenue for this week'
+	      var ctx = document.getElementById('myWeekChart').getContext('2d');
+	      var myChart = new Chart(ctx, {
+	        type: 'line',
+	        data: {
+	          labels: this.state.labelsForChart,
+	          datasets: [{
+	            label: 'Revenue Per Day of Week',
+	            data: this.state.dataRowsForChart,
+	            backgroundColor: "rgba(44,135,243,0.4)"
+	          }]
+	        }
 	      });
-
-	      var chart = new google.charts.Bar(document.getElementById('chart_revenue_week'));
-
-	      chart.draw(data, options);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('div', { id: 'chart_revenue_week' });
+	      return _react2.default.createElement('canvas', { id: 'myWeekChart' });
 	    }
 	  }]);
 
@@ -80569,6 +80580,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _moment = __webpack_require__(369);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -80588,7 +80603,7 @@
 	    _this.state = {
 	      dataRowsForChart: []
 	    };
-	    _this.drawAllMonthsChart = _this.drawAllMonthsChart.bind(_this);
+	    _this.drawThisWeeksRevenueChart = _this.drawThisWeeksRevenueChart.bind(_this);
 	    return _this;
 	  }
 
@@ -80596,48 +80611,45 @@
 	    key: 'componentWillReceiveProps',
 	    value: function componentWillReceiveProps(nextProps) {
 	      if (nextProps.salesData.length) {
-	        this.formatDataForMonthsChart(nextProps.salesData);
+	        this.formatDataForThisWeeksChart(nextProps.salesData);
 	      }
 	    }
 	  }, {
-	    key: 'formatDataForMonthsChart',
-	    value: function formatDataForMonthsChart(salesData) {
+	    key: 'formatDataForThisWeeksChart',
+	    value: function formatDataForThisWeeksChart(salesData) {
 	      var _this2 = this;
 
 	      var dataRowsForChart = salesData.map(function (monthData) {
-	        //monthData[0] is the string value of each month of a year
-	        var newMonthData = [new Date(monthData[0]), monthData[1]];
-	        return newMonthData;
+	        return monthData[1];
 	      });
 
 	      this.setState({
 	        dataRowsForChart: dataRowsForChart
 	      }, function () {
-	        google.charts.setOnLoadCallback(_this2.drawAllMonthsChart);
+	        _this2.drawThisWeeksRevenueChart();
 	      });
 	    }
 	  }, {
-	    key: 'drawAllMonthsChart',
-	    value: function drawAllMonthsChart() {
+	    key: 'drawThisWeeksRevenueChart',
+	    value: function drawThisWeeksRevenueChart() {
 
-	      var data = new google.visualization.DataTable();
-	      data.addColumn('date', 'Date');
-	      data.addColumn('number', 'Revenue');
-
-	      data.addRows(this.state.dataRowsForChart);
-
-	      var options = google.charts.Bar.convertOptions({
-	        title: 'Total Revenue by Month'
+	      var ctx = document.getElementById('myMonthChart').getContext('2d');
+	      var myChart = new Chart(ctx, {
+	        type: 'bar',
+	        data: {
+	          labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'August', 'Sept', 'Oct', 'Nov', 'Dec'],
+	          datasets: [{
+	            label: 'Total Revenue Per Month',
+	            data: this.state.dataRowsForChart,
+	            backgroundColor: "rgba(255,152,133, 0.9)"
+	          }]
+	        }
 	      });
-
-	      var chart = new google.charts.Bar(document.getElementById('chart_revenue_months'));
-
-	      chart.draw(data, options);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('div', { id: 'chart_revenue_months' });
+	      return _react2.default.createElement('canvas', { id: 'myMonthChart' });
 	    }
 	  }]);
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 class AllMonthsRevenueChart extends Component {
 
@@ -7,51 +8,50 @@ class AllMonthsRevenueChart extends Component {
     this.state = {
       dataRowsForChart: []
     };
-    this.drawAllMonthsChart = this.drawAllMonthsChart.bind(this);
+    this.drawThisWeeksRevenueChart = this.drawThisWeeksRevenueChart.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.salesData.length) {
-      this.formatDataForMonthsChart(nextProps.salesData);
+      this.formatDataForThisWeeksChart(nextProps.salesData);
     }
   }
 
-  formatDataForMonthsChart(salesData) {
+  formatDataForThisWeeksChart(salesData) {
 
     let dataRowsForChart = salesData.map(monthData => {
-      //monthData[0] is the string value of each month of a year
-      let newMonthData = [new Date(monthData[0]), monthData[1]];
-      return newMonthData;
+      return monthData[1];
     });
 
     this.setState({
       dataRowsForChart
     }, () => {
-      google.charts.setOnLoadCallback(this.drawAllMonthsChart);
+      this.drawThisWeeksRevenueChart();
     });
   }
 
-  drawAllMonthsChart() {
+  drawThisWeeksRevenueChart() {
 
-		var data = new google.visualization.DataTable();
-    data.addColumn('date', 'Date');
-    data.addColumn('number', 'Revenue');
-
-    data.addRows(this.state.dataRowsForChart);
-
-  	var options = google.charts.Bar.convertOptions({
-      title: 'Total Revenue by Month'
-  	});
-
-  	var chart = new google.charts.Bar(document.getElementById('chart_revenue_months'));
-
-  	chart.draw(data, options);
+    var ctx = document.getElementById('myMonthChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'March', 'April',
+                 'May', 'June', 'July', 'August',
+                 'Sept', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+          label: 'Total Revenue Per Month',
+          data: this.state.dataRowsForChart,
+          backgroundColor: "rgba(255,152,133, 0.9)"
+        }]
+      }
+    });
 
 	}
 
   render() {
     return (
-      <div id="chart_revenue_months"></div>
+      <canvas id="myMonthChart"></canvas>
     );
   }
 

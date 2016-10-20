@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 class ThisWeeksRevenueChart extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      labelsForChart: [],
       dataRowsForChart: []
     };
     this.drawThisWeeksRevenueChart = this.drawThisWeeksRevenueChart.bind(this);
@@ -18,51 +20,44 @@ class ThisWeeksRevenueChart extends Component {
 
   formatDataForThisWeeksChart(salesData) {
 
-    let dataRowsForChart = salesData.map(monthData => {
-
-      // this is a blatant hack for offsetting heroku's 13 hour time surplus in deployment
-      let newDate = new Date(monthData[0]);
-      let currentMinutes = newDate.getMinutes();
-      let currentHour = newDate.getHours();
-      let currentDay = newDate.getDate();
-      let currentMonth = newDate.getMonth();
-      let currentYear = newDate.getFullYear();
-
-      // the previous code below
-      // let newMonthData = [new Date(monthData[0], monthData[1])];
-
-      let newMonthData = [new Date(currentYear, currentMonth, currentDay, currentHour, currentMinutes), monthData[1]];
-      return newMonthData;
+    let dataRowsForChart = salesData.map(weekDayData => {
+      return weekDayData[1];
+    });
+    let labelsForChart = salesData.map(weekDayData => {
+      let newDate = new Date(weekDayData[0]);
+      let month = newDate.getMonth() + 1;
+      let day = newDate.getDate();
+      return `${month}/${day}`;
     });
 
     this.setState({
+      labelsForChart,
       dataRowsForChart
     }, () => {
-      google.charts.setOnLoadCallback(this.drawThisWeeksRevenueChart);
+      this.drawThisWeeksRevenueChart();
     });
   }
 
   drawThisWeeksRevenueChart() {
 
-    var data = new google.visualization.DataTable();
-    data.addColumn('date', 'Date');
-    data.addColumn('number', 'Revenue');
-
-    data.addRows(this.state.dataRowsForChart);
-
-  	var options = google.charts.Bar.convertOptions({
-      title: 'Revenue for this week'
-  	});
-
-  	var chart = new google.charts.Bar(document.getElementById('chart_revenue_week'));
-
-  	chart.draw(data, options);
+    var ctx = document.getElementById('myWeekChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: this.state.labelsForChart,
+        datasets: [{
+          label: 'Revenue Per Day of Week',
+          data: this.state.dataRowsForChart,
+          backgroundColor: "rgba(44,135,243,0.4)"
+        }]
+      }
+    });
 
 	}
 
   render() {
     return (
-      <div id="chart_revenue_week"></div>
+      <canvas id="myWeekChart"></canvas>
     );
   }
 
